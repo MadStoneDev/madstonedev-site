@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { useEffect } from 'react';
 import styles from './Layout.module.css';
+import Link from 'next/link';
 
 export function GradientBackground({ variant, className }) {
   const classes = classNames(
@@ -54,6 +55,40 @@ export default function Layout({ children }) {
       <div className="flex flex-col items-center max-w-2xl w-full mx-auto">
         {children}
       </div>
+      <section className="mt-12 flex-row text-center">
+        <Link href={'/contact'}>
+          <span
+            className={
+              'mx-2 py-1 px-2 cursor-pointer hover:bg-red-500' +
+              ' transition-all duration-500'
+            }
+          >
+            Contact Us
+          </span>
+        </Link>{' '}
+        |{' '}
+        <Link className={'hover:underline'} href={'/privacy'}>
+          <span
+            className={
+              'mx-2 py-1 px-2 cursor-pointer hover:bg-red-500' +
+              ' transition-all duration-500'
+            }
+          >
+            Privacy Policy
+          </span>
+        </Link>{' '}
+        |{' '}
+        <Link className={'hover:underline'} href={'/terms'}>
+          <span
+            className={
+              'mx-2 py-1 px-2 cursor-pointer hover:bg-red-500' +
+              ' transition-all duration-500'
+            }
+          >
+            Terms of Service
+          </span>
+        </Link>
+      </section>
     </div>
   );
 }
