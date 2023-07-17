@@ -10,7 +10,7 @@ export default function Terms({ globalData }) {
     <Layout>
       <SEO title={'Terms of Service'} description={''} />
       <Header name={globalData.name} />
-      <main className="w-full border-b-2">
+      <main className="w-full border-b-2 border-primary">
         <h1 className={'pb-10 text-2xl font-bold'}>
           Terms of Service for OMDESTI
         </h1>

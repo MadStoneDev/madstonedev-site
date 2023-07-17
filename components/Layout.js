@@ -25,11 +25,10 @@ export default function Layout({ children }) {
     } else if (lightMode) {
       document.documentElement.classList.remove('dark');
     }
-    return;
   };
 
   const handleSystemThemeChange = () => {
-    var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
     darkQuery.onchange = (e) => {
       if (e.matches) {
@@ -59,7 +58,7 @@ export default function Layout({ children }) {
         <Link href={'/contact'}>
           <span
             className={
-              'mx-2 py-1 px-2 cursor-pointer hover:bg-red-500' +
+              'mx-2 py-1 px-2 cursor-pointer hover:bg-primary' +
               ' transition-all duration-500'
             }
           >
@@ -70,7 +69,7 @@ export default function Layout({ children }) {
         <Link className={'hover:underline'} href={'/privacy'}>
           <span
             className={
-              'mx-2 py-1 px-2 cursor-pointer hover:bg-red-500' +
+              'mx-2 py-1 px-2 cursor-pointer hover:bg-primary' +
               ' transition-all duration-500'
             }
           >
@@ -81,7 +80,7 @@ export default function Layout({ children }) {
         <Link className={'hover:underline'} href={'/terms'}>
           <span
             className={
-              'mx-2 py-1 px-2 cursor-pointer hover:bg-red-500' +
+              'mx-2 py-1 px-2 cursor-pointer hover:bg-primary' +
               ' transition-all duration-500'
             }
           >

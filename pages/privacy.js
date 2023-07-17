@@ -16,7 +16,7 @@ export default function Privacy({ globalData }) {
         }
       />
       <Header name={globalData.name} />
-      <main className={'w-full'}>
+      <main className={'w-full border-b-2 border-primary'}>
         <h1 className={'pb-10 text-2xl font-bold'}>
           Privacy Policy for OMDESTI
         </h1>
