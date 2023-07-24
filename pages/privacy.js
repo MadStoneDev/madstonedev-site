@@ -76,7 +76,8 @@ export default function Privacy({ globalData }) {
           <li className={'pb-1'}>
             <p className="pb-5 font-light">
               <span className={'font-bold'}>Application</span> refers to
-              LFToolbox, the software program provided by the Company.
+              LFToolbox, the software program provided by the Company, and any
+              other applications we develop and/or publish.
             </p>
           </li>
           <li className={'pb-1'}>
@@ -108,8 +109,8 @@ export default function Privacy({ globalData }) {
           </li>
           <li className={'pb-1'}>
             <p className="pb-5 font-light">
-              <span className={'font-bold'}>Service</span> refers to the
-              Application.
+              <span className={'font-bold'}>Service</span> refers to our
+              Applications.
             </p>
           </li>
           <li className={'pb-1'}>
