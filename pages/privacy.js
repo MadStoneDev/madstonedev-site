@@ -37,6 +37,7 @@ export default function Privacy({ globalData }) {
           <a
             href="https://www.privacypolicies.com/privacy-policy-generator/"
             target="_blank"
+            rel="noreferrer"
           >
             Privacy Policy Generator
           </a>

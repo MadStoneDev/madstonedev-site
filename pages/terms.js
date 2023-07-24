@@ -78,6 +78,7 @@ export default function Terms({ globalData }) {
               <a
                 href="https://www.privacypolicies.com/terms-conditions-generator/"
                 target="_blank"
+                rel="noreferrer"
               >
                 Terms and Conditions Generator
               </a>
@@ -97,7 +98,7 @@ export default function Terms({ globalData }) {
               <strong>Website</strong> refers to OMDESTI, accessible from{' '}
               <a
                 href="https://omdesti.dev"
-                rel="external nofollow noopener"
+                rel="external nofollow noopener noreferrer"
                 target="_blank"
               >
                 https://omdesti.dev
@@ -320,7 +321,7 @@ export default function Terms({ globalData }) {
             By visiting this page on our website:{' '}
             <a
               href="https://omdesti.dev/contact"
-              rel="external nofollow noopener"
+              rel="external nofollow noopener noreferrer"
               target="_blank"
             >
               https://omdesti.dev/contact
