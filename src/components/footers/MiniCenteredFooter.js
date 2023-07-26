@@ -2,10 +2,10 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { Container as ContainerBase } from "components/misc/Layouts.js";
-import logo from "../../images/logo.svg";
 import { ReactComponent as FacebookIcon } from "../../images/facebook-icon.svg";
 import { ReactComponent as TwitterIcon } from "../../images/twitter-icon.svg";
 import { ReactComponent as YoutubeIcon } from "../../images/youtube-icon.svg";
+import logo from "../../images/logo.svg";
 
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -38,10 +38,10 @@ export default () => {
             <LogoText>Madstone.dev</LogoText>
           </LogoContainer>
           <LinksContainer>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/blog">Blog</Link>
-            <Link to="/contact">Contact</Link>
+            <Link href="/">Home</Link>
+            {/*<Link href="/about">About</Link>*/}
+            {/*<Link href="/blog">Blog</Link>*/}
+            {/*<Link href="/contact">Contact</Link>*/}
           </LinksContainer>
 
           {/*<SocialLinksContainer>*/}
@@ -57,8 +57,8 @@ export default () => {
           {/*</SocialLinksContainer>*/}
 
           <CopyrightText>
-            <Link href="#">Privacy Policy</Link>
-            <Link href="#">Terms and Conditions</Link>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms and Conditions</Link>
             &copy; Copyright 2023, MadStoneDev. All Rights Reserved.
           </CopyrightText>
         </Row>

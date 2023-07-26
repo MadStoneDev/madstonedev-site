@@ -107,6 +107,9 @@ import ThankYouPage from "ThankYouPage.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import { HelmetProvider } from "react-helmet-async";
+import ContactUs from "./pages/ContactUs";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -118,8 +121,12 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/thank-you" element={<ThankYouPage />} />
-          <Route path="/contact" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
           <Route path="/about" element={<AboutUs />} />
+
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+
           <Route path="/" element={<MainLandingPage />} />
         </Routes>
       </Router>

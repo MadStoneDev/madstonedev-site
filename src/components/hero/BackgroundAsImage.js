@@ -4,8 +4,6 @@ import styled from "styled-components";
 
 import Header, {
   NavLink,
-  NavLinks,
-  PrimaryLink,
   LogoLink,
   NavToggle,
   DesktopNavLinks,
@@ -26,7 +24,7 @@ const Container = styled.div`
   background-image: url("https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
 `;
 
-const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-primary-500 opacity-25`;
+const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-primary-800 opacity-25`;
 
 const HeroContainer = tw.div`z-20 relative px-4 sm:px-8 max-w-screen-xl mx-auto`;
 const TwoColumn = tw.div`pt-24 pb-32 px-4 flex justify-between items-center flex-col lg:flex-row`;
@@ -63,15 +61,13 @@ const StyledResponsiveVideoEmbed = styled(ResponsiveVideoEmbed)`
 
 export default () => {
   const navLinks = [
-    <NavLinks key={1}>
-      <NavLink href="#">About</NavLink>
-      <NavLink href="#">Blog</NavLink>
-      <NavLink href="#">Locations</NavLink>
-      <NavLink href="#">Pricing</NavLink>
-    </NavLinks>,
-    <NavLinks key={2}>
-      <PrimaryLink href="/#">Hire Us</PrimaryLink>
-    </NavLinks>,
+    // <NavLinks key={1}>
+    //   <NavLink href="/about">About</NavLink>
+    //   <NavLink href="/blog">Blog</NavLink>
+    // </NavLinks>,
+    // <NavLinks key={2}>
+    //   <PrimaryLink href="/">Hire Me</PrimaryLink>
+    // </NavLinks>,
   ];
 
   return (
@@ -82,20 +78,20 @@ export default () => {
         <TwoColumn>
           <LeftColumn>
             <Notification>
-              We have now launched operations in Europe.
+              We just launched LFToolbox to the App Store!
             </Notification>
             <Heading>
-              <span>Hire the best</span>
+              <SlantedBackground>Madstone.Dev</SlantedBackground>
+              <span>Dare to innovate!</span>
               <br />
-              <SlantedBackground>Marketing Team.</SlantedBackground>
             </Heading>
-            <PrimaryAction>Read Customer Stories</PrimaryAction>
+            <PrimaryAction>Start Your Journey Today</PrimaryAction>
           </LeftColumn>
           <RightColumn>
-            <StyledResponsiveVideoEmbed
-              url="//player.vimeo.com/video/374265101?title=0&portrait=0&byline=0&autoplay=0&responsive=1"
-              background="transparent"
-            />
+            {/*<StyledResponsiveVideoEmbed*/}
+            {/*  url="//player.vimeo.com/video/374265101?title=0&portrait=0&byline=0&autoplay=0&responsive=1"*/}
+            {/*  background="transparent"*/}
+            {/*/>*/}
           </RightColumn>
         </TwoColumn>
       </HeroContainer>

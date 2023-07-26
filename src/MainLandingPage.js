@@ -10,12 +10,12 @@ import Portfolio from "components/cards/PortfolioTwoCardsWithImage.js";
 import Blog from "components/blogs/ThreeColSimpleWithImageAndDashedBorder.js";
 import Testimonial from "components/testimonials/TwoColumnWithImageAndProfilePictureReview.js";
 import FAQ from "components/faqs/SimpleWithSideImage.js";
-import ContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
+import ContactUsForm from "components/forms/TwoColContactUsWithIllustrationFullForm.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
 import customerSupportIllustrationSrc from "images/customer-support-illustration.svg";
 import { Helmet } from "react-helmet-async";
 
-export default ({}) => {
+export default () => {
   /*
    * Using gtag like this because we only want to use Google Analytics when Main Landing Page is rendered
    * Remove this part and the gtag script inside public/index.html if you dont need google analytics
@@ -34,12 +34,12 @@ export default ({}) => {
         <meta name="description" content="" />
       </Helmet>
 
-      <Layout>
+      <Layout landing={true}>
         <Hero />
-        <MainFeature />
-        <Features />
-        <MainFeature2 />
-        <Portfolio />
+        {/*<MainFeature />*/}
+        {/*<Features />*/}
+        {/*<MainFeature2 />*/}
+        {/*<Portfolio />*/}
         {/*<Testimonial*/}
         {/*  subheading="Testimonials"*/}
         {/*  heading={*/}
@@ -72,18 +72,18 @@ export default ({}) => {
         {/*  ]}*/}
         {/*  textOnLeft={true}*/}
         {/*/>*/}
-        <FAQ
-          imageSrc={customerSupportIllustrationSrc}
-          imageContain={true}
-          imageShadow={false}
-          subheading="FAQs"
-          heading={
-            <>
-              Do you have <span tw="text-primary-500">Questions ?</span>
-            </>
-          }
-        />
-        <Blog />
+        {/*<FAQ*/}
+        {/*  imageSrc={customerSupportIllustrationSrc}*/}
+        {/*  imageContain={true}*/}
+        {/*  imageShadow={false}*/}
+        {/*  subheading="FAQs"*/}
+        {/*  heading={*/}
+        {/*    <>*/}
+        {/*      Do you have <span tw="text-primary-500">Questions ?</span>*/}
+        {/*    </>*/}
+        {/*  }*/}
+        {/*/>*/}
+        {/*<Blog />*/}
         <ContactUsForm />
       </Layout>
     </AnimationRevealPage>
