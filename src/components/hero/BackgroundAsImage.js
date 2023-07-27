@@ -8,7 +8,7 @@ import Header, {
   NavToggle,
   DesktopNavLinks,
 } from "../headers/light.js";
-import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
+// import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 max-w-none`}
@@ -50,14 +50,14 @@ const Notification = tw.span`inline-block my-4 pl-3 py-1 text-gray-100 border-l-
 
 const PrimaryAction = tw.button`px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 bg-gray-100 text-primary-500 font-bold rounded shadow transition duration-300 hocus:bg-primary-500 hocus:text-gray-100 focus:shadow-outline`;
 
-const StyledResponsiveVideoEmbed = styled(ResponsiveVideoEmbed)`
-  padding-bottom: 56.25% !important;
-  padding-top: 0px !important;
-  ${tw`rounded`}
-  iframe {
-    ${tw`rounded bg-black shadow-xl`}
-  }
-`;
+// const StyledResponsiveVideoEmbed = styled(ResponsiveVideoEmbed)`
+//   padding-bottom: 56.25% !important;
+//   padding-top: 0px !important;
+//   ${tw`rounded`}
+//   iframe {
+//     ${tw`rounded bg-black shadow-xl`}
+//   }
+// `;
 
 export default () => {
   const navLinks = [

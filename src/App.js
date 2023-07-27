@@ -100,7 +100,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 // import TermsOfServicePage from "pages/TermsOfService.js";
 // import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
 
-import ComponentRenderer from "ComponentRenderer.js";
+// import ComponentRenderer from "ComponentRenderer.js";
 import MainLandingPage from "MainLandingPage.js";
 import ThankYouPage from "ThankYouPage.js";
 
@@ -109,7 +109,7 @@ import AboutUs from "./pages/AboutUs";
 import { HelmetProvider } from "react-helmet-async";
 import ContactUs from "./pages/ContactUs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
+// import TermsOfService from "./pages/TermsOfService";
 import LFToolbox from "./pages/LFToolbox";
 import CookiesPolicy from "./pages/CookiesPolicy";
 import AcceptableUse from "./pages/AcceptableUse";
