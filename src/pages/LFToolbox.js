@@ -1,8 +1,5 @@
-import React, { createRef, useRef } from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import tw from "twin.macro";
-import styled from "styled-components"; //eslint-disable-line
-import { css } from "styled-components/macro"; //eslint-disable-line
 
 import Layout from "components/layouts/Standard.js";
 import Header from "components/headers/light.js";
@@ -17,12 +14,15 @@ import TeamCardGrid from "components/cards/ProfileThreeColGrid.js";
 import SupportIconImage from "images/support-icon.svg";
 import ShieldIconImage from "images/shield-icon.svg";
 import CustomerLoveIconImage from "images/simple-icon.svg";
+import { FaBoxes } from "react-icons/fa";
+
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../tailwind.config.js";
+import { MdCalculate } from "react-icons/md";
 
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 export default () => {
-  // Refs
-  const firstInfo = useRef(null);
-  const features = useRef(null);
+  const fullConfig = resolveConfig(tailwindConfig);
 
   return (
     <AnimationRevealPage>
@@ -32,42 +32,43 @@ export default () => {
           heading="Intuitive tools for Last Fortress Underground"
           description="Take control of your progress in the popular mobile game, Last Fortress Underground, with this easy-to-use toolbox. Whether you're a seasoned player or just starting your journey, LFToolbox helps you efficiently manage your resources and plan your next upgrades."
           buttonRounded={false}
-          primaryButtonText="See More"
-          primaryButtonAction={() => {
-            // console.log(firstInfo);
-            firstInfo.current.scrollIntoView({ behavior: "smooth" });
-          }}
+          primaryButton={false}
           imageSrc="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
         />
-        <MainFeature1
-          ref={firstInfo}
-          subheading={<Subheading>Our Vision</Subheading>}
-          heading="We aim to disrupt the design space."
-          buttonRounded={false}
-          primaryButtonText="Contact Us"
-          imageSrc="https://images.unsplash.com/3/doctype-hi-res.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=768&q=80"
-          textOnLeft={false}
-        />
         <Features
-          ref={features}
-          subheading={<Subheading>Our Values</Subheading>}
-          heading="We follow these."
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          subheading={<Subheading>The What</Subheading>}
+          heading="Manage. Plan. Strategise."
+          description="With all of the different resources and variables that a complex game like Last Fortress Underground throws at you, it can get a little overwhelming quickly. With LFToolbox, you can easily manage your resources and plan your next upgrades"
           cards={[
             {
-              imageSrc: SupportIconImage,
-              title: "24/7 Support",
+              icon: (
+                <FaBoxes
+                  size={24}
+                  color={fullConfig.theme.colors.primary["500"]}
+                />
+              ),
+              title: "Manage Resources",
               description:
                 "Lorem ipsum donor amet siti ceali placeholder text alipiscing elit sed do eiusmod temport",
             },
             {
-              imageSrc: ShieldIconImage,
-              title: "Strong Teams",
+              icon: (
+                <MdCalculate
+                  size={24}
+                  color={fullConfig.theme.colors.primary["500"]}
+                />
+              ),
+              title: "Calculate Upgrades",
               description:
                 "Lorem ipsum donor amet siti ceali placeholder text alipiscing elit sed do eiusmod temport",
             },
             {
-              imageSrc: CustomerLoveIconImage,
+              icon: (
+                <MdCalculate
+                  size={24}
+                  color={fullConfig.theme.colors.primary["500"]}
+                />
+              ),
               title: "Customer Satisfaction",
               description:
                 "Lorem ipsum donor amet siti ceali placeholder text alipiscing elit sed do eiusmod temport",

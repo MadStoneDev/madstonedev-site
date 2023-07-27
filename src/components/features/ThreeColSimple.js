@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { css } from "styled-components/macro"; //eslint-disable-line
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
+import {
+  SectionHeading,
+  Subheading as SubheadingBase,
+} from "components/misc/Headings.js";
 import { SectionDescription } from "components/misc/Typography.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { ReactComponent as ArrowRightIcon } from "images/arrow-right-icon.svg";
@@ -51,32 +53,13 @@ const DecoratorBlob = styled(SvgDecoratorBlob3)`
 `;
 
 export default ({
-  cards = [
-    {
-      imageSrc: ShieldIconImage,
-      title: "Secure",
-      description: "We strictly only deal with vendors that provide top notch security.",
-      url: "https://timerse.com"
-    },
-    {
-      imageSrc: SupportIconImage,
-      title: "24/7 Support",
-      description: "Lorem ipsum donor amet siti ceali placeholder text",
-      url: "https://google.com"
-    },
-    {
-      imageSrc: CustomizeIconImage,
-      title: "Customizable",
-      description: "Lorem ipsum donor amet siti ceali placeholder text",
-      url: "https://reddit.com"
-    }
-  ],
+  cards = [],
   linkText = "Learn More",
   heading = "",
   subheading = "",
   description = "",
   imageContainerCss = null,
-  imageCss = null
+  imageCss = null,
 }) => {
   /*
    * This componets accepts a prop - `cards` which is an array of object denoting the cards. Each object in the cards array can have the following keys (Change it according to your need, you can also add more objects to have more cards in this feature component):
@@ -95,8 +78,12 @@ export default ({
           {cards.map((card, i) => (
             <Column key={i}>
               <Card href={card.url}>
-                <span className="imageContainer" css={imageContainerCss}>
-                  <img src={card.imageSrc} alt="" css={imageCss} />
+                <span className={imageContainerCss}>
+                  {card.imageSrc ? (
+                    <img src={card.imageSrc} alt="" className={imageCss} />
+                  ) : (
+                    card.icon || null
+                  )}
                 </span>
                 <span className="title">{card.title}</span>
                 <p className="description">{card.description}</p>

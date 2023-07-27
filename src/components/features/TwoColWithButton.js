@@ -52,6 +52,7 @@ export default ({
     </>
   ),
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  primaryButton = true,
   primaryButtonText = "Learn More",
   primaryButtonAction = () => alert("This is a primary button!"),
   imageSrc = TeamIllustrationSrc,
@@ -84,13 +85,16 @@ export default ({
             <Subheading>{subheading}</Subheading>
             <Heading>{heading}</Heading>
             <Description>{description}</Description>
-            <PrimaryButton
-              buttonRounded={buttonRounded}
-              as="a"
-              onClick={primaryButtonAction}
-            >
-              {primaryButtonText}
-            </PrimaryButton>
+
+            {primaryButton ? (
+              <PrimaryButton
+                buttonRounded={buttonRounded}
+                as="a"
+                onClick={primaryButtonAction}
+              >
+                {primaryButtonText}
+              </PrimaryButton>
+            ) : null}
           </TextContent>
         </TextColumn>
       </TwoColumn>
