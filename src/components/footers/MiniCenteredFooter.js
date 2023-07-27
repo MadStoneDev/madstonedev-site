@@ -40,6 +40,7 @@ export default () => {
           <LinksContainer>
             <Link href="/">Home</Link>
             <Link href="/lftoolbox">LFToolbox</Link>
+            <Link href="/contact">Contact Us</Link>
             {/*<Link href="/about">About</Link>*/}
             {/*<Link href="/blog">Blog</Link>*/}
             {/*<Link href="/contact">Contact</Link>*/}

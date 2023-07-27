@@ -38,8 +38,7 @@ export default ({
   heading = (
     <>
       We'd love to hear
-      <wbr />
-      from you.
+      <wbr /> from you.
     </>
   ),
   description = "If you have any feedback, questions or suggestions, please let us know. We'd love to hear from you.",

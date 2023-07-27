@@ -7,13 +7,17 @@ import MainFeature1 from "components/features/TwoColWithButton.js";
 // import MainFeature3 from "components/features/TwoColSingleFeatureWithStats2.js";
 import Features from "components/features/ThreeColSimple.js";
 // import Features from "components/features/ThreeColWithSideImage.js";
-import TeamCardGrid from "components/cards/ProfileThreeColGrid.js";
 import { FaBoxes } from "react-icons/fa";
 
 import resolveConfig from "tailwindcss/resolveConfig";
 import { MdCalculate } from "react-icons/md";
+import { RiChatNewFill } from "react-icons/ri";
 
+const LinksContainer = tw.div`mb-4 font-medium flex flex-wrap justify-center items-center flex-col sm:flex-row`;
+const Link = tw.a`border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mx-4`;
+const Heading = tw.span`flex justify-center uppercase tracking-wider text-sm font-bold`;
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
+
 export default () => {
   const tailwindConfig = require("../tailwind.config");
   const fullConfig = resolveConfig(tailwindConfig);
@@ -37,40 +41,51 @@ export default () => {
             {
               icon: (
                 <FaBoxes
-                  size={24}
+                  size={26}
                   color={fullConfig.theme.colors.primary["500"]}
                 />
               ),
               title: "Manage Resources",
               description:
-                "Lorem ipsum donor amet siti ceali placeholder text alipiscing elit sed do eiusmod temport",
+                "Check how much of all resources you have in your inventory and plan your next build upgrades without" +
+                " having to open any of your chests",
             },
             {
               icon: (
                 <MdCalculate
-                  size={24}
+                  size={30}
                   color={fullConfig.theme.colors.primary["500"]}
                 />
               ),
               title: "Calculate Upgrades",
               description:
-                "Lorem ipsum donor amet siti ceali placeholder text alipiscing elit sed do eiusmod temport",
+                "An upcoming update will introduce an upgrade calculator to help your workout how more workers and" +
+                " speedups will affect your build time",
             },
             {
               icon: (
-                <MdCalculate
+                <RiChatNewFill
                   size={24}
                   color={fullConfig.theme.colors.primary["500"]}
                 />
               ),
-              title: "Customer Satisfaction",
+              title: "Much More",
               description:
-                "Lorem ipsum donor amet siti ceali placeholder text alipiscing elit sed do eiusmod temport",
+                "So many more features are currently in plan for LFToolbox to make it your one-stop shop for all" +
+                " things Last Fortress Underground",
             },
           ]}
           linkText=""
         />
-        <TeamCardGrid subheading={<Subheading>Our Team</Subheading>} />
+
+        <div>
+          <Heading>Important Links Specific to LFToolbox</Heading>
+        </div>
+
+        <LinksContainer>
+          <Link href="/lftoolbox/privacy-policy">App Privacy Policy</Link>
+          <Link href="/lftoolbox/terms-of-service">App Terms of Service</Link>
+        </LinksContainer>
       </Layout>
     </AnimationRevealPage>
   );
