@@ -110,6 +110,9 @@ import { HelmetProvider } from "react-helmet-async";
 import ContactUs from "./pages/ContactUs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import LFToolbox from "./pages/LFToolbox";
+import CookiesPolicy from "./pages/CookiesPolicy";
+import AcceptableUse from "./pages/AcceptableUse";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -124,8 +127,13 @@ export default function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/about" element={<AboutUs />} />
 
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/lftoolbox" element={<LFToolbox />} />
+          <Route path="/lftoolbox/privacy-policy" element={<LFToolbox />} />
+          <Route path="/lftoolbox/terms-of-service" element={<LFToolbox />} />
+
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/cookies-policy" element={<CookiesPolicy />} />
+          <Route path="/acceptable-use" element={<AcceptableUse />} />
 
           <Route path="/" element={<MainLandingPage />} />
         </Routes>

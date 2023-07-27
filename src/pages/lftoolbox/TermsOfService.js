@@ -48,7 +48,7 @@ export default ({ headingText = "Terms And Condition" }) => {
             <Text>
               <p>Last updated: 27 July, 2023</p>
 
-              <h2>MadStoneDev Terms of Service</h2>
+              <h1>LFToolbox Terms of Service</h1>
               <p>
                 These Terms of Service govern your use of LFToolbox, our website
                 located at{" "}

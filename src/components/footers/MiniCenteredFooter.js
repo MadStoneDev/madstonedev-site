@@ -39,6 +39,7 @@ export default () => {
           </LogoContainer>
           <LinksContainer>
             <Link href="/">Home</Link>
+            <Link href="/lftoolbox">LFToolbox</Link>
             {/*<Link href="/about">About</Link>*/}
             {/*<Link href="/blog">Blog</Link>*/}
             {/*<Link href="/contact">Contact</Link>*/}
@@ -57,8 +58,11 @@ export default () => {
           {/*</SocialLinksContainer>*/}
 
           <CopyrightText>
-            <Link href="/privacy">Privacy Policy</Link>
-            <Link href="/terms">Terms and Conditions</Link>
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/cookies-policy">Cookies Policy</Link>
+            <Link href="/acceptable-use">Acceptable Use</Link>
+          </CopyrightText>
+          <CopyrightText>
             &copy; Copyright 2023, MadStoneDev. All Rights Reserved.
           </CopyrightText>
         </Row>

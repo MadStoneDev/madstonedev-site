@@ -33,7 +33,7 @@ const Text = styled.div`
   }
 `;
 
-export default ({ headingText = "Privacy Policy" }) => {
+export default ({ headingText = "LFToolbox Privacy Policy" }) => {
   return (
     <AnimationRevealPage>
       <Layout>
@@ -45,63 +45,61 @@ export default ({ headingText = "Privacy Policy" }) => {
             <Text>
               <p>Last updated: 27 July, 2023</p>
 
-              <h1>Privacy Policy for Madstone.Dev</h1>
+              <h1>Privacy Policy for LFToolbox</h1>
 
               <h2>MadStoneDev Privacy Policy</h2>
               <p>
                 Your privacy is important to us. It is MadStoneDev's policy to
                 respect your privacy and comply with any applicable law and
                 regulation regarding any personal information we may collect
-                about you, including across our website,{" "}
-                <a href="https://madstone.dev">https://madstone.dev</a>, and
-                other sites we own and operate.
+                about you, including via our app, LFToolbox, and its associated
+                services.
               </p>
               <p>
                 Personal information is any information about you which can be
                 used to identify you. This includes information about you as a
                 person (such as name, address, and date of birth), your devices,
-                payment details, and even information about how you use a
-                website or online service.
+                payment details, and even information about how you use an app
+                or online service.
               </p>
               <p>
-                In the event our site contains links to third-party sites and
+                In the event our app contains links to third-party sites and
                 services, please be aware that those sites and services have
                 their own privacy policies. After following a link to any
                 third-party content, you should read their posted privacy policy
                 information about how they collect and use personal information.
                 This Privacy Policy does not apply to any of your activities
-                after you leave our site.
+                after you leave our app.
               </p>
-              <p>This policy is effective as of 27 July 2023</p>
+              <p>This policy is effective as of 27 July 2023.</p>
               <p>Last updated: 27 July 2023</p>
               <h3>Information We Collect</h3>
               <p>
                 Information we collect falls into one of two categories:
-                “voluntarily provided” information and “automatically collected”
+                'voluntarily provided' information and 'automatically collected'
                 information.
               </p>
               <p>
-                “Voluntarily provided” information refers to any information you
-                knowingly and actively provide us when using or participating in
-                any of our services and promotions.
+                'Voluntarily provided' information refers to any information you
+                knowingly and actively provide us when using our app and its
+                associated services.
               </p>
               <p>
-                “Automatically collected” information refers to any information
-                automatically sent by your devices in the course of accessing
-                our products and services.
+                'Automatically collected' information refers to any information
+                automatically sent by your device in the course of accessing our
+                app and its associated services.
               </p>
               <h3>Log Data</h3>
               <p>
-                When you visit our website, our servers may automatically log
-                the standard data provided by your web browser. It may include
-                your device’s Internet Protocol (IP) address, your browser type
-                and version, the pages you visit, the time and date of your
-                visit, the time spent on each page, and other details about your
-                visit.
+                When you access our servers via our app, we may automatically
+                log the standard data provided by your device. It may include
+                your device's Internet Protocol (IP) address, your device type
+                and version, your activity within the app, time and date, and
+                other details about your usage.
               </p>
               <p>
-                Additionally, if you encounter certain errors while using the
-                site, we may automatically collect data about the error and the
+                Additionally, when you encounter certain errors while using the
+                app, we automatically collect data about the error and the
                 circumstances surrounding its occurrence. This data may include
                 technical details about your device, what you were trying to do
                 when the error happened, and other technical information
@@ -114,37 +112,39 @@ export default ({ headingText = "Privacy Policy" }) => {
                 personally identifying by itself, it may be possible to combine
                 it with other data to personally identify individual persons.
               </p>
-              <h3>Device Data</h3>
-              <p>
-                When you visit our website or interact with our services, we may
-                automatically collect data about your device, such as:
-              </p>
-              <ul>
-                <li>Device type</li>
-              </ul>
-              <p>
-                Data we collect can depend on the individual settings of your
-                device and software. We recommend checking the policies of your
-                device manufacturer or software provider to learn what
-                information they make available to us.
-              </p>
               <h3>Personal Information</h3>
               <p>
                 We may ask for personal information — for example, when you
-                subscribe to our newsletter or when you contact us — which may
-                include one or more of the following:
+                submit content to us or when you contact us — which may include
+                one or more of the following:
               </p>
               <ul>
                 <li>Name</li>
                 <li>Email</li>
                 <li>Social media profiles</li>
+                <li>Phone/mobile number</li>
               </ul>
+              <h3>User-Generated Content</h3>
+              <p>
+                We consider 'user-generated content' to be materials (text,
+                image and/or video content) voluntarily supplied to us by our
+                users for the purpose of publication on our platform, website or
+                re-publishing on our social media channels. All user-generated
+                content is associated with the account or email address used to
+                submit the materials.
+              </p>
+              <p>
+                Please be aware that any content you submit for the purpose of
+                publication will be public after posting (and subsequent review
+                or vetting process). Once published it may be accessible to
+                third parties not covered under this privacy policy.
+              </p>
               <h3>
                 Legitimate Reasons for Processing Your Personal Information
               </h3>
               <p>
                 We only collect and use your personal information when we have a
-                legitimate reason for doing so. In which instance, we only
+                legitimate reason for doing so. In which instance we only
                 collect personal information that is reasonably necessary to
                 provide our services to you.
               </p>
@@ -154,6 +154,7 @@ export default ({ headingText = "Privacy Policy" }) => {
                 the following on our website:
               </p>
               <ul>
+                <li>Register for an account</li>
                 <li>
                   Sign up to receive updates from us via email or social media
                   channels
@@ -168,43 +169,55 @@ export default ({ headingText = "Privacy Policy" }) => {
                 <li>When you mention us on social media</li>
               </ul>
               <p>
-                We may collect, hold, use, and disclose information for the
+                We may collect, hold, use and disclose information for the
                 following purposes, and personal information will not be further
                 processed in a manner that is incompatible with these purposes:
               </p>
               <ul>
                 <li>
-                  to provide you with our platform's core features and services
+                  to provide you with our app and platform's core features and
+                  services
                 </li>
                 <li>
-                  to enable you to customize or personalize your experience of
+                  to enable you to customise or personalise your experience of
                   our website
                 </li>
+                <li>to contact and communicate with you</li>
                 <li>
-                  to comply with our legal obligations and resolve any disputes
-                  that we may have
+                  for analytics, market research, and business development,
+                  including to operate and improve our app, associated
+                  applications, and associated social media platforms
+                </li>
+                <li>
+                  to enable you to access and use our app, associated platforms,
+                  and associated social media channels
                 </li>
                 <li>
                   for security and fraud prevention, and to ensure that our
                   sites and apps are safe, secure, and used in line with our
                   terms of use
                 </li>
+                <li>
+                  for technical assessment, including to operate and improve our
+                  app, associated applications, and associated social media
+                  platforms
+                </li>
               </ul>
               <p>
                 We may combine voluntarily provided and automatically collected
                 personal information with general information or research data
-                we receive from other trusted sources. For example, Our
-                marketing and market research activities may uncover data and
-                insights, which we may combine with information about how
-                visitors use our site to improve our site and your experience on
-                it.
+                we receive from other trusted sources. For example, If you
+                consent to us accessing your social media profiles, we may
+                combine information sourced from those profiles with information
+                received from you directly to provide you with an enhanced
+                experience of our app and services.
               </p>
               <h4>Security of Your Personal Information</h4>
               <p>
                 When we collect and process personal information, and while we
                 retain this information, we will protect it within commercially
                 acceptable means to prevent loss and theft, as well as
-                unauthorized access, disclosure, copying, use or modification.
+                unauthorised access, disclosure, copying, use or modification.
               </p>
               <p>
                 Although we will do our best to protect the personal information
@@ -215,23 +228,21 @@ export default ({ headingText = "Privacy Policy" }) => {
               <p>
                 You are responsible for selecting any password and its overall
                 security strength, ensuring the security of your own information
-                within the bounds of our services. For example, ensuring you do
-                not make your personal information publicly available via our
-                platform.
+                within the bounds of our services. For example, ensuring any
+                passwords associated with accessing your personal information
+                and accounts are secure and confidential.
               </p>
               <h4>How Long We Keep Your Personal Information</h4>
               <p>
                 We keep your personal information only for as long as we need
                 to. This time period may depend on what we are using your
                 information for, in accordance with this privacy policy. For
-                example, if you have provided us with personal information such
-                as an email address when contacting us about a specific enquiry,
-                we may retain this information for the duration of your enquiry
-                remaining open as well as for our own records so we may
-                effectively address similar enquiries in future. If your
-                personal information is no longer required for this purpose, we
-                will delete it or make it anonymous by removing all details that
-                identify you.
+                example, if you have provided us with personal information as
+                part of creating an account with us, we may retain this
+                information for the duration your account exists on our system.
+                If your personal information is no longer required for this
+                purpose, we will delete it or make it anonymous by removing all
+                details that identify you.
               </p>
               <p>
                 However, if necessary, we may retain your personal information
@@ -252,7 +263,7 @@ export default ({ headingText = "Privacy Policy" }) => {
                 <li>a parent, subsidiary or affiliate of our company</li>
                 <li>
                   third-party service providers for the purpose of enabling them
-                  to provide their services, including (without limitation) IT
+                  to provide their services including (without limitation) IT
                   service providers, data storage, hosting and server providers,
                   ad networks, analytics, error loggers, debt collectors,
                   maintenance or problem-solving providers, marketing providers,
@@ -286,6 +297,10 @@ export default ({ headingText = "Privacy Policy" }) => {
               <ul>
                 <li>Google Analytics</li>
                 <li>Mailerlite</li>
+                <li>Paypal</li>
+                <li>Stripe</li>
+                <li>Google Payments</li>
+                <li>Apple Pay</li>
               </ul>
               <h3>International Transfers of Personal Information</h3>
               <p>
@@ -309,8 +324,8 @@ export default ({ headingText = "Privacy Policy" }) => {
                 to us, you understand we will collect, hold, use, and disclose
                 your personal information in accordance with this privacy
                 policy. You do not have to provide personal information to us,
-                however, if you do not, it may affect your use of our website or
-                the products and/or services offered on or through it.
+                however, if you do not, it may affect your use of our app or the
+                products and/or services offered on or through it.
               </p>
               <p>
                 <strong>Information from third parties:</strong> If we receive
@@ -343,11 +358,16 @@ export default ({ headingText = "Privacy Policy" }) => {
                 against you for exercising any of your rights over your personal
                 information. Unless your personal information is required to
                 provide you with a particular service or offer (for example
-                providing user support), we will not deny you goods or services
-                and/or charge you different prices or rates for goods or
-                services, including through granting discounts or other
-                benefits, or imposing penalties, or provide you with a different
-                level or quality of goods or services.
+                serving particular content to your device), we will not deny you
+                goods or services and/or charge you different prices or rates
+                for goods or services, including through granting discounts or
+                other benefits, or imposing penalties, or provide you with a
+                different level or quality of goods or services.
+              </p>
+              <p>
+                <strong>Downloading of Personal Information:</strong> We provide
+                a means for you to download the personal information you have
+                shared through our app. Please contact us for more information.
               </p>
               <p>
                 <strong>Notification of data breaches:</strong> We will comply
@@ -374,11 +394,22 @@ export default ({ headingText = "Privacy Policy" }) => {
               </p>
               <h3>Use of Cookies</h3>
               <p>
-                We use &quot;cookies&quot; to collect information about you and
-                your activity across our site. A cookie is a small piece of data
-                that our website stores on your computer, and accesses each time
-                you visit, so we can understand how you use our site. This helps
-                us serve you content based on preferences you have specified.
+                Our privacy policy covers the use of cookies between your device
+                and our servers. A cookie is a small piece of data that an app
+                may store on your device, typically containing a unique
+                identifier that allows the app servers to recognise your device
+                when you use the app; information about your account, session
+                and/or device; additional data that serves the purpose of the
+                cookie; and any self-maintenance information about the cookie
+                itself.
+              </p>
+              <p>
+                We use cookies to give your device access to core features of
+                our app, to track app usage and performance on your device, to
+                tailor your experience of our app based on your preferences, and
+                to serve advertising to your device. Any communication of cookie
+                data between your device and our servers occurs within a secure
+                environment.
               </p>
               <p>Please refer to our Cookie Policy for more information.</p>
               <h3>Business Transfers</h3>
@@ -395,8 +426,8 @@ export default ({ headingText = "Privacy Policy" }) => {
               </p>
               <h3>Limits of Our Policy</h3>
               <p>
-                Our website may link to external sites that are not operated by
-                us. Please be aware that we have no control over the content and
+                Our app may link to external sites that are not operated by us.
+                Please be aware that we have no control over the content and
                 policies of those sites, and cannot accept responsibility or
                 liability for their respective privacy practices.
               </p>
@@ -405,8 +436,14 @@ export default ({ headingText = "Privacy Policy" }) => {
                 At our discretion, we may change our privacy policy to reflect
                 updates to our business processes, current acceptable practices,
                 or legislative or regulatory changes. If we decide to change
-                this privacy policy, we will post the changes here at the same
-                link by which you are accessing this privacy policy.
+                this privacy policy, we will post the changes here and on our
+                website.
+              </p>
+              <p>
+                If the changes are significant, or if required by applicable
+                law, we will contact you (based on your selected preferences for
+                communications from us) and all our registered users with the
+                new details and links to the updated or changed policy.
               </p>
               <p>
                 If required by law, we will get your permission or give you the
@@ -434,7 +471,7 @@ export default ({ headingText = "Privacy Policy" }) => {
                 contact us using the following details:
               </p>
               <p>
-                Madstone
+                Madstone Dev
                 <br />
                 https://madstone.dev/contact
               </p>
