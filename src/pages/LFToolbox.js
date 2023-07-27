@@ -9,7 +9,7 @@ import Features from "components/features/ThreeColSimple.js";
 // import Features from "components/features/ThreeColWithSideImage.js";
 import { FaBoxes } from "react-icons/fa";
 
-import resolveConfig from "tailwindcss/resolveConfig";
+// import resolveConfig from "tailwindcss/resolveConfig";
 import { MdCalculate } from "react-icons/md";
 import { RiChatNewFill } from "react-icons/ri";
 
@@ -19,8 +19,8 @@ const Heading = tw.span`flex justify-center uppercase tracking-wider text-sm fon
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 
 export default () => {
-  const tailwindConfig = require("../tailwind.config");
-  const fullConfig = resolveConfig(tailwindConfig);
+  // const tailwindConfig = require("../tailwind.config");
+  // const fullConfig = resolveConfig(tailwindConfig);
 
   return (
     <AnimationRevealPage>
@@ -39,36 +39,21 @@ export default () => {
           description="With all of the different resources and variables that a complex game like Last Fortress Underground throws at you, it can get a little overwhelming quickly. With LFToolbox, you can easily manage your resources and plan your next upgrades"
           cards={[
             {
-              icon: (
-                <FaBoxes
-                  size={26}
-                  color={fullConfig.theme.colors.primary["500"]}
-                />
-              ),
+              icon: <FaBoxes size={26} color={"#E81863"} />,
               title: "Manage Resources",
               description:
                 "Check how much of all resources you have in your inventory and plan your next build upgrades without" +
                 " having to open any of your chests",
             },
             {
-              icon: (
-                <MdCalculate
-                  size={30}
-                  color={fullConfig.theme.colors.primary["500"]}
-                />
-              ),
+              icon: <MdCalculate size={30} color={"#E81863"} />,
               title: "Calculate Upgrades",
               description:
                 "An upcoming update will introduce an upgrade calculator to help your workout how more workers and" +
                 " speedups will affect your build time",
             },
             {
-              icon: (
-                <RiChatNewFill
-                  size={24}
-                  color={fullConfig.theme.colors.primary["500"]}
-                />
-              ),
+              icon: <RiChatNewFill size={24} color={"#E81863"} />,
               title: "Much More",
               description:
                 "So many more features are currently in plan for LFToolbox to make it your one-stop shop for all" +
