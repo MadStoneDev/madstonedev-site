@@ -37,11 +37,12 @@ export default ({
   subheading = "Contact Us",
   heading = (
     <>
-      Feel free to <span tw="text-primary-500">get in touch</span>
-      <wbr /> with us.
+      We'd love to hear
+      <wbr />
+      from you.
     </>
   ),
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  description = "If you have any feedback, questions or suggestions, please let us know. We'd love to hear from you.",
   submitButtonText = "Send",
   textOnLeft = true,
 }) => {
