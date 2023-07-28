@@ -5,6 +5,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings";
+import { Helmet } from "react-helmet-async";
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-gray-900 mb-10`;
@@ -33,9 +34,14 @@ const Text = styled.div`
   }
 `;
 
-export default ({ headingText = "Terms And Condition" }) => {
+export default ({ headingText = "Terms of Service" }) => {
   return (
     <AnimationRevealPage>
+      <Helmet prioritizeSeoTags>
+        <title>Madstone.Dev - Terms of Service</title>
+        <meta name="description" content="" />
+      </Helmet>
+
       <Layout>
         <Container>
           <ContentWithPaddingXl>
@@ -47,21 +53,21 @@ export default ({ headingText = "Terms And Condition" }) => {
 
               <h2>MadStoneDev Terms of Service</h2>
               <p>
-                These Terms of Service govern your use of LFToolbox, our website
-                located at{" "}
+                These Terms of Service govern your use of LFU Companion, our
+                website located at{" "}
                 <a href="https://madstone.dev">https://madstone.dev</a>, and any
                 related services provided by MadStoneDev.
               </p>
               <p>
-                When you create an LFToolbox account or use LFToolbox, you agree
-                to abide by these Terms of Service and to comply with all
-                applicable laws and regulations. If you do not agree with these
-                Terms of Service, you are prohibited from further using the app,
-                accessing our website, or using any other services provided by
-                MadStoneDev.
+                When you create an LFU Companion account or use LFU Companion,
+                you agree to abide by these Terms of Service and to comply with
+                all applicable laws and regulations. If you do not agree with
+                these Terms of Service, you are prohibited from further using
+                the app, accessing our website, or using any other services
+                provided by MadStoneDev.
               </p>
               <p>
-                If you access or download LFToolbox from (1) the Apple App
+                If you access or download LFU Companion from (1) the Apple App
                 Store, you agree to any Usage Rules set forth in the App Store
                 Terms of Service; and/or (2) the Google Play Store, you agree to
                 the Android, Google Inc. Terms and Conditions including the
@@ -78,57 +84,59 @@ export default ({ headingText = "Terms And Condition" }) => {
               <p>These Terms of Service were last updated on 27 July 2023.</p>
               <h3>Limitations of Use</h3>
               <p>
-                By using LFToolbox and our website, you warrant on behalf of
+                By using LFU Companion and our website, you warrant on behalf of
                 yourself, any entity who you represent who has entered into
                 these Terms of Service, and your users that you will not:
               </p>
               <ul>
                 <li>
                   modify, copy, prepare derivative works of, decompile, or
-                  reverse engineer LFToolbox or any materials and software
-                  contained within LFToolbox or on our website;
+                  reverse engineer LFU Companion or any materials and software
+                  contained within LFU Companion or on our website;
                 </li>
                 <li>
-                  remove any copyright or other proprietary notations from
-                  LFToolbox or any materials and software contained within
-                  LFToolbox or on our website;
+                  remove any copyright or other proprietary notations from LFU
+                  Companion or any materials and software contained within LFU
+                  Companion or on our website;
                 </li>
                 <li>
-                  transfer LFToolbox or any of its associated materials to
+                  transfer LFU Companion or any of its associated materials to
                   another person or &quot;mirror&quot; the materials on any
                   other server;
                 </li>
                 <li>
-                  knowingly or negligently use LFToolbox or any of its
+                  knowingly or negligently use LFU Companion or any of its
                   associated services in a way that abuses or disrupts our
                   networks or any other service MadStoneDev provides;
                 </li>
                 <li>
-                  use LFToolbox or its associated services to transmit or
+                  use LFU Companion or its associated services to transmit or
                   publish any harassing, indecent, obscene, fraudulent, or
                   unlawful material;
                 </li>
                 <li>
-                  use LFToolbox or its associated services in violation of any
-                  applicable laws or regulations;
+                  use LFU Companion or its associated services in violation of
+                  any applicable laws or regulations;
                 </li>
-                <li>use LFToolbox to send unauthorised advertising or spam;</li>
+                <li>
+                  use LFU Companion to send unauthorised advertising or spam;
+                </li>
                 <li>
                   harvest, collect, or gather user data without the user’s
                   consent; or
                 </li>
                 <li>
-                  use LFToolbox or its associated services in such a way that
-                  may infringe the privacy, intellectual property rights, or
-                  other rights of third parties.
+                  use LFU Companion or its associated services in such a way
+                  that may infringe the privacy, intellectual property rights,
+                  or other rights of third parties.
                 </li>
               </ul>
               <h3>Intellectual Property</h3>
               <p>
-                The intellectual property in the materials in LFToolbox and on
-                our website are owned by or licensed to MadStoneDev. You may
-                download LFToolbox to view, use, and display the application on
-                your mobile device for your personal use only.
+                The intellectual property in the materials in LFU Companion and
+                on our website are owned by or licensed to MadStoneDev. You may
+                download LFU Companion to view, use, and display the application
+                on your mobile device for your personal use only.
               </p>
               <p>
                 This constitutes the grant of a licence, not a transfer of
@@ -139,13 +147,13 @@ export default ({ headingText = "Terms And Condition" }) => {
               <h3>User-Generated Content</h3>
               <p>
                 You retain your intellectual property ownership rights over
-                content you submit to us for publication within LFToolbox and/or
-                on its corresponding website. We will never claim ownership of
-                your content but we do require a licence from you in order to
-                use it.
+                content you submit to us for publication within LFU Companion
+                and/or on its corresponding website. We will never claim
+                ownership of your content but we do require a licence from you
+                in order to use it.
               </p>
               <p>
-                When you use LFToolbox or its associated services to post,
+                When you use LFU Companion or its associated services to post,
                 upload, share or otherwise transmit content covered by
                 intellectual property rights, you grant to us a non-exclusive,
                 royalty-free, transferable, sub-licensable, worldwide licence to
@@ -169,30 +177,30 @@ export default ({ headingText = "Terms And Condition" }) => {
               </p>
               <h3>Automatic Updates</h3>
               <p>
-                You give us permission to download and install updates to
-                LFToolbox on your device in accordance with your privacy
+                You give us permission to download and install updates to LFU
+                Companion on your device in accordance with your privacy
                 preferences. This permission can be revoked at any time by
-                deleting LFToolbox from your device.
+                deleting LFU Companion from your device.
               </p>
               <h3>Liability</h3>
               <p>
-                LFToolbox and the materials in LFToolbox and on our website are
-                provided on an 'as is' basis. To the extent permitted by law,
-                MadStoneDev makes no warranties, expressed or implied, and
-                hereby disclaims and negates all other warranties including,
-                without limitation, implied warranties or conditions of
-                merchantability, fitness for a particular purpose, or
+                LFU Companion and the materials in LFU Companion and on our
+                website are provided on an 'as is' basis. To the extent
+                permitted by law, MadStoneDev makes no warranties, expressed or
+                implied, and hereby disclaims and negates all other warranties
+                including, without limitation, implied warranties or conditions
+                of merchantability, fitness for a particular purpose, or
                 non-infringement of intellectual property, or other violation of
                 rights.
               </p>
               <p>
                 In no event shall MadStoneDev or its suppliers be liable for any
                 consequential loss suffered or incurred by you or any third
-                party arising from the use or inability to use LFToolbox, our
-                website, or any other services provided by MadStoneDev or the
-                materials in LFToolbox, even if MadStoneDev or an authorised
-                representative has been notified, orally or in writing, of the
-                possibility of such damage.
+                party arising from the use or inability to use LFU Companion,
+                our website, or any other services provided by MadStoneDev or
+                the materials in LFU Companion, even if MadStoneDev or an
+                authorised representative has been notified, orally or in
+                writing, of the possibility of such damage.
               </p>
               <p>
                 In the context of this agreement, &quot;consequential loss&quot;
@@ -210,18 +218,19 @@ export default ({ headingText = "Terms And Condition" }) => {
               </p>
               <h3>Accuracy of Materials</h3>
               <p>
-                The materials appearing in LFToolbox or on our website are not
-                comprehensive and are for general information purposes only. To
-                the extent permitted by law, MadStoneDev does not warrant or
+                The materials appearing in LFU Companion or on our website are
+                not comprehensive and are for general information purposes only.
+                To the extent permitted by law, MadStoneDev does not warrant or
                 make any representations concerning the accuracy, likely
-                results, or reliability of the use of the materials in LFToolbox
-                or on our website, or otherwise relating to such materials or on
-                any resources linked to LFToolbox and our website.
+                results, or reliability of the use of the materials in LFU
+                Companion or on our website, or otherwise relating to such
+                materials or on any resources linked to LFU Companion and our
+                website.
               </p>
               <h3>Links</h3>
               <p>
-                MadStoneDev has not reviewed all of the sites linked to
-                LFToolbox or on its corresponding website and is not responsible
+                MadStoneDev has not reviewed all of the sites linked to LFU
+                Companion or on its corresponding website and is not responsible
                 for the contents of any such linked site. The inclusion of any
                 link does not imply endorsement, approval or control by
                 MadStoneDev of the site. Use of any such linked website is at
@@ -230,34 +239,35 @@ export default ({ headingText = "Terms And Condition" }) => {
               </p>
               <h3>Notice regarding Apple</h3>
               <p>
-                To the extent that you are using or accessing LFToolbox on an
-                iOS device, you acknowledge and agree to the terms of this
+                To the extent that you are using or accessing LFU Companion on
+                an iOS device, you acknowledge and agree to the terms of this
                 clause. You acknowledge that these Terms of Service are between
                 you and MadStoneDev only, not with Apple Inc. (Apple), and Apple
-                is not responsible for LFToolbox and any materials available in
-                LFToolbox.
+                is not responsible for LFU Companion and any materials available
+                in LFU Companion.
               </p>
               <p>
                 Apple has no obligation to furnish you with any maintenance and
-                support services with respect to LFToolbox.
+                support services with respect to LFU Companion.
               </p>
               <p>
-                If LFToolbox fails to conform to any applicable warranty, you
-                may notify Apple and Apple will refund the purchase price of the
-                mobile application to you. To the maximum extent permitted by
-                applicable law, Apple will have no other warranty obligation
-                whatsoever with respect to LFToolbox and any other claims,
+                If LFU Companion fails to conform to any applicable warranty,
+                you may notify Apple and Apple will refund the purchase price of
+                the mobile application to you. To the maximum extent permitted
+                by applicable law, Apple will have no other warranty obligation
+                whatsoever with respect to LFU Companion and any other claims,
                 losses, liabilities, damages, costs or expenses attributable to
                 any failure to conform to any warranty will be our
                 responsibility.
               </p>
               <p>
                 Apple is not responsible for addressing any claims by you or any
-                third party relating to LFToolbox or your use of LFToolbox,
-                including but not limited to (1) product liability claims; (2)
-                any claim that our mobile application fails to conform to any
-                applicable legal or regulatory requirement; and (3) claims
-                arising under consumer protection or similar legislation.
+                third party relating to LFU Companion or your use of LFU
+                Companion, including but not limited to (1) product liability
+                claims; (2) any claim that our mobile application fails to
+                conform to any applicable legal or regulatory requirement; and
+                (3) claims arising under consumer protection or similar
+                legislation.
               </p>
               <p>
                 Apple is not responsible for the investigation, defence,
@@ -267,7 +277,7 @@ export default ({ headingText = "Terms And Condition" }) => {
               </p>
               <p>
                 You agree to comply with any applicable third-party terms when
-                using LFToolbox, including any Usage Rules set forth in the
+                using LFU Companion, including any Usage Rules set forth in the
                 Apple App Store Agreement of Service.
               </p>
               <p>
@@ -287,8 +297,8 @@ export default ({ headingText = "Terms And Condition" }) => {
               </p>
               <h3>Right to Terminate</h3>
               <p>
-                We may suspend or terminate your LFToolbox account and right to
-                use LFToolbox and these Terms of Service immediately upon
+                We may suspend or terminate your LFU Companion account and right
+                to use LFU Companion and these Terms of Service immediately upon
                 written notice to you for any breach of these Terms of Service.
               </p>
               <h3>Severance</h3>

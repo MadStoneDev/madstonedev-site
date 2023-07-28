@@ -5,6 +5,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings";
+import { Helmet } from "react-helmet-async";
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-gray-900 mb-10`;
@@ -36,6 +37,11 @@ const Text = styled.div`
 export default ({ headingText = "Acceptable Use" }) => {
   return (
     <AnimationRevealPage>
+      <Helmet prioritizeSeoTags>
+        <title>Madstone.Dev - Acceptable use</title>
+        <meta name="description" content="" />
+      </Helmet>
+
       <Layout>
         <Container>
           <ContentWithPaddingXl>

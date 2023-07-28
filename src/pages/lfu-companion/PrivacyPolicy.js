@@ -5,6 +5,7 @@ import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { SectionHeading } from "components/misc/Headings";
+import { Helmet } from "react-helmet-async";
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-gray-900 mb-10`;
@@ -33,9 +34,14 @@ const Text = styled.div`
   }
 `;
 
-export default ({ headingText = "LFToolbox Privacy Policy" }) => {
+export default ({ headingText = "LFU Companion Privacy Policy" }) => {
   return (
     <AnimationRevealPage>
+      <Helmet prioritizeSeoTags>
+        <title>Madstone.Dev - LFU Companion Privacy Policy</title>
+        <meta name="description" content="" />
+      </Helmet>
+
       <Layout>
         <Container>
           <ContentWithPaddingXl>
@@ -45,15 +51,15 @@ export default ({ headingText = "LFToolbox Privacy Policy" }) => {
             <Text>
               <p>Last updated: 27 July, 2023</p>
 
-              <h1>Privacy Policy for LFToolbox</h1>
+              <h1>Privacy Policy for LFU Companion</h1>
 
               <h2>MadStoneDev Privacy Policy</h2>
               <p>
                 Your privacy is important to us. It is MadStoneDev's policy to
                 respect your privacy and comply with any applicable law and
                 regulation regarding any personal information we may collect
-                about you, including via our app, LFToolbox, and its associated
-                services.
+                about you, including via our app, LFU Companion, and its
+                associated services.
               </p>
               <p>
                 Personal information is any information about you which can be

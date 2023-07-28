@@ -5,6 +5,7 @@ import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { SectionHeading } from "components/misc/Headings";
+import { Helmet } from "react-helmet-async";
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-gray-900 mb-10`;
@@ -36,6 +37,11 @@ const Text = styled.div`
 export default ({ headingText = "Privacy Policy" }) => {
   return (
     <AnimationRevealPage>
+      <Helmet prioritizeSeoTags>
+        <title>Madstone.Dev - Privacy Policy</title>
+        <meta name="description" content="" />
+      </Helmet>
+
       <Layout>
         <Container>
           <ContentWithPaddingXl>

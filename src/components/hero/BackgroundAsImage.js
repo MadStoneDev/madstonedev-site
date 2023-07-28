@@ -78,7 +78,7 @@ export default () => {
         <TwoColumn>
           <LeftColumn>
             <Notification>
-              We just launched LFToolbox to the App Store!
+              We just launched LFU Companion to the App Store!
             </Notification>
             <Heading>
               <SlantedBackground>Madstone.Dev</SlantedBackground>

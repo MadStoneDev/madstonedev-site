@@ -112,9 +112,9 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiesPolicy from "./pages/CookiesPolicy";
 import AcceptableUse from "./pages/AcceptableUse";
 
-import LFToolbox from "./pages/LFToolbox";
-import LFPrivacyPolicy from "./pages/lftoolbox/PrivacyPolicy.js";
-import LFTerms from "./pages/lftoolbox/TermsOfService.js";
+import LFUCompanion from "./pages/LFU-Companion.js";
+import LFPrivacyPolicy from "./pages/lfu-companion/PrivacyPolicy.js";
+import LFTerms from "./pages/lfu-companion/TermsOfService.js";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -129,12 +129,12 @@ export default function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/about" element={<AboutUs />} />
 
-          <Route path="/lftoolbox" element={<LFToolbox />} />
+          <Route path="/lfu-companion" element={<LFUCompanion />} />
           <Route
-            path="/lftoolbox/privacy-policy"
+            path="/lfu-companion/privacy-policy"
             element={<LFPrivacyPolicy />}
           />
-          <Route path="/lftoolbox/terms-of-service" element={<LFTerms />} />
+          <Route path="/lfu-companion/terms-of-service" element={<LFTerms />} />
 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookies-policy" element={<CookiesPolicy />} />

@@ -39,7 +39,7 @@ export default () => {
           </LogoContainer>
           <LinksContainer>
             <Link href="/">Home</Link>
-            <Link href="/lftoolbox">LFToolbox</Link>
+            <Link href="/LFU-Companion">LFU Companion</Link>
             <Link href="/contact">Contact Us</Link>
             {/*<Link href="/about">About</Link>*/}
             {/*<Link href="/blog">Blog</Link>*/}
