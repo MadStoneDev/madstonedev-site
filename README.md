@@ -25,7 +25,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/richardhaddadau/madstonedev-site">
-    <img src="assets/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./public/android-chrome-512x512.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Madstone.Dev Site</h3>
