@@ -4,7 +4,22 @@
 module.exports = {
   siteMetadata: {
     title: `MadStoneDev`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: ["gatsby-plugin-postcss", "gatsby-plugin-google-gtag"]
+  plugins: [
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: ["G-BCL5N11Y48"],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: true,
+        },
+      },
+    },
+    "gatsby-plugin-postcss",
+  ],
 };
