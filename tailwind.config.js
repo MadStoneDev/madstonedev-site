@@ -11,6 +11,10 @@ export default {
           DEFAULT: "#e81863",
         },
       },
+      backgroundPosition: {
+        "left-sm": "20% 0",
+        "left-lg": "115% 0",
+      },
     },
   },
   plugins: [],

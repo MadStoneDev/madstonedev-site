@@ -24,12 +24,6 @@
   transition: margin-left 1s ease, opacity 0.5s ease;
 }
 
-.feature-title.active .feature-number,
-.feature-title:hover .feature-number {
-  margin-left: 100px;
-  opacity: 1;
-}
-
 .feature-title .feature-span {
   width: 50px;
   opacity: 1;
@@ -37,34 +31,13 @@
   transition: opacity 0.25s ease, width 1s ease;
 }
 
-.feature-title.active .feature-span,
-.feature-title:hover .feature-span {
-  width: 0;
-  opacity: 0;
-}
-
-.feature-title .feature-outline {
-  opacity: 0.5;
-  transition: opacity 1s linear 0.5s;
-}
-
-.feature-title:hover .feature-outline {
-  opacity: 0;
-  transition-delay: 0.5s;
-}
-
-.feature-title:not(:hover) .feature-outline {
-  opacity: 0.5;
-  transition-delay: 0s;
-}
-
 .feature-title .feature-mask {
   clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
   transition: clip-path 0.75s ease;
 }
 
-.feature-title:hover .feature-mask {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+.masked-link {
+  position: relative;
 }
 
 .masked-link::after {
@@ -77,10 +50,55 @@
   height: 100%;
 
   backdrop-filter: grayscale(1) brightness(1.5);
+  -webkit-backdrop-filter: grayscale(1) brightness(1.5);
 
-  transition: all 0.5s ease;
+  transition: all 0.75s ease;
 }
 
 .masked-link:hover::after {
   width: 0;
+}
+
+@media (min-width: 769px) {
+  .feature-title.active .feature-number,
+  .feature-title:hover .feature-number {
+    margin-left: 100px;
+    opacity: 1;
+  }
+
+  .feature-title.active .feature-span,
+  .feature-title:hover .feature-span {
+    width: 0;
+    opacity: 0;
+  }
+
+  .feature-title .feature-outline {
+    opacity: 0.5;
+    transition: opacity 1s linear 0.5s;
+  }
+
+  .feature-title:not(:hover) .feature-outline {
+    opacity: 0.5;
+    transition-delay: 0s;
+  }
+
+  .feature-title:hover .feature-outline {
+    opacity: 0;
+    transition-delay: 0.5s;
+  }
+
+  .feature-title:hover .feature-mask {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-title .feature-number {
+    margin-left: 20px;
+    margin-right: 0px;
+  }
+
+  .feature-title .feature-span {
+    width: 20px;
+  }
 }

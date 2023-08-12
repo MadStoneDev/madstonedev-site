@@ -1,55 +1,121 @@
+import { useRef, useState } from "react";
+
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
+import styled from "styled-components";
 
 const App = () => {
+  // States
+  const [featureImage, setFeatureImage] = useState(null);
+  const [featureOpacity, setFeatureOpacity] = useState("opacity-0");
+  const [activeFeature, setActiveFeature] = useState(null);
+
+  const timeoutRef = useRef(null);
+
   const links = [
     {
       title: "LFU Companion",
+      image: "url(penny-ai.png)",
     },
     {
       title: "Lingualize",
+      image: "url(lingualize-sneak.png)",
     },
   ];
 
-  const titleStyles = {
-    color: "#151515",
-    textShadow:
-      "-1px -1px 2px #fff, 1px -1px 2px #fff, -1px 1px 2px #fff, 1px 1px 2px #fff",
-  };
+  const FeatureTitle = styled.h2`
+    color: #151515;
+
+    @media (min-width: 769px) {
+      text-shadow: -1px -1px 2px #fff, 1px -1px 2px #fff, -1px 1px 2px #fff,
+        1px 1px 2px #fff;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 768px) {
+      color: white;
+      opacity: 1;
+    }
+  `;
+
+  const FeatureSection = styled.section`
+    @media (min-width: 769px) {
+      background-position: 115% 0;
+    }
+
+    @media (max-width: 768px) {
+      background-position: 150% 0;
+    }
+  `;
 
   const hoverTitleStyles = {
     color: "#fff",
     overflow: "hidden",
   };
 
+  const resetImage = () => {
+    setTimeout(() => {
+      setFeatureImage("");
+    }, 500);
+  };
+
   return (
     <>
       <Header />
       <main className={"h-full"}>
+        <section
+          className={`absolute top-0 right-0 w-full h-full transition-all duration-1000 ease-in-out z-0 ${featureOpacity} bg-cover md:bg-contain bg-center md:bg-left-lg`}
+          style={{
+            backgroundImage: featureImage,
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+
         <section>
           {links.map((link, index) => (
             <article
               key={index}
               className={"mt-20 relative w-max cursor-pointer feature-title"}
+              onClick={() => {
+                if (activeFeature === index) {
+                  setActiveFeature(null);
+                } else {
+                  setActiveFeature(index);
+                }
+              }}
+              onMouseOver={() => {
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
+                setFeatureOpacity("opacity-0");
+                setFeatureImage(link.image);
+                setFeatureOpacity("opacity-75");
+              }}
+              onMouseLeave={() => {
+                setFeatureOpacity("opacity-0");
+
+                timeoutRef.current = setTimeout(() => {
+                  setFeatureImage("");
+                }, 500);
+              }}
             >
               <div className={"flex flex-row items-center"}>
                 <div
                   className={
-                    "flex gap-5 text-xl md:text-2xl lg:text-4xl feature-number"
+                    "flex gap-2 sm:gap-5 text-xl md:text-2xl lg:text-4xl feature-number"
                   }
                 >
                   0{index + 1}
                   <span className={"feature-span"}>–</span>
                 </div>
                 <div className={"relative inline-block"}>
-                  <h2
+                  <FeatureTitle
                     className={
-                      "text-3xl md:text-4xl lg:text-7xl font-bold uppercase tracking-wider opacity-50 feature-outline"
+                      "text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold uppercase tracking-wider" +
+                      " feature-outline"
                     }
-                    style={titleStyles}
                   >
                     {link.title}
-                  </h2>
+                  </FeatureTitle>
 
                   <div
                     className={
@@ -59,7 +125,7 @@ const App = () => {
                     {/*<div className={"feature-overlay"} />*/}
                     <h2
                       className={
-                        "text-3xl md:text-4xl lg:text-7xl font-bold uppercase tracking-wider opacity-100"
+                        "text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold uppercase tracking-wider opacity-100"
                       }
                       style={hoverTitleStyles}
                     >

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 
 const Header = () => {
+  // States
   const [openMenu, setOpenMenu] = useState(false);
 
   const links = [
@@ -18,9 +19,18 @@ const Header = () => {
   };
 
   return (
-    <header className={"p-10 flex flex-row justify-between items-center"}>
+    <header
+      className={
+        "p-5 sm:p-10 relative flex flex-row justify-between items-center z-10"
+      }
+    >
       <img src={"/logo-m-only.svg"} className={"w-12"} />
-      <FiMenu size={30} onClick={() => handleMenu(true)} />
+      <FiMenu
+        className={"cursor-pointer"}
+        size={30}
+        color={"#fff"}
+        onClick={() => handleMenu(true)}
+      />
 
       <section
         className={`p-10 fixed top-0 right-0 w-screen lg:w-96 h-full transform transition-all duration-500 ${
@@ -33,7 +43,7 @@ const Header = () => {
       >
         <FaTimes
           size={24}
-          className={"fixed top-14 right-10"}
+          className={"fixed top-8 right-5 cursor-pointer"}
           onClick={() => handleMenu(false)}
         />
         <ul className={"mt-32"}>
