@@ -66,3 +66,21 @@
 .feature-title:hover .feature-mask {
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
+
+.masked-link::after {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  backdrop-filter: grayscale(1) brightness(1.5);
+
+  transition: all 0.5s ease;
+}
+
+.masked-link:hover::after {
+  transform: translateX(100%);
+}

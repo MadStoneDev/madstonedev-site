@@ -42,12 +42,7 @@ const Header = () => {
           ))}
         </ul>
         <article className={"absolute bottom-10 font-light tracking-widest"}>
-          <a
-            href={"/privacy-policy"}
-            className={
-              "text-stone-500 hover:text-primary transition-all duration-300"
-            }
-          >
+          <a href={"/privacy-policy"} className={"text-primary masked-link"}>
             Privacy Policy
           </a>
         </article>
