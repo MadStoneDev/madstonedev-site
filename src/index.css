@@ -82,11 +82,13 @@
     transition-delay: 0s;
   }
 
+  .feature-title.active .feature-outline,
   .feature-title:hover .feature-outline {
     opacity: 0;
     transition-delay: 0.5s;
   }
 
+  .feature-title.active .feature-mask,
   .feature-title:hover .feature-mask {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   }

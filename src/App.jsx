@@ -3,12 +3,13 @@ import { useRef, useState } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import styled from "styled-components";
+import { BsArrowRight } from "react-icons/bs";
 
 const App = () => {
   // States
-  const [featureImage, setFeatureImage] = useState(null);
-  const [featureOpacity, setFeatureOpacity] = useState("opacity-0");
-  const [activeFeature, setActiveFeature] = useState(null);
+  const [featureImage, setFeatureImage] = useState("url(penny-ai.png)");
+  const [featureOpacity, setFeatureOpacity] = useState("opacity-75");
+  const [activeFeature, setActiveFeature] = useState(0);
 
   const timeoutRef = useRef(null);
 
@@ -75,27 +76,30 @@ const App = () => {
           {links.map((link, index) => (
             <article
               key={index}
-              className={"mt-20 relative w-max cursor-pointer feature-title"}
+              className={`mt-20 relative w-max feature-title ${
+                activeFeature === index ? "active" : ""
+              }`}
               onClick={() => {
-                if (activeFeature === index) {
-                  setActiveFeature(null);
-                } else {
-                  setActiveFeature(index);
-                }
+                setActiveFeature(index);
+
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
+                setFeatureOpacity("opacity-0");
+
+                setFeatureImage(link.image);
+
+                setFeatureOpacity("opacity-75");
               }}
               onMouseOver={() => {
                 if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
-                setFeatureOpacity("opacity-0");
-                setFeatureImage(link.image);
-                setFeatureOpacity("opacity-75");
-              }}
-              onMouseLeave={() => {
+                setActiveFeature(index);
+
                 setFeatureOpacity("opacity-0");
 
-                timeoutRef.current = setTimeout(() => {
-                  setFeatureImage("");
-                }, 500);
+                setFeatureImage(link.image);
+
+                setFeatureOpacity("opacity-75");
               }}
             >
               <div className={"flex flex-row items-center"}>
@@ -133,6 +137,16 @@ const App = () => {
                     </h2>
                   </div>
                 </div>
+                {activeFeature === index ? (
+                  <div
+                    className={
+                      "ml-5 flex items-center text-primary cursor-pointer "
+                    }
+                  >
+                    Go
+                    <BsArrowRight className={"ml-2"} size={30} />
+                  </div>
+                ) : null}
               </div>
             </article>
           ))}
