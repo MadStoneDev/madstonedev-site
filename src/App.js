@@ -1,5 +1,6 @@
 import React from "react";
 import GlobalStyles from "styles/GlobalStyles";
+
 import { css } from "styled-components/macro"; //eslint-disable-line
 
 /*
@@ -115,15 +116,16 @@ import AcceptableUse from "./pages/AcceptableUse";
 import LFUCompanion from "./pages/LFU-Companion.js";
 import LFPrivacyPolicy from "./pages/lfu-companion/PrivacyPolicy.js";
 import LFTerms from "./pages/lfu-companion/TermsOfService.js";
+import AnalyticsProvider from "./components/AnalyticsWrapper";
 
 export default function App() {
-  // If you want to disable the animation just use the disabled `prop` like below on your page's component
-  // return <AnimationRevealPage disabled>xxxxxxxxxx</AnimationRevealPage>;
-
+  
+  
   return (
     <HelmetProvider>
       <GlobalStyles />
       <Router>
+        <AnalyticsProvider>
         <Routes>
           <Route path="/thank-you" element={<ThankYouPage />} />
           <Route path="/contact" element={<ContactUs />} />
@@ -142,6 +144,7 @@ export default function App() {
 
           <Route path="/" element={<MainLandingPage />} />
         </Routes>
+        </AnalyticsProvider>
       </Router>
     </HelmetProvider>
   );
