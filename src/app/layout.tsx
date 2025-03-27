@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { ReactNode } from "react";
 import { Lexend, Lilita_One } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const lexend = Lexend({
   variable: "--font-lexend",
@@ -29,6 +30,8 @@ export default function RootLayout({
       >
         {children}
       </body>
+
+      <GoogleAnalytics gaId={`G-941WTWYYVW`} />
     </html>
   );
 }
