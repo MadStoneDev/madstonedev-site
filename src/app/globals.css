@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #E81863;
+  --font-sans: var(--font-lexend);
+  --font-display: var(--font-lilita-one);
+}
