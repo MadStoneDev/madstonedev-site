@@ -170,7 +170,7 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section className="py-24 px-6 sm:px-12" name={`laboratory`}>
+        <section className="py-24 px-6 sm:px-12" id={`laboratory`}>
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
             <div className="text-center mb-20">
