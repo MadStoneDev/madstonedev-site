@@ -18,6 +18,12 @@ const lilitaOne = Lilita_One({
   display: "swap",
 });
 
+export const metadata = {
+  title: "MadStoneDev - Perfecting the method, embracing the madness",
+  description:
+    "Professional web development agency specializing in modern, scalable applications. From concept to deployment, we perfect the method while embracing creative madness.",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

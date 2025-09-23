@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a753f850-7a52-45e7-ab71-fd2ddb09bdbe" name="Changes" comment="" />
+    <list default="true" id="a753f850-7a52-45e7-ab71-fd2ddb09bdbe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.madstonedev-site.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.madstonedev-site.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sections/section-projects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/section-projects.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +46,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "backup-old-project",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "G:/Development-Sandbox/_Rumblebuffin/madstonedev-site",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -69,7 +75,8 @@
       <option name="presentableId" value="Default" />
       <updated>1734338965962</updated>
       <workItem from="1734338967261" duration="1584000" />
-      <workItem from="1743028243418" duration="18855000" />
+      <workItem from="1743028243418" duration="19029000" />
+      <workItem from="1758637287521" duration="3559000" />
     </task>
     <servers />
   </component>

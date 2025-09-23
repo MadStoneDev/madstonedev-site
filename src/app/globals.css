@@ -5,3 +5,7 @@
   --font-sans: var(--font-lexend);
   --font-display: var(--font-lilita-one);
 }
+
+html {
+  scroll-behavior: smooth;
+}
