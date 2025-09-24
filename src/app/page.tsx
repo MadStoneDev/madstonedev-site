@@ -3,6 +3,19 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+interface Project {
+  title: string;
+  url: string;
+  description: string;
+  longDescription: string;
+  tech: string[];
+  category: string;
+  color: string;
+  accent: string;
+  icon: string;
+  wip?: boolean;
+}
+
 const projects = [
   {
     title: "The Watchman Reviews",
@@ -11,24 +24,12 @@ const projects = [
       "Authentic movie and TV reviews without the fluff. Real opinions, useful stats, and shareable watchlists for actual humans.",
     longDescription:
       "Cut through the noise of biased reviews and affiliate marketing. Get honest takes on what's worth your time, plus tools to organize and share your watchlists with friends who actually care about your taste.",
-    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind"],
-    category: "Review Platform",
-    color: "from-blue-500 to-purple-600",
-    accent: "blue-400",
+    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
+    category: "Movies and TV",
+    color: "from-green-600 to-lime-400",
+    accent: "lime-500",
     icon: "🎬",
-  },
-  {
-    title: "beforeAftr",
-    url: "https://beforeaftr.me",
-    description:
-      "Simple picture comparison tool that actually works. Upload two images, see the differences, judge the quality.",
-    longDescription:
-      "Sometimes you just need to compare two photos side-by-side without jumping through hoops. Perfect for before/after shots, quality comparisons, or settling debates about which photo looks better.",
-    tech: ["React", "Node.js", "CloudFlare", "Canvas API", "WebP"],
-    category: "Image Tool",
-    color: "from-emerald-500 to-teal-600",
-    accent: "emerald-400",
-    icon: "📸",
+    wip: true,
   },
   {
     title: "JustNoted",
@@ -37,11 +38,24 @@ const projects = [
       "Note-taking that gets out of your way. Jot down ideas, write novels, make to-do lists. No bloat, no distractions.",
     longDescription:
       "Tired of note apps that do everything except let you take notes quickly? This one starts instantly, saves automatically, and won't try to organize your life for you. Just pure, fast writing.",
-    tech: ["Vue.js", "Firebase", "PWA", "LocalStorage"],
-    category: "Productivity App",
-    color: "from-amber-500 to-orange-600",
+    tech: ["Next.js", "Typescript", "Upstash", "Supabase", "LocalStorage"],
+    category: "Note Taking",
+    color: "from-indigo-600 to-blue-400",
     accent: "amber-400",
     icon: "📝",
+  },
+  {
+    title: "beforeAftr",
+    url: "https://beforeaftr.me",
+    description:
+      "Simple picture comparison tool that actually works. Upload two images, see the differences, judge the quality.",
+    longDescription:
+      "Sometimes you just need to compare two photos side-by-side without jumping through hoops. Perfect for before/after shots, quality comparisons, or settling debates about which photo looks better.",
+    tech: ["Next.js"],
+    category: "Image Tool",
+    color: "from-neutral-400 to-neutral-700",
+    accent: "neutral-100",
+    icon: "📸",
   },
   {
     title: "TheJury",
@@ -50,11 +64,38 @@ const projects = [
       "Polling done right. Create polls, share them, get results. No complexity, no gimmicks, just democracy that works.",
     longDescription:
       "Back to basics polling that focuses on what matters: easy creation, simple sharing, and clear results. Perfect for settling debates, making group decisions, or just satisfying your curiosity.",
-    tech: ["React", "Node.js", "PostgreSQL", "Express", "Tailwind"],
+    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
     category: "Polling Platform",
-    color: "from-rose-500 to-pink-600",
+    color: "from-emerald-700 to-emerald-500",
     accent: "rose-400",
     icon: "⚖️",
+  },
+  {
+    title: "Ostracon",
+    url: "https://ostracon.app",
+    description:
+      "Back to basics social media. Express yourself, share your thoughts, and connect with others.",
+    longDescription:
+      "Remember when hopping on social media was all about likes, followers, and being yourself, rather than a place" +
+      " to push the news? Ostracon goes back to basics and gives you a space to just do that.",
+    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
+    category: "Social Platform",
+    color: "from-yellow-500 to-orange-500",
+    accent: "yellow-400",
+    icon: "💬",
+  },
+  {
+    title: "FairDinkum",
+    url: "https://fairdinkum.app",
+    description:
+      "Polling done right. Create polls, share them, get results. No complexity, no gimmicks, just democracy that works.",
+    longDescription:
+      "Back to basics polling that focuses on what matters: easy creation, simple sharing, and clear results. Perfect for settling debates, making group decisions, or just satisfying your curiosity.",
+    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
+    category: "Ask Questions",
+    color: "from-rose-500 to-pink-600",
+    accent: "rose-400",
+    icon: "🐨",
   },
 ];
 
@@ -184,7 +225,7 @@ export default function Home() {
             </div>
 
             {/* Projects Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12">
               {projects.map((project, index) => (
                 <div
                   key={project.title}
@@ -193,7 +234,9 @@ export default function Home() {
                   onMouseLeave={() => setHoveredProject(null)}
                 >
                   {/* Project Card */}
-                  <div className="relative h-[400px] rounded-3xl overflow-hidden bg-neutral-900/50 backdrop-blur-xl border border-white/10 transform transition-all duration-700 ease-out group-hover:scale-[1.05] group-hover:rotate-1 group-hover:border-white/30">
+                  <div
+                    className={`relative min-h-[400px] rounded-3xl overflow-hidden bg-neutral-900/50 backdrop-blur-xl border border-white/10 transform transition-all duration-700 ease-out group-hover:scale-[1.05] group-hover:rotate-1 group-hover:border-white/30`}
+                  >
                     {/* Dynamic Background */}
                     <div className="absolute inset-0">
                       <div
@@ -214,7 +257,7 @@ export default function Home() {
                     </div>
 
                     {/* Floating Icon */}
-                    <div className="absolute top-6 left-6 z-20">
+                    <div className="absolute top-6 left-3 sm:left-6 z-20">
                       <div className="relative">
                         <div
                           className={`absolute inset-0 bg-gradient-to-r ${project.color} blur-lg opacity-50 group-hover:opacity-100 transition-opacity duration-300 rounded-full`}
@@ -235,9 +278,9 @@ export default function Home() {
                     </div>
 
                     {/* Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-8 z-20 transform transition-all duration-500 group-hover:translate-y-0">
+                    <div className="px-6 sm:px-8 pt-20 pb-10 flex flex-col items-start justify-between gap-8 sm:gap-0 h-full z-20 transform transition-all duration-500 group-hover:translate-y-0">
                       {/* Tech Stack */}
-                      <div className="flex flex-wrap gap-2 mb-6 transform translate-y-4 group-hover:translate-y-0 opacity-70 group-hover:opacity-100 transition-all duration-500 delay-100">
+                      <div className="hidden sm:flex flex-wrap gap-2 mb-6 transform translate-y-4 group-hover:translate-y-0 opacity-70 group-hover:opacity-100 transition-all duration-500 delay-100">
                         {project.tech.map((tech, techIndex) => (
                           <span
                             key={tech}
@@ -250,22 +293,24 @@ export default function Home() {
                       </div>
 
                       {/* Project Title */}
-                      <h3 className="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight transform transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-neutral-300">
-                        {project.title}
-                      </h3>
+                      <section className={`flex-grow mb-6`}>
+                        <h3 className="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight transform transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-neutral-300">
+                          {project.title}
+                        </h3>
 
-                      {/* Descriptions */}
-                      <div className="space-y-3 mb-6">
-                        <p className="text-neutral-300 leading-relaxed text-sm group-hover:opacity-0 transition-opacity duration-300">
-                          {project.description}
-                        </p>
-                        <p className="text-white/90 leading-relaxed text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 transform translate-y-4 group-hover:translate-y-0">
-                          {project.longDescription}
-                        </p>
-                      </div>
+                        {/* Descriptions */}
+                        <div className="space-y-3 mb-0">
+                          <p className="text-neutral-300 leading-relaxed text-sm sm:group-hover:opacity-0 transition-opacity duration-300">
+                            {project.description}
+                          </p>
+                          <p className="hidden sm:block text-white/90 leading-relaxed text-sm sm:opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 transform sm:translate-y-4 group-hover:translate-y-0">
+                            {project.longDescription}
+                          </p>
+                        </div>
+                      </section>
 
                       {/* Visit Button */}
-                      <a
+                      <Link
                         href={project.url}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -285,12 +330,12 @@ export default function Home() {
                             />
                           </svg>
                         </div>
-                      </a>
+                      </Link>
                     </div>
 
                     {/* Hover Glow Effect */}
                     <div
-                      className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${project.color} opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-xl`}
+                      className={`pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-r ${project.color} opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-xl`}
                     />
                   </div>
 
@@ -310,13 +355,12 @@ export default function Home() {
         {/* Footer Call to Action */}
         <section className="py-24 px-6 sm:px-12 text-center">
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-4xl sm:text-5xl font-black mb-6 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
-              Ready for Your Own Experiment?
+            <h3 className="p-2 text-4xl sm:text-5xl font-black mb-6 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
+              Got something brewing?
             </h3>
             <p className="text-xl text-neutral-400 mb-12">
-              Let's concoct something extraordinary together. Bring us your
-              impossible ideas, and we'll show you what methodical madness can
-              achieve.
+              Hit me up with your project idea and I'd love to collaborate with
+              you!
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -330,6 +374,17 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <footer className={`p-4 text-center text-xs text-neutral-500`}>
+          MadStoneDev sometimes operates at part of{" "}
+          <Link
+            href={`https://ravenci.solutions`}
+            target="_blank"
+            className={`hover:p-1 hover:scale-105 hover:bg-primary text-primary hover:text-white transition-all duration-300`}
+          >
+            RAVENCI
+          </Link>
+        </footer>
       </div>
     </div>
   );

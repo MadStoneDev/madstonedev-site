@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import MainNavigation from "@/components/sections/main-navigation";
 
 // Move FloatingInput outside the main component to prevent re-creation
@@ -167,6 +166,7 @@ export default function ContactPage() {
   const [focusedField, setFocusedField] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -178,16 +178,44 @@ export default function ContactPage() {
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    // Clear error when user starts typing
+    if (error) {
+      setError("");
+    }
   };
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
+    setError(""); // Clear any previous errors
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false);
-    setSubmitted(true);
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        // Handle HTTP error responses
+        const errorData = await response.json().catch(() => ({}));
+        setError(
+          errorData.message ||
+            `Failed to send message (${response.status}). Please try again or contact us directly.`,
+        );
+      }
+    } catch (error) {
+      // Handle network errors
+      console.error("Network error:", error);
+      setError(
+        "Unable to send message. Please check your internet connection and try again, or contact us directly.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const BudgetSelector = () => {
@@ -260,11 +288,11 @@ export default function ContactPage() {
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-black mb-6 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
-            EXPERIMENT RECEIVED!
+            MESSAGE RECEIVED!
           </h1>
           <p className="text-xl text-neutral-400 mb-8">
-            Your message has been transmitted to our laboratory. We'll begin
-            brewing your solution and respond within 24 hours.
+            Thank you. I will read your message and get back to you within 24
+            hours.
           </p>
           <button
             onClick={() => {
@@ -278,6 +306,7 @@ export default function ContactPage() {
                 message: "",
               });
               setFocusedField("");
+              setError("");
             }}
             className="px-8 py-4 bg-gradient-to-r from-[#E81863] to-pink-600 text-white font-bold rounded-2xl hover:scale-105 transition-all duration-300"
           >
@@ -359,6 +388,52 @@ export default function ContactPage() {
               it!
             </p>
           </div>
+
+          {/* Error Message */}
+          {error && (
+            <div className="max-w-4xl mx-auto mb-8">
+              <div className="relative p-6 bg-gradient-to-r from-red-500/10 to-pink-500/10 backdrop-blur-xl rounded-2xl border border-red-500/30 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 to-pink-500/5 animate-pulse" />
+                <div className="relative flex items-start gap-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">
+                      Oops! Something went wrong
+                    </h3>
+                    <p className="text-white/80">{error}</p>
+                  </div>
+                  <button
+                    onClick={() => setError("")}
+                    className="flex-shrink-0 ml-auto text-white/60 hover:text-white transition-colors"
+                  >
+                    <svg
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Contact Form */}
           <div className="max-w-4xl mx-auto space-y-8">
