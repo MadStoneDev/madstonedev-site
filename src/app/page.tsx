@@ -18,12 +18,14 @@ interface Project {
 
 const projects = [
   {
-    title: "The Watchman Reviews",
-    url: "https://thewatchmanreviews.com",
+    title: "JustReel",
+    url: "https://justreel.ap",
     description:
-      "Authentic movie and TV reviews without the fluff. Real opinions, useful stats, and shareable watchlists for actual humans.",
+      "Track shows, get involved in discussions and share movie and tv show watchlists with friends.",
     longDescription:
-      "Cut through the noise of biased reviews and affiliate marketing. Get honest takes on what's worth your time, plus tools to organize and share your watchlists with friends who actually care about your taste.",
+      "A TV Show tracker that does away with the noise. Talk about movies, shows, seasons and episodes with others" +
+      " in the community and even share movie and show collections with your friends so you can both add to the" +
+      " list mark as watched!",
     tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
     category: "Movies and TV",
     color: "from-green-600 to-lime-400",

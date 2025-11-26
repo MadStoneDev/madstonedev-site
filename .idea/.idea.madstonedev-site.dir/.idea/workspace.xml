@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a753f850-7a52-45e7-ab71-fd2ddb09bdbe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.madstonedev-site.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.madstonedev-site.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/send/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/send/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sections/main-navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/main-navigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +74,8 @@
       <workItem from="1734338967261" duration="1584000" />
       <workItem from="1743028243418" duration="19029000" />
       <workItem from="1758637287521" duration="14934000" />
-      <workItem from="1760471893363" duration="1280000" />
+      <workItem from="1760471893363" duration="1574000" />
+      <workItem from="1764166767613" duration="241000" />
     </task>
     <servers />
   </component>
