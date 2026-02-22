@@ -1,7 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
+
+import MainNavigation from "@/components/sections/main-navigation";
+import AnimatedBackground from "@/components/shared/animated-background";
+import SharedFooter from "@/components/shared/footer";
 
 interface Project {
   title: string;
@@ -16,7 +19,7 @@ interface Project {
   wip?: boolean;
 }
 
-const projects = [
+const projects: Project[] = [
   {
     title: "JustReel",
     url: "https://justreel.app",
@@ -29,34 +32,8 @@ const projects = [
     tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
     category: "Movies and TV",
     color: "from-green-600 to-lime-400",
-    accent: "lime-500",
+    accent: "#84cc16",
     icon: "🎬",
-  },
-  {
-    title: "JustNoted",
-    url: "https://justnoted.app",
-    description:
-      "Note-taking that gets out of your way. Jot down ideas, write novels, make to-do lists. No bloat, no distractions.",
-    longDescription:
-      "Tired of note apps that do everything except let you take notes quickly? This one starts instantly, saves automatically, and won't try to organize your life for you. Just pure, fast writing.",
-    tech: ["Next.js", "Typescript", "Upstash", "Supabase", "LocalStorage"],
-    category: "Note Taking",
-    color: "from-indigo-600 to-blue-400",
-    accent: "amber-400",
-    icon: "📝",
-  },
-  {
-    title: "beforeAftr",
-    url: "https://beforeaftr.me",
-    description:
-      "Simple picture comparison tool that actually works. Upload two images, see the differences, judge the quality.",
-    longDescription:
-      "Sometimes you just need to compare two photos side-by-side without jumping through hoops. Perfect for before/after shots, quality comparisons, or settling debates about which photo looks better.",
-    tech: ["Next.js"],
-    category: "Image Tool",
-    color: "from-neutral-400 to-neutral-700",
-    accent: "neutral-100",
-    icon: "📸",
   },
   {
     title: "TheJury",
@@ -68,53 +45,21 @@ const projects = [
     tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
     category: "Polling Platform",
     color: "from-emerald-700 to-emerald-500",
-    accent: "rose-400",
+    accent: "#fb7185",
     icon: "⚖️",
   },
   {
-    title: "Ostracon",
-    url: "https://ostracon.app",
+    title: "JustNoted",
+    url: "https://justnoted.app",
     description:
-      "Back to basics social media. Express yourself, share your thoughts, and connect with others.",
+      "Note-taking that gets out of your way. Jot down ideas, write novels, make to-do lists. No bloat, no distractions.",
     longDescription:
-      "Remember when hopping on social media was all about likes, followers, and being yourself, rather than a place" +
-      " to push the news? Ostracon goes back to basics and gives you a space to just do that.",
-    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
-    category: "Social Platform",
-    color: "from-yellow-500 to-orange-500",
-    accent: "yellow-400",
-    icon: "💬",
-    wip: true,
-  },
-  {
-    title: "FairDinkum",
-    url: "https://fairdinkum.app",
-    description:
-      "Polling done right. Create polls, share them, get results. No complexity, no gimmicks, just democracy that works.",
-    longDescription:
-      "Back to basics polling that focuses on what matters: easy creation, simple sharing, and clear results. Perfect for settling debates, making group decisions, or just satisfying your curiosity.",
-    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
-    category: "Ask Questions",
-    color: "from-rose-500 to-pink-600",
-    accent: "rose-400",
-    icon: "🐨",
-    wip: true,
-  },
-  {
-    title: "be.vocl",
-    url: "https://bevocl.app",
-    description:
-      "A content sharing platform built with safety at its core. Share your creativity with a community that actually cares.",
-    longDescription:
-      "Think Tumblr, but built from the ground up with real safety measures. Share text, images, videos, and audio with" +
-      " a community that values creative expression while maintaining strict content moderation and zero-tolerance" +
-      " safety policies. Because creative freedom and safety aren't mutually exclusive.",
-    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind", "Cloudflare R2"],
-    category: "Social Platform",
-    color: "from-purple-600 to-violet-400",
-    accent: "violet-400",
-    icon: "🎭",
-    wip: true,
+      "Tired of note apps that do everything except let you take notes quickly? This one starts instantly, saves automatically, and won't try to organize your life for you. Just pure, fast writing.",
+    tech: ["Next.js", "Typescript", "Upstash", "Supabase", "LocalStorage"],
+    category: "Note Taking",
+    color: "from-indigo-600 to-blue-400",
+    accent: "#fbbf24",
+    icon: "📝",
   },
   {
     title: "iLoveBoardGames",
@@ -127,7 +72,7 @@ const projects = [
     tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
     category: "Board Games",
     color: "from-amber-600 to-yellow-500",
-    accent: "amber-400",
+    accent: "#fbbf24",
     icon: "🎲",
   },
   {
@@ -142,62 +87,80 @@ const projects = [
     tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
     category: "Game Tracker",
     color: "from-cyan-600 to-teal-400",
-    accent: "cyan-400",
+    accent: "#22d3ee",
     icon: "⏱️",
+  },
+  {
+    title: "be.vocl",
+    url: "https://bevocl.app",
+    description:
+      "A content sharing platform built with safety at its core. Share your creativity with a community that actually cares.",
+    longDescription:
+      "Think Tumblr, but built from the ground up with real safety measures. Share text, images, videos, and audio with" +
+      " a community that values creative expression while maintaining strict content moderation and zero-tolerance" +
+      " safety policies. Because creative freedom and safety aren't mutually exclusive.",
+    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind", "Cloudflare R2"],
+    category: "Social Platform",
+    color: "from-purple-600 to-violet-400",
+    accent: "#a78bfa",
+    icon: "🎭",
+    wip: true,
+  },
+  {
+    title: "Ostracon",
+    url: "https://ostracon.app",
+    description:
+      "Back to basics social media. Express yourself, share your thoughts, and connect with others.",
+    longDescription:
+      "Remember when hopping on social media was all about likes, followers, and being yourself, rather than a place" +
+      " to push the news? Ostracon goes back to basics and gives you a space to just do that.",
+    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
+    category: "Social Platform",
+    color: "from-yellow-500 to-orange-500",
+    accent: "#facc15",
+    icon: "💬",
+    wip: true,
+  },
+  {
+    title: "FairDinkum",
+    url: "https://fairdinkum.app",
+    description:
+      "Polling done right. Create polls, share them, get results. No complexity, no gimmicks, just democracy that works.",
+    longDescription:
+      "Back to basics polling that focuses on what matters: easy creation, simple sharing, and clear results. Perfect for settling debates, making group decisions, or just satisfying your curiosity.",
+    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
+    category: "Ask Questions",
+    color: "from-rose-500 to-pink-600",
+    accent: "#fb7185",
+    icon: "🐨",
+    wip: true,
+  },
+  {
+    title: "beforeAftr",
+    url: "https://beforeaftr.me",
+    description:
+      "Simple picture comparison tool that actually works. Upload two images, see the differences, judge the quality.",
+    longDescription:
+      "Sometimes you just need to compare two photos side-by-side without jumping through hoops. Perfect for before/after shots, quality comparisons, or settling debates about which photo looks better.",
+    tech: ["Next.js"],
+    category: "Image Tool",
+    color: "from-neutral-400 to-neutral-700",
+    accent: "#f5f5f5",
+    icon: "📸",
   },
 ];
 
 export default function Home() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Animated Background */}
-      <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-black to-neutral-900" />
-
-        {/* Floating Particles */}
-        <div className="absolute inset-0">
-          {[...Array(50)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-[#E81863] rounded-full opacity-20 animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Dynamic Cursor Glow */}
-        <div
-          className="absolute w-96 h-96 pointer-events-none transition-all duration-300 ease-out"
-          style={{
-            left: mousePosition.x - 192,
-            top: mousePosition.y - 192,
-            background:
-              "radial-gradient(circle, rgba(232, 24, 99, 0.1) 0%, transparent 70%)",
-          }}
-        />
-
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(232,24,99,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(232,24,99,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
-      </div>
+      <AnimatedBackground particleCount={50} />
 
       {/* Main Content */}
       <div className="relative z-10">
+        {/* Navigation */}
+        <MainNavigation />
+
         {/* Hero Section */}
         <section className="min-h-screen flex items-center justify-center px-6 sm:px-12">
           <div className="text-center max-w-6xl mx-auto">
@@ -277,32 +240,30 @@ export default function Home() {
               {projects.map((project, index) => (
                 <div
                   key={project.title}
-                  className="group relative cursor-pointer"
-                  onMouseEnter={() => setHoveredProject(index)}
-                  onMouseLeave={() => setHoveredProject(null)}
+                  className={`group relative cursor-pointer ${
+                    index === projects.length - 1 && projects.length % 2 !== 0
+                      ? "xl:col-span-2 xl:max-w-[calc(50%-1.5rem)] xl:justify-self-center"
+                      : ""
+                  }`}
                 >
                   {/* Project Card */}
-                  <div
-                    className={`relative min-h-[400px] rounded-3xl overflow-hidden bg-neutral-900/50 backdrop-blur-xl border border-white/10 transform transition-all duration-700 ease-out group-hover:scale-[1.05] group-hover:rotate-1 group-hover:border-white/30`}
-                  >
+                  <div className="relative min-h-[400px] rounded-3xl overflow-hidden bg-neutral-900/50 backdrop-blur-xl border border-white/10 transform transition-all duration-500 ease-out group-hover:scale-[1.02] group-hover:border-white/30">
                     {/* Dynamic Background */}
                     <div className="absolute inset-0">
                       <div
                         className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-10 group-hover:opacity-30 transition-opacity duration-500`}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-
-                      {/* Animated Mesh Gradient */}
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-20 transition-all duration-700 blur-3xl`}
-                        style={{
-                          transform:
-                            hoveredProject === index
-                              ? "scale(1.5) rotate(180deg)"
-                              : "scale(1) rotate(0deg)",
-                        }}
-                      />
                     </div>
+
+                    {/* WIP Badge */}
+                    {project.wip && (
+                      <div className="absolute top-16 left-3 sm:left-6 z-30">
+                        <span className="px-3 py-1 text-xs font-bold bg-amber-500/20 text-amber-400 rounded-full border border-amber-500/30 backdrop-blur-sm">
+                          Coming Soon
+                        </span>
+                      </div>
+                    )}
 
                     {/* Floating Icon */}
                     <div className="absolute top-6 left-3 sm:left-6 z-20">
@@ -310,7 +271,7 @@ export default function Home() {
                         <div
                           className={`absolute inset-0 bg-gradient-to-r ${project.color} blur-lg opacity-50 group-hover:opacity-100 transition-opacity duration-300 rounded-full`}
                         />
-                        <div className="relative text-4xl transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">
+                        <div className="relative text-4xl transform group-hover:scale-110 transition-all duration-300">
                           {project.icon}
                         </div>
                       </div>
@@ -319,7 +280,13 @@ export default function Home() {
                     {/* Category Tag */}
                     <div className="absolute top-6 right-6 z-20">
                       <span
-                        className={`px-4 py-2 text-sm font-bold bg-${project.accent}/20 text-${project.accent} rounded-full backdrop-blur-sm border border-${project.accent}/30 transform group-hover:scale-110 transition-all duration-300`}
+                        className="px-4 py-2 text-sm font-bold rounded-full backdrop-blur-sm transform group-hover:scale-110 transition-all duration-300"
+                        style={{
+                          backgroundColor: project.accent + "33",
+                          color: project.accent,
+                          borderWidth: "1px",
+                          borderColor: project.accent + "4d",
+                        }}
                       >
                         {project.category}
                       </span>
@@ -341,7 +308,7 @@ export default function Home() {
                       </div>
 
                       {/* Project Title */}
-                      <section className={`flex-grow mb-6`}>
+                      <section className="flex-grow mb-6">
                         <h3 className="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight transform transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-neutral-300">
                           {project.title}
                         </h3>
@@ -358,27 +325,33 @@ export default function Home() {
                       </section>
 
                       {/* Visit Button */}
-                      <Link
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r ${project.color} text-white font-bold rounded-xl transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-${project.accent}/30 group/btn`}
-                      >
-                        <span>Enter the Lab</span>
-                        <div className="transform group-hover/btn:translate-x-1 group-hover/btn:rotate-45 transition-all duration-300">
-                          <svg
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            viewBox="0 0 16 16"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                            />
-                          </svg>
-                        </div>
-                      </Link>
+                      {project.wip ? (
+                        <span className="inline-flex items-center gap-3 px-6 py-3 border border-white/20 text-white/50 font-bold rounded-xl cursor-default">
+                          <span>Coming Soon</span>
+                        </span>
+                      ) : (
+                        <Link
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r ${project.color} text-white font-bold rounded-xl transform transition-all duration-300 hover:scale-105 hover:shadow-lg group/btn`}
+                        >
+                          <span>Enter the Lab</span>
+                          <div className="transform group-hover/btn:translate-x-1 group-hover/btn:rotate-45 transition-all duration-300">
+                            <svg
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                              />
+                            </svg>
+                          </div>
+                        </Link>
+                      )}
                     </div>
 
                     {/* Hover Glow Effect */}
@@ -386,14 +359,6 @@ export default function Home() {
                       className={`pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-r ${project.color} opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-xl`}
                     />
                   </div>
-
-                  {/* Floating Accent Elements */}
-                  <div
-                    className={`absolute -top-3 -right-3 w-6 h-6 bg-${project.accent} rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300 animate-pulse`}
-                  />
-                  <div
-                    className={`absolute -bottom-3 -left-3 w-4 h-4 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-500`}
-                  />
                 </div>
               ))}
             </div>
@@ -423,16 +388,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className={`p-4 text-center text-xs text-neutral-500`}>
-          MadStoneDev sometimes operates at part of{" "}
-          <Link
-            href={`https://ravenci.solutions`}
-            target="_blank"
-            className={`hover:p-1 hover:scale-105 hover:bg-primary text-primary hover:text-white transition-all duration-300`}
-          >
-            RAVENCI
-          </Link>
-        </footer>
+        <SharedFooter />
       </div>
     </div>
   );

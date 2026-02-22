@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import MainNavigation from "@/components/sections/main-navigation";
+import AnimatedBackground from "@/components/shared/animated-background";
+import SharedFooter from "@/components/shared/footer";
 
 // Move FloatingInput outside the main component to prevent re-creation
 const FloatingInput = ({
@@ -154,7 +156,6 @@ const FloatingInput = ({
 };
 
 export default function ContactPage() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -167,14 +168,6 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -320,54 +313,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
       {/* Animated Background */}
-      <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-black to-neutral-900" />
-
-        {/* Laboratory Equipment Silhouettes */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute top-20 left-10 w-32 h-32 border-4 border-[#E81863] rounded-full animate-spin"
-            style={{ animationDuration: "20s" }}
-          />
-          <div className="absolute top-40 right-20 w-24 h-48 border-4 border-white/20 rounded-full animate-pulse" />
-          <div
-            className="absolute bottom-40 left-1/4 w-16 h-16 bg-gradient-to-r from-[#E81863]/20 to-purple-500/20 rounded-lg animate-bounce"
-            style={{ animationDuration: "3s" }}
-          />
-        </div>
-
-        {/* Dynamic Cursor Glow */}
-        <div
-          className="absolute w-96 h-96 pointer-events-none transition-all duration-300 ease-out"
-          style={{
-            left: mousePosition.x - 192,
-            top: mousePosition.y - 192,
-            background:
-              "radial-gradient(circle, rgba(232, 24, 99, 0.1) 0%, transparent 70%)",
-          }}
-        />
-
-        {/* Floating Particles */}
-        <div className="absolute inset-0">
-          {[...Array(30)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-[#E81863] rounded-full opacity-30"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${
-                  3 + Math.random() * 4
-                }s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 2}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(232,24,99,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(232,24,99,0.02)_1px,transparent_1px)] bg-[size:100px_100px]" />
-      </div>
+      <AnimatedBackground particleCount={30} />
 
       {/* Header */}
       <MainNavigation />
@@ -559,7 +505,7 @@ export default function ContactPage() {
               </a>
 
               <a
-                href="tel:+1234567890"
+                href="tel:+61426238272"
                 className="flex items-center gap-4 px-6 py-4 bg-white/5 hover:bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 hover:border-[#E81863]/30 transition-all duration-300 hover:scale-105"
               >
                 <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
@@ -572,17 +518,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(180deg);
-          }
-        }
-      `}</style>
+      <SharedFooter />
     </div>
   );
 }
