@@ -19,7 +19,7 @@ interface Project {
 const projects = [
   {
     title: "JustReel",
-    url: "https://justreel.ap",
+    url: "https://justreel.app",
     description:
       "Track shows, get involved in discussions and share movie and tv show watchlists with friends.",
     longDescription:
@@ -31,7 +31,6 @@ const projects = [
     color: "from-green-600 to-lime-400",
     accent: "lime-500",
     icon: "🎬",
-    wip: true,
   },
   {
     title: "JustNoted",
@@ -85,6 +84,7 @@ const projects = [
     color: "from-yellow-500 to-orange-500",
     accent: "yellow-400",
     icon: "💬",
+    wip: true,
   },
   {
     title: "FairDinkum",
@@ -98,6 +98,52 @@ const projects = [
     color: "from-rose-500 to-pink-600",
     accent: "rose-400",
     icon: "🐨",
+    wip: true,
+  },
+  {
+    title: "be.vocl",
+    url: "https://bevocl.app",
+    description:
+      "A content sharing platform built with safety at its core. Share your creativity with a community that actually cares.",
+    longDescription:
+      "Think Tumblr, but built from the ground up with real safety measures. Share text, images, videos, and audio with" +
+      " a community that values creative expression while maintaining strict content moderation and zero-tolerance" +
+      " safety policies. Because creative freedom and safety aren't mutually exclusive.",
+    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind", "Cloudflare R2"],
+    category: "Social Platform",
+    color: "from-purple-600 to-violet-400",
+    accent: "violet-400",
+    icon: "🎭",
+    wip: true,
+  },
+  {
+    title: "iLoveBoardGames",
+    url: "https://iloveboardgames.xyz",
+    description:
+      "Discover board games, build your collection, rate your favourites and find your next game night adventure.",
+    longDescription:
+      "A board game discovery and collection management platform powered by BoardGameGeek data. Browse trending and" +
+      " top-rated titles, organise your collection, write reviews, and never show up to game night without a plan again.",
+    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
+    category: "Board Games",
+    color: "from-amber-600 to-yellow-500",
+    accent: "amber-400",
+    icon: "🎲",
+  },
+  {
+    title: "TurnTally",
+    url: "https://turntally.madstone.dev",
+    description:
+      "Track every second, analyse every move, and prove who's the real board game champion at your table.",
+    longDescription:
+      "A board game session tracker that records turn times, maintains player statistics, and settles debates with cold," +
+      " hard data. Manage your game vault, track player performance across sessions, and compete on leaderboards." +
+      " No more arguments — just numbers.",
+    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
+    category: "Game Tracker",
+    color: "from-cyan-600 to-teal-400",
+    accent: "cyan-400",
+    icon: "⏱️",
   },
 ];
 
