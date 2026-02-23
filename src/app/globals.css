@@ -4,8 +4,18 @@
   --color-primary: #E81863;
   --font-sans: var(--font-lexend);
   --font-display: var(--font-lilita-one);
+  --animate-bounce-gentle: bounce-gentle 2s ease-in-out infinite;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
 }

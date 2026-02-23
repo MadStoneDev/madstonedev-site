@@ -34,12 +34,8 @@ export default function MainNavigation() {
           </Link>
 
           <Link
-            href="/about"
-            className={`relative text-sm text-center font-display transition-all duration-200 ${
-              pathname === "/about"
-                ? "text-primary"
-                : "text-white hover:text-primary"
-            }`}
+            href="/#about"
+            className={`relative text-sm text-center font-display transition-all duration-200 text-white hover:text-primary`}
           >
             ABOUT
           </Link>

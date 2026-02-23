@@ -1,6 +1,23 @@
 "use client";
 
 import Link from "next/link";
+import {
+  Clapperboard,
+  Scale,
+  NotebookPen,
+  Dice5,
+  Timer,
+  Drama,
+  MessageCircle,
+  CircleHelp,
+  Columns2,
+  ChevronsDown,
+  Monitor,
+  Palette,
+  Zap,
+  Rocket,
+  LucideIcon,
+} from "lucide-react";
 
 import MainNavigation from "@/components/sections/main-navigation";
 import AnimatedBackground from "@/components/shared/animated-background";
@@ -15,7 +32,7 @@ interface Project {
   category: string;
   color: string;
   accent: string;
-  icon: string;
+  icon: LucideIcon;
   wip?: boolean;
 }
 
@@ -33,7 +50,7 @@ const projects: Project[] = [
     category: "Movies and TV",
     color: "from-green-600 to-lime-400",
     accent: "#84cc16",
-    icon: "🎬",
+    icon: Clapperboard,
   },
   {
     title: "TheJury",
@@ -46,7 +63,7 @@ const projects: Project[] = [
     category: "Polling Platform",
     color: "from-emerald-700 to-emerald-500",
     accent: "#fb7185",
-    icon: "⚖️",
+    icon: Scale,
   },
   {
     title: "JustNoted",
@@ -59,7 +76,7 @@ const projects: Project[] = [
     category: "Note Taking",
     color: "from-indigo-600 to-blue-400",
     accent: "#fbbf24",
-    icon: "📝",
+    icon: NotebookPen,
   },
   {
     title: "iLoveBoardGames",
@@ -73,7 +90,7 @@ const projects: Project[] = [
     category: "Board Games",
     color: "from-amber-600 to-yellow-500",
     accent: "#fbbf24",
-    icon: "🎲",
+    icon: Dice5,
   },
   {
     title: "TurnTally",
@@ -88,7 +105,7 @@ const projects: Project[] = [
     category: "Game Tracker",
     color: "from-cyan-600 to-teal-400",
     accent: "#22d3ee",
-    icon: "⏱️",
+    icon: Timer,
   },
   {
     title: "be.vocl",
@@ -103,7 +120,7 @@ const projects: Project[] = [
     category: "Social Platform",
     color: "from-purple-600 to-violet-400",
     accent: "#a78bfa",
-    icon: "🎭",
+    icon: Drama,
     wip: true,
   },
   {
@@ -118,7 +135,7 @@ const projects: Project[] = [
     category: "Social Platform",
     color: "from-yellow-500 to-orange-500",
     accent: "#facc15",
-    icon: "💬",
+    icon: MessageCircle,
     wip: true,
   },
   {
@@ -132,7 +149,7 @@ const projects: Project[] = [
     category: "Ask Questions",
     color: "from-rose-500 to-pink-600",
     accent: "#fb7185",
-    icon: "🐨",
+    icon: CircleHelp,
     wip: true,
   },
   {
@@ -146,7 +163,38 @@ const projects: Project[] = [
     category: "Image Tool",
     color: "from-neutral-400 to-neutral-700",
     accent: "#f5f5f5",
-    icon: "📸",
+    icon: Columns2,
+  },
+];
+
+const whatIDo = [
+  {
+    icon: Monitor,
+    title: "Full-Stack Development",
+    description:
+      "From sleek Next.js applications to robust backend systems, I build modern web experiences using TypeScript, React, Supabase, and cutting-edge tools. Every project is crafted for performance, scalability, and that \"wow\" factor.",
+    gradient: "from-[#E81863]/10 to-purple-500/10",
+  },
+  {
+    icon: Palette,
+    title: "Design That Dares",
+    description:
+      "Bold gradients, micro-interactions, glassmorphism\u2014I embrace contemporary design trends while ensuring every interface is intuitive and accessible. Beauty and functionality aren't mutually exclusive.",
+    gradient: "from-purple-500/10 to-blue-500/10",
+  },
+  {
+    icon: Zap,
+    title: "Rapid Experimentation",
+    description:
+      "My laboratory is filled with projects\u2014from movie review platforms to polling apps to social networks. Each one is an experiment in solving real problems with creative solutions. Some boom, some shine, all teach something valuable.",
+    gradient: "from-blue-500/10 to-green-500/10",
+  },
+  {
+    icon: Rocket,
+    title: "Real-World Solutions",
+    description:
+      "Whether it's an e-commerce platform, a SaaS application, or a mobile app, I focus on building tools that people actually want to use. No bloat. No unnecessary complexity. Just smart solutions that work.",
+    gradient: "from-green-500/10 to-[#E81863]/10",
   },
 ];
 
@@ -162,7 +210,7 @@ export default function Home() {
         <MainNavigation />
 
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center px-6 sm:px-12">
+        <section className="relative min-h-screen flex items-center justify-center px-6 sm:px-12">
           <div className="text-center max-w-6xl mx-auto">
             {/* Logo Animation */}
             <div className="mb-8 relative inline-block group">
@@ -219,6 +267,92 @@ export default function Home() {
               </Link>
             </div>
           </div>
+
+          {/* Scroll Indicator */}
+          <Link
+            href="#about"
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-40 hover:opacity-70 transition-opacity duration-300"
+          >
+            <ChevronsDown
+              size={32}
+              strokeWidth={1.5}
+              className="text-white animate-bounce-gentle"
+            />
+          </Link>
+        </section>
+
+        {/* About Section */}
+        <section className="py-24 px-6 sm:px-12" id="about">
+          <div className="max-w-6xl mx-auto">
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <h2 className="text-5xl sm:text-6xl font-black mb-6 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
+                THE MAD SCIENTIST
+              </h2>
+              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-[#E81863] to-transparent mx-auto" />
+            </div>
+
+            {/* Philosophy Card */}
+            <div className="max-w-4xl mx-auto mb-16">
+              <div className="relative p-8 sm:p-12 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl rounded-3xl border border-white/20 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#E81863]/5 to-purple-500/5 opacity-50" />
+
+                <div className="relative space-y-6 text-lg leading-relaxed">
+                  <p className="text-neutral-300">
+                    I don't just build websites—I create digital experiences that
+                    break the mold. Why? Because following the same tired
+                    playbook everyone else uses isn't how you make something
+                    memorable.
+                  </p>
+
+                  <p className="text-neutral-300">
+                    <strong className="text-white">
+                      The philosophy is simple:
+                    </strong>{" "}
+                    Just because something has always been done one way doesn't
+                    mean it's the best way. Innovation requires courage to
+                    experiment, iterate, and sometimes completely reimagine
+                    what's possible.
+                  </p>
+
+                  <p className="text-neutral-300">
+                    Think of it as a laboratory where conventional wisdom gets
+                    challenged, tested, and often exploded in favor of something
+                    better. Sometimes experiments fail spectacularly. But when
+                    they succeed? That's when magic happens.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* What I Do Grid */}
+            <div className="grid md:grid-cols-2 gap-8">
+              {whatIDo.map((item) => (
+                <div
+                  key={item.title}
+                  className="group relative p-8 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-[#E81863]/30 transition-all duration-300"
+                >
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl`}
+                  />
+
+                  <div className="relative">
+                    <item.icon
+                      size={36}
+                      strokeWidth={1.5}
+                      className="text-white mb-4"
+                    />
+                    <h3 className="text-2xl font-bold text-white mb-4">
+                      {item.title}
+                    </h3>
+                    <p className="text-neutral-400 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* Projects Section */}
@@ -271,8 +405,12 @@ export default function Home() {
                         <div
                           className={`absolute inset-0 bg-gradient-to-r ${project.color} blur-lg opacity-50 group-hover:opacity-100 transition-opacity duration-300 rounded-full`}
                         />
-                        <div className="relative text-4xl transform group-hover:scale-110 transition-all duration-300">
-                          {project.icon}
+                        <div className="relative transform group-hover:scale-110 transition-all duration-300">
+                          <project.icon
+                            size={36}
+                            strokeWidth={1.5}
+                            className="text-white"
+                          />
                         </div>
                       </div>
                     </div>
@@ -366,14 +504,13 @@ export default function Home() {
         </section>
 
         {/* Footer Call to Action */}
-        <section className="py-24 px-6 sm:px-12 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h3 className="p-2 text-4xl sm:text-5xl font-black mb-6 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
+        <section className="py-16 px-6 sm:px-12 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h3 className="p-2 text-3xl sm:text-4xl font-black mb-6 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
               Got something brewing?
             </h3>
-            <p className="text-xl text-neutral-400 mb-12">
-              Hit me up with your project idea and I'd love to collaborate with
-              you!
+            <p className="text-lg text-neutral-400 mb-12">
+              Let's collaborate on your next project.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
