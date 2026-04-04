@@ -10,6 +10,7 @@ import {
   Drama,
   MessageCircle,
   CircleHelp,
+    Swords,
   Columns2,
   ChevronsDown,
   Monitor,
@@ -79,6 +80,19 @@ const projects: Project[] = [
     icon: NotebookPen,
   },
   {
+    title: "TableTop Chronicles",
+    url: "https://tabletopchronicles.app",
+    description:
+        "The campaign management platform for tabletop RPGs. Track characters, log sessions, manage battles, and bring your world to life.",
+    longDescription:
+        "The campaign management platform for tabletop RPGs. Track characters, log sessions, manage battles, and bring your world to life.",
+    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage"],
+    category: "TableTop Gaming",
+    color: "from-teal-600 to-blue-400",
+    accent: "#fbbf24",
+    icon: Swords,
+  },
+  {
     title: "iLoveBoardGames",
     url: "https://iloveboardgames.xyz",
     description:
@@ -87,7 +101,7 @@ const projects: Project[] = [
       "A board game discovery and collection management platform powered by BoardGameGeek data. Browse trending and" +
       " top-rated titles, organise your collection, write reviews, and never show up to game night without a plan again.",
     tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
-    category: "Board Games",
+    category: "TableTop Gaming",
     color: "from-amber-600 to-yellow-500",
     accent: "#fbbf24",
     icon: Dice5,
@@ -107,51 +121,51 @@ const projects: Project[] = [
     accent: "#22d3ee",
     icon: Timer,
   },
-  {
-    title: "be.vocl",
-    url: "https://bevocl.app",
-    description:
-      "A content sharing platform built with safety at its core. Share your creativity with a community that actually cares.",
-    longDescription:
-      "Think Tumblr, but built from the ground up with real safety measures. Share text, images, videos, and audio with" +
-      " a community that values creative expression while maintaining strict content moderation and zero-tolerance" +
-      " safety policies. Because creative freedom and safety aren't mutually exclusive.",
-    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind", "Cloudflare R2"],
-    category: "Social Platform",
-    color: "from-purple-600 to-violet-400",
-    accent: "#a78bfa",
-    icon: Drama,
-    wip: true,
-  },
-  {
-    title: "Ostracon",
-    url: "https://ostracon.app",
-    description:
-      "Back to basics social media. Express yourself, share your thoughts, and connect with others.",
-    longDescription:
-      "Remember when hopping on social media was all about likes, followers, and being yourself, rather than a place" +
-      " to push the news? Ostracon goes back to basics and gives you a space to just do that.",
-    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
-    category: "Social Platform",
-    color: "from-yellow-500 to-orange-500",
-    accent: "#facc15",
-    icon: MessageCircle,
-    wip: true,
-  },
-  {
-    title: "FairDinkum",
-    url: "https://fairdinkum.app",
-    description:
-      "Polling done right. Create polls, share them, get results. No complexity, no gimmicks, just democracy that works.",
-    longDescription:
-      "Back to basics polling that focuses on what matters: easy creation, simple sharing, and clear results. Perfect for settling debates, making group decisions, or just satisfying your curiosity.",
-    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
-    category: "Ask Questions",
-    color: "from-rose-500 to-pink-600",
-    accent: "#fb7185",
-    icon: CircleHelp,
-    wip: true,
-  },
+  // {
+  //   title: "be.vocl",
+  //   url: "https://bevocl.app",
+  //   description:
+  //     "A content sharing platform built with safety at its core. Share your creativity with a community that actually cares.",
+  //   longDescription:
+  //     "Think Tumblr, but built from the ground up with real safety measures. Share text, images, videos, and audio with" +
+  //     " a community that values creative expression while maintaining strict content moderation and zero-tolerance" +
+  //     " safety policies. Because creative freedom and safety aren't mutually exclusive.",
+  //   tech: ["Next.js", "TypeScript", "Supabase", "Tailwind", "Cloudflare R2"],
+  //   category: "Social Platform",
+  //   color: "from-purple-600 to-violet-400",
+  //   accent: "#a78bfa",
+  //   icon: Drama,
+  //   wip: true,
+  // },
+  // {
+  //   title: "Ostracon",
+  //   url: "https://ostracon.app",
+  //   description:
+  //     "Back to basics social media. Express yourself, share your thoughts, and connect with others.",
+  //   longDescription:
+  //     "Remember when hopping on social media was all about likes, followers, and being yourself, rather than a place" +
+  //     " to push the news? Ostracon goes back to basics and gives you a space to just do that.",
+  //   tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
+  //   category: "Social Platform",
+  //   color: "from-yellow-500 to-orange-500",
+  //   accent: "#facc15",
+  //   icon: MessageCircle,
+  //   wip: true,
+  // },
+  // {
+  //   title: "FairDinkum",
+  //   url: "https://fairdinkum.app",
+  //   description:
+  //     "Polling done right. Create polls, share them, get results. No complexity, no gimmicks, just democracy that works.",
+  //   longDescription:
+  //     "Back to basics polling that focuses on what matters: easy creation, simple sharing, and clear results. Perfect for settling debates, making group decisions, or just satisfying your curiosity.",
+  //   tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
+  //   category: "Ask Questions",
+  //   color: "from-rose-500 to-pink-600",
+  //   accent: "#fb7185",
+  //   icon: CircleHelp,
+  //   wip: true,
+  // },
   {
     title: "beforeAftr",
     url: "https://beforeaftr.me",

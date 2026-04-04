@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(cd:*)",
+      "Bash(tail:*)",
+      "Bash(head:*)",
+      "WebSearch",
+      "WebFetch(domain:lucide.dev)",
+      "Bash(cd \"/d/Development Sandbox/madstonedev-site\" && npm run build 2>&1)"
+    ]
+  }
+}
