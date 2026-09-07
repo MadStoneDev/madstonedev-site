@@ -49,6 +49,7 @@ export function middleware(request: NextRequest) {
     pathname === "/" ||
     pathname === "/about" ||
     pathname === "/contact" ||
+    pathname === "/azimuth/privacy" ||
     pathname.startsWith("/_next");
 
   if (!isKnownRoute && !isStaticAsset) {
