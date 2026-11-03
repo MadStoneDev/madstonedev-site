@@ -10,13 +10,18 @@ import {
   Drama,
   MessageCircle,
   CircleHelp,
-    Swords,
+  Swords,
   Columns2,
   ChevronsDown,
   Monitor,
   Palette,
   Zap,
   Rocket,
+  Compass,
+  Send,
+  QrCode,
+  Smartphone,
+  Globe,
   LucideIcon,
 } from "lucide-react";
 
@@ -31,6 +36,7 @@ interface Project {
   longDescription: string;
   tech: string[];
   category: string;
+  platform: "web" | "mobile";
   color: string;
   accent: string;
   icon: LucideIcon;
@@ -38,6 +44,22 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    title: "Azimuth Compass",
+    url: "/azimuth",
+    description:
+      "A precise, private compass with prismatic sighting. Line up a landmark, read its bearing, works fully offline.",
+    longDescription:
+      "A compass and prismatic-sighting app built for the field. Use the live camera view to sight a landmark and read" +
+      " its exact bearing, switch between true and magnetic north, and rely on it anywhere — it works fully offline" +
+      " with no accounts, no analytics, and no data ever leaving your device.",
+    tech: ["iOS", "Android", "On-device"],
+    category: "Navigation",
+    platform: "mobile",
+    color: "from-rose-600 to-orange-400",
+    accent: "#E81863",
+    icon: Compass,
+  },
   {
     title: "JustReel",
     url: "https://justreel.app",
@@ -49,22 +71,10 @@ const projects: Project[] = [
       " list mark as watched!",
     tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
     category: "Movies and TV",
+    platform: "web",
     color: "from-green-600 to-lime-400",
     accent: "#84cc16",
     icon: Clapperboard,
-  },
-  {
-    title: "TheJury",
-    url: "https://thejury.app",
-    description:
-      "Polling done right. Create polls, share them, get results. No complexity, no gimmicks, just democracy that works.",
-    longDescription:
-      "Back to basics polling that focuses on what matters: easy creation, simple sharing, and clear results. Perfect for settling debates, making group decisions, or just satisfying your curiosity.",
-    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
-    category: "Polling Platform",
-    color: "from-emerald-700 to-emerald-500",
-    accent: "#fb7185",
-    icon: Scale,
   },
   {
     title: "JustNoted",
@@ -75,22 +85,56 @@ const projects: Project[] = [
       "Tired of note apps that do everything except let you take notes quickly? This one starts instantly, saves automatically, and won't try to organize your life for you. Just pure, fast writing.",
     tech: ["Next.js", "Typescript", "Upstash", "Supabase", "LocalStorage"],
     category: "Note Taking",
+    platform: "web",
     color: "from-indigo-600 to-blue-400",
     accent: "#fbbf24",
     icon: NotebookPen,
   },
   {
-    title: "TableTop Chronicles",
-    url: "https://tabletopchronicles.app",
+    title: "JustSent",
+    url: "https://justsent.app",
     description:
-        "The campaign management platform for tabletop RPGs. Track characters, log sessions, manage battles, and bring your world to life.",
+      "Send anything, anywhere, anytime. Share files in real time through a room — no account, no app, just a code.",
     longDescription:
-        "The campaign management platform for tabletop RPGs. Track characters, log sessions, manage battles, and bring your world to life.",
-    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage"],
-    category: "TableTop Gaming",
-    color: "from-teal-600 to-blue-400",
-    accent: "#fbbf24",
-    icon: Swords,
+      "Open a room, share the code, and files appear on both sides in real time — straight from the browser with no" +
+      " account and no install. Everything is encrypted in transit and at rest, files expire whenever you choose, and" +
+      " each room hands you a recap of its activity when it closes.",
+    tech: ["Next.js", "TypeScript", "Encrypted", "Real-time"],
+    category: "File Sharing",
+    platform: "web",
+    color: "from-sky-600 to-blue-400",
+    accent: "#38bdf8",
+    icon: Send,
+  },
+  {
+    title: "QRmory",
+    url: "https://qrmory.com",
+    description:
+      "QR codes that don't play games. Create styled static and dynamic QR codes with scan analytics — no ads, no gotchas.",
+    longDescription:
+      "An Australian QR code generator for small business. Make free static codes or dynamic codes that point to a" +
+      " short link you can change any time without reprinting. Style them with custom colours, shapes, frames and" +
+      " logos, track scans, and use your own domain — all with no ads and links screened for phishing and malware.",
+    tech: ["Next.js", "TypeScript", "Analytics", "Google Web Risk"],
+    category: "QR Codes",
+    platform: "web",
+    color: "from-violet-600 to-fuchsia-500",
+    accent: "#a855f7",
+    icon: QrCode,
+  },
+  {
+    title: "TheJury",
+    url: "https://thejury.app",
+    description:
+      "Polling done right. Create polls, share them, get results. No complexity, no gimmicks, just democracy that works.",
+    longDescription:
+      "Back to basics polling that focuses on what matters: easy creation, simple sharing, and clear results. Perfect for settling debates, making group decisions, or just satisfying your curiosity.",
+    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
+    category: "Polling Platform",
+    platform: "web",
+    color: "from-emerald-700 to-emerald-500",
+    accent: "#fb7185",
+    icon: Scale,
   },
   {
     title: "iLoveBoardGames",
@@ -102,24 +146,10 @@ const projects: Project[] = [
       " top-rated titles, organise your collection, write reviews, and never show up to game night without a plan again.",
     tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
     category: "TableTop Gaming",
+    platform: "web",
     color: "from-amber-600 to-yellow-500",
     accent: "#fbbf24",
     icon: Dice5,
-  },
-  {
-    title: "TurnTally",
-    url: "https://turntally.madstone.dev",
-    description:
-      "Track every second, analyse every move, and prove who's the real board game champion at your table.",
-    longDescription:
-      "A board game session tracker that records turn times, maintains player statistics, and settles debates with cold," +
-      " hard data. Manage your game vault, track player performance across sessions, and compete on leaderboards." +
-      " No more arguments — just numbers.",
-    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
-    category: "Game Tracker",
-    color: "from-cyan-600 to-teal-400",
-    accent: "#22d3ee",
-    icon: Timer,
   },
   // {
   //   title: "be.vocl",
@@ -175,9 +205,41 @@ const projects: Project[] = [
       "Sometimes you just need to compare two photos side-by-side without jumping through hoops. Perfect for before/after shots, quality comparisons, or settling debates about which photo looks better.",
     tech: ["Next.js"],
     category: "Image Tool",
+    platform: "web",
     color: "from-neutral-400 to-neutral-700",
     accent: "#f5f5f5",
     icon: Columns2,
+  },
+  {
+    title: "TurnTally",
+    url: "https://turntally.madstone.dev",
+    description:
+      "Track every second, analyse every move, and prove who's the real board game champion at your table.",
+    longDescription:
+      "A board game session tracker that records turn times, maintains player statistics, and settles debates with cold," +
+      " hard data. Manage your game vault, track player performance across sessions, and compete on leaderboards." +
+      " No more arguments — just numbers.",
+    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
+    category: "Game Tracker",
+    platform: "web",
+    color: "from-cyan-600 to-teal-400",
+    accent: "#22d3ee",
+    icon: Timer,
+  },
+  {
+    title: "TableTop Chronicles",
+    url: "https://tabletopchronicles.app",
+    description:
+        "The campaign management platform for tabletop RPGs. Track characters, log sessions, manage battles, and bring your world to life.",
+    longDescription:
+        "The campaign management platform for tabletop RPGs. Track characters, log sessions, manage battles, and bring your world to life.",
+    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage"],
+    category: "TableTop Gaming",
+    platform: "web",
+    color: "from-teal-600 to-blue-400",
+    accent: "#fbbf24",
+    icon: Swords,
+    wip: true,
   },
 ];
 
@@ -429,8 +491,8 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Category Tag */}
-                    <div className="absolute top-6 right-6 z-20">
+                    {/* Category + Platform Tags */}
+                    <div className="absolute top-6 right-6 z-20 flex flex-col items-end gap-2">
                       <span
                         className="px-4 py-2 text-sm font-bold rounded-full backdrop-blur-sm transform group-hover:scale-110 transition-all duration-300"
                         style={{
@@ -441,6 +503,14 @@ export default function Home() {
                         }}
                       >
                         {project.category}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold rounded-full bg-white/10 text-white/80 border border-white/20 backdrop-blur-sm">
+                        {project.platform === "mobile" ? (
+                          <Smartphone size={13} strokeWidth={2} />
+                        ) : (
+                          <Globe size={13} strokeWidth={2} />
+                        )}
+                        {project.platform === "mobile" ? "Mobile App" : "Web App"}
                       </span>
                     </div>
 
@@ -484,11 +554,16 @@ export default function Home() {
                       ) : (
                         <Link
                           href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          {...(project.url.startsWith("/")
+                            ? {}
+                            : { target: "_blank", rel: "noopener noreferrer" })}
                           className={`inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r ${project.color} text-white font-bold rounded-xl transform transition-all duration-300 hover:scale-105 hover:shadow-lg group/btn`}
                         >
-                          <span>Enter the Lab</span>
+                          <span>
+                            {project.url.startsWith("/")
+                              ? "Discover More"
+                              : "Enter the Lab"}
+                          </span>
                           <div className="transform group-hover/btn:translate-x-1 group-hover/btn:rotate-45 transition-all duration-300">
                             <svg
                               width="16"
