@@ -1,0 +1,19 @@
+# Normalise line endings. Git stores LF; working tree checks out LF.
+# This stops the IDE's CRLF flip-flop from producing phantom diffs.
+* text=auto eol=lf
+
+# Binary assets: never touch their bytes.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.webp  binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.eot   binary
+*.pdf   binary
+*.mp4   binary
+*.webm  binary
