@@ -10,8 +10,8 @@ export const metadata = {
     "Azimuth Compass is a compass and prismatic-sighting app. Sight a landmark, read its exact bearing, switch between true and magnetic north. Works fully offline, collects no data.",
 };
 
-// TODO: replace APP_STORE_URL with the real App Store listing once you have it.
-const APP_STORE_URL = "https://apps.apple.com/app/azimuth-compass/id000000000";
+const APP_STORE_URL =
+  "https://apps.apple.com/au/app/azimuth-compass/id6808949289";
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.madstonedev.azimuthcompass";
 
