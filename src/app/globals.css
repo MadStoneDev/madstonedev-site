@@ -1,21 +1,108 @@
 @import "tailwindcss";
 
+/*
+  MadStoneDev design system.
+  Tokens come straight from the design brief. Every colour, font and size used
+  across the site is defined here so nothing is hard-coded in components.
+*/
+
 @theme inline {
-  --color-primary: #E81863;
-  --font-sans: var(--font-lexend);
-  --font-display: var(--font-lilita-one);
-  --animate-bounce-gentle: bounce-gentle 2s ease-in-out infinite;
+  /* Light surfaces */
+  --color-bg: #f2efe8;
+  --color-surface: #ffffff;
+  --color-ink: #15140f;
+  --color-body: #3d3a33;
+  --color-muted: #5a574e;
+  --color-line: #d9d4c7;
+  --color-line-strong: #e4dfd3;
+
+  /* Accents */
+  --color-accent: #b23b0b;
+  --color-accent-dark: #ff8a4c;
+
+  /* Dark surfaces (used on the Azimuth app page, the About panels, etc.) */
+  --color-dark: #15140f;
+  --color-dark-surface: #1e1d18;
+  --color-dark-surface-2: #23221d;
+  --color-dark-line: #2e2c26;
+  --color-dark-muted: #cfcabd;
+  --color-dark-muted-2: #a39e91;
+
+  /* Game palette */
+  --color-game: #e9b949;
+  --color-al: #e06a2c;
+  --color-tony: #4c9a55;
+  --color-vonditto: #fff1b8;
+
+  /* Type */
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+
+  /* Layout */
+  --spacing-gutter: 32px;
+}
+
+:root {
+  color-scheme: light;
 }
 
 html {
   scroll-behavior: smooth;
+  /* Offset in-page anchors so the sticky header doesn't cover headings. */
+  scroll-padding-top: 88px;
 }
 
-@keyframes bounce-gentle {
-  0%, 100% {
-    transform: translateY(0);
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Centred content column: max 1240px with a 32px (16px on phones) side gutter. */
+.site-container {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+@media (min-width: 640px) {
+  .site-container {
+    padding-inline: var(--spacing-gutter);
   }
-  50% {
-    transform: translateY(8px);
+}
+
+/* Headings use the display face by default. */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* A visible, consistent focus ring for keyboard users across light and dark. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: var(--color-accent-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
 }

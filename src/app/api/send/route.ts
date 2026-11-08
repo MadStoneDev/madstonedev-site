@@ -2,125 +2,77 @@ import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 import { NotifyTeam } from "@/components/email templates/notify-team";
 import { NotifyUser } from "@/components/email templates/notify-user";
+import { clientKey, rateLimit, EMAIL_RE } from "@/lib/rate-limit";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Simple in-memory rate limiting (use Redis in production)
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-
-function getRateLimitKey(request: NextRequest): string {
-  // Use IP address or a combination of factors
-  return (
-    request.headers.get("x-real-ip") ||
-    request.headers.get("x-forwarded-for") ||
-    "unknown"
-  );
-}
-
-function checkRateLimit(
-  key: string,
-  maxRequests = 3,
-  windowMs = 60000,
-): boolean {
-  const now = Date.now();
-  const record = rateLimitMap.get(key);
-
-  if (!record || now > record.resetTime) {
-    rateLimitMap.set(key, { count: 1, resetTime: now + windowMs });
-    return true;
-  }
-
-  if (record.count >= maxRequests) {
-    return false;
-  }
-
-  record.count++;
-  return true;
-}
+const FROM = "MadStoneDev <hello@notifications.madstone.dev>";
+const TO = "hello@madstone.dev";
 
 export async function POST(request: NextRequest) {
   try {
-    // Rate limiting check
-    const rateLimitKey = getRateLimitKey(request);
-    if (!checkRateLimit(rateLimitKey)) {
+    if (!rateLimit(clientKey(request, "contact"))) {
       return NextResponse.json(
-        { error: "Too many requests. Please try again later." },
+        { error: "Too many messages. Please try again in a minute." },
         { status: 429 },
       );
     }
 
     const body = await request.json();
-    const { name, email, company, project, budget, message } = body;
+    const { name, email, topic, message, website } = body ?? {};
 
-    // Validation
-    if (!name || !email || !project || !budget || !message) {
+    // Honeypot: a bot filled the hidden field. Pretend all is well.
+    if (typeof website === "string" && website.trim() !== "") {
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
+
+    if (!name || !email || !message) {
       return NextResponse.json(
-        { error: "Missing required fields" },
+        { error: "Please fill in your name, email and a message." },
+        { status: 400 },
+      );
+    }
+    if (!EMAIL_RE.test(email)) {
+      return NextResponse.json(
+        { error: "That email address doesn't look right." },
         { status: 400 },
       );
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: "Invalid email address" },
-        { status: 400 },
-      );
-    }
+    const topicLabel = typeof topic === "string" && topic ? topic : "Something else";
 
-    // Send notification to your team
     const teamNotification = await resend.emails.send({
-      from: "MadStoneDev <hello@notifications.madstone.dev>",
-      to: ["hello@notifications.madstone.dev"],
-      subject: "🧪 New Contact - Madstone Dev",
-      react: NotifyTeam({
-        name,
-        email,
-        company,
-        project,
-        budget,
-        message,
-      }),
+      from: FROM,
+      to: [TO],
+      replyTo: email,
+      subject: `Contact form: ${topicLabel}`,
+      react: NotifyTeam({ name, email, topic: topicLabel, message }),
     });
 
-    // Send confirmation to user
-    const userConfirmation = await resend.emails.send({
-      from: "MadStoneDev <no-reply@notifications.madstone.dev>",
-      to: [email],
-      subject: "I received your message - MadStoneDev",
-      react: NotifyUser({
-        name,
-      }),
-    });
-
-    // Check for errors
     if (teamNotification.error) {
-      console.error("Team notification error:", teamNotification.error);
+      console.error("Contact: team email error:", teamNotification.error);
       return NextResponse.json(
-        { error: "Failed to send team notification" },
+        { error: "Couldn't send your message. Please try again." },
         { status: 500 },
       );
     }
 
+    // Confirmation to the sender. Don't fail the request if this one errors.
+    const userConfirmation = await resend.emails.send({
+      from: FROM,
+      to: [email],
+      subject: "I got your message — MadStoneDev",
+      react: NotifyUser({ name }),
+    });
     if (userConfirmation.error) {
-      console.error("User confirmation error:", userConfirmation.error);
-      // Don't fail the whole request if user confirmation fails
+      console.error("Contact: confirmation email error:", userConfirmation.error);
     }
 
-    return NextResponse.json(
-      {
-        success: true,
-        message: "Contact form submitted successfully",
-        teamEmailId: teamNotification.data?.id,
-        userEmailId: userConfirmation.data?.id,
-      },
-      { status: 200 },
-    );
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error("Contact form error:", error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: "Something went wrong. Please try again." },
       { status: 500 },
     );
   }

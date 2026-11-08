@@ -1,27 +1,61 @@
 import "./globals.css";
 
+import type { Metadata } from "next";
 import { ReactNode } from "react";
-import { Lexend, Lilita_One } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-const lexend = Lexend({
-  variable: "--font-lexend",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
-const lilitaOne = Lilita_One({
-  variable: "--font-lilita-one",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
-export const metadata = {
-  title: "MadStoneDev - Perfecting the method, embracing the madness",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
+
+const SITE_URL = "https://madstone.dev";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "MadStoneDev — Perfecting the method, embracing the madness.",
+    template: "%s — MadStoneDev",
+  },
   description:
-    "Professional web development agency specializing in modern, scalable applications. From concept to deployment, we perfect the method while embracing creative madness.",
+    "I'm Richard. I make mobile apps, games and web apps, usually because I wanted something and couldn't find it. MadStoneDev is where I build my own things.",
+  applicationName: "MadStoneDev",
+  authors: [{ name: "Richard Haddad" }],
+  creator: "Richard Haddad",
+  openGraph: {
+    type: "website",
+    siteName: "MadStoneDev",
+    url: SITE_URL,
+    title: "MadStoneDev — Perfecting the method, embracing the madness.",
+    description:
+      "Mobile apps, games and web apps, built by Richard Haddad in Brisbane, Australia.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MadStoneDev — Perfecting the method, embracing the madness.",
+    description:
+      "Mobile apps, games and web apps, built by Richard Haddad in Brisbane, Australia.",
+  },
+  icons: {
+    icon: "/madstone-logo.svg",
+  },
 };
 
 export default function RootLayout({
@@ -32,12 +66,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`min-h-dvh bg-neutral-900 ${lexend.variable} ${lilitaOne.variable}`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
       >
         {children}
       </body>
-
-      <GoogleAnalytics gaId={`G-941WTWYYVW`} />
+      <GoogleAnalytics gaId="G-941WTWYYVW" />
     </html>
   );
 }

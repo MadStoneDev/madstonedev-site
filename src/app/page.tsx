@@ -1,621 +1,408 @@
-"use client";
-
 import Link from "next/link";
+import { Compass, Send, FileText } from "lucide-react";
+
+import SiteHeader, { type HeaderLink } from "@/components/site/site-header";
+import SiteFooter from "@/components/site/site-footer";
+import Chip from "@/components/site/chip";
+import NotifyForm from "@/components/ui/notify-form";
+import ContactForm from "@/components/ui/contact-form";
 import {
-  Clapperboard,
-  Scale,
-  NotebookPen,
-  Dice5,
-  Timer,
-  Drama,
-  MessageCircle,
-  CircleHelp,
-  Swords,
-  Columns2,
-  ChevronsDown,
-  Monitor,
-  Palette,
-  Zap,
-  Rocket,
-  Compass,
-  Send,
-  QrCode,
-  Smartphone,
-  Globe,
-  LucideIcon,
-} from "lucide-react";
+  getProduct,
+  productsByType,
+  contactTopics,
+  type Product,
+} from "@/content/products";
 
-import MainNavigation from "@/components/sections/main-navigation";
-import AnimatedBackground from "@/components/shared/animated-background";
-import SharedFooter from "@/components/shared/footer";
+const NAV: HeaderLink[] = [
+  { label: "Apps", href: "#apps" },
+  { label: "Games", href: "#games" },
+  { label: "Web tools", href: "#web" },
+  { label: "About", href: "/about" },
+  { label: "Get in touch", href: "#contact" },
+];
 
-interface Project {
-  title: string;
-  url: string;
-  description: string;
-  longDescription: string;
-  tech: string[];
-  category: string;
-  platform: "web" | "mobile";
-  color: string;
-  accent: string;
-  icon: LucideIcon;
-  wip?: boolean;
+const pillPrimary =
+  "inline-flex items-center gap-2 rounded-full bg-ink px-[26px] py-[15px] text-base font-semibold text-bg no-underline";
+const pillOutline =
+  "inline-flex items-center gap-2 rounded-full border-[1.5px] border-ink px-[26px] py-[15px] text-base font-semibold text-ink no-underline";
+const storeBtn =
+  "inline-flex items-center gap-2.5 rounded-[14px] bg-bg px-[22px] py-3.5 text-[15px] font-semibold text-ink no-underline";
+
+function BarsIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      width="72"
+      height="72"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect x="4" y="3" width="16" height="18" rx="1" />
+      <path d="M8 3v18M12 3v18M16 3v18" />
+    </svg>
+  );
 }
 
-const projects: Project[] = [
-  {
-    title: "Azimuth Compass",
-    url: "/azimuth",
-    description:
-      "A precise, private compass with prismatic sighting. Line up a landmark, read its bearing, works fully offline.",
-    longDescription:
-      "A compass and prismatic-sighting app built for the field. Use the live camera view to sight a landmark and read" +
-      " its exact bearing, switch between true and magnetic north, and rely on it anywhere — it works fully offline" +
-      " with no accounts, no analytics, and no data ever leaving your device.",
-    tech: ["iOS", "Android", "On-device"],
-    category: "Navigation",
-    platform: "mobile",
-    color: "from-rose-600 to-orange-400",
-    accent: "#E81863",
-    icon: Compass,
-  },
-  {
-    title: "JustReel",
-    url: "https://justreel.app",
-    description:
-      "Track shows, get involved in discussions and share movie and tv show watchlists with friends.",
-    longDescription:
-      "A TV Show tracker that does away with the noise. Talk about movies, shows, seasons and episodes with others" +
-      " in the community and even share movie and show collections with your friends so you can both add to the" +
-      " list mark as watched!",
-    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
-    category: "Movies and TV",
-    platform: "web",
-    color: "from-green-600 to-lime-400",
-    accent: "#84cc16",
-    icon: Clapperboard,
-  },
-  {
-    title: "JustNoted",
-    url: "https://justnoted.app",
-    description:
-      "Note-taking that gets out of your way. Jot down ideas, write novels, make to-do lists. No bloat, no distractions.",
-    longDescription:
-      "Tired of note apps that do everything except let you take notes quickly? This one starts instantly, saves automatically, and won't try to organize your life for you. Just pure, fast writing.",
-    tech: ["Next.js", "Typescript", "Upstash", "Supabase", "LocalStorage"],
-    category: "Note Taking",
-    platform: "web",
-    color: "from-indigo-600 to-blue-400",
-    accent: "#fbbf24",
-    icon: NotebookPen,
-  },
-  {
-    title: "JustSent",
-    url: "https://justsent.app",
-    description:
-      "Send anything, anywhere, anytime. Share files in real time through a room — no account, no app, just a code.",
-    longDescription:
-      "Open a room, share the code, and files appear on both sides in real time — straight from the browser with no" +
-      " account and no install. Everything is encrypted in transit and at rest, files expire whenever you choose, and" +
-      " each room hands you a recap of its activity when it closes.",
-    tech: ["Next.js", "TypeScript", "Encrypted", "Real-time"],
-    category: "File Sharing",
-    platform: "web",
-    color: "from-sky-600 to-blue-400",
-    accent: "#38bdf8",
-    icon: Send,
-  },
-  {
-    title: "QRmory",
-    url: "https://qrmory.com",
-    description:
-      "QR codes that don't play games. Create styled static and dynamic QR codes with scan analytics — no ads, no gotchas.",
-    longDescription:
-      "An Australian QR code generator for small business. Make free static codes or dynamic codes that point to a" +
-      " short link you can change any time without reprinting. Style them with custom colours, shapes, frames and" +
-      " logos, track scans, and use your own domain — all with no ads and links screened for phishing and malware.",
-    tech: ["Next.js", "TypeScript", "Analytics", "Google Web Risk"],
-    category: "QR Codes",
-    platform: "web",
-    color: "from-violet-600 to-fuchsia-500",
-    accent: "#a855f7",
-    icon: QrCode,
-  },
-  {
-    title: "TheJury",
-    url: "https://thejury.app",
-    description:
-      "Polling done right. Create polls, share them, get results. No complexity, no gimmicks, just democracy that works.",
-    longDescription:
-      "Back to basics polling that focuses on what matters: easy creation, simple sharing, and clear results. Perfect for settling debates, making group decisions, or just satisfying your curiosity.",
-    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
-    category: "Polling Platform",
-    platform: "web",
-    color: "from-emerald-700 to-emerald-500",
-    accent: "#fb7185",
-    icon: Scale,
-  },
-  {
-    title: "iLoveBoardGames",
-    url: "https://iloveboardgames.xyz",
-    description:
-      "Discover board games, build your collection, rate your favourites and find your next game night adventure.",
-    longDescription:
-      "A board game discovery and collection management platform powered by BoardGameGeek data. Browse trending and" +
-      " top-rated titles, organise your collection, write reviews, and never show up to game night without a plan again.",
-    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
-    category: "TableTop Gaming",
-    platform: "web",
-    color: "from-amber-600 to-yellow-500",
-    accent: "#fbbf24",
-    icon: Dice5,
-  },
-  // {
-  //   title: "be.vocl",
-  //   url: "https://bevocl.app",
-  //   description:
-  //     "A content sharing platform built with safety at its core. Share your creativity with a community that actually cares.",
-  //   longDescription:
-  //     "Think Tumblr, but built from the ground up with real safety measures. Share text, images, videos, and audio with" +
-  //     " a community that values creative expression while maintaining strict content moderation and zero-tolerance" +
-  //     " safety policies. Because creative freedom and safety aren't mutually exclusive.",
-  //   tech: ["Next.js", "TypeScript", "Supabase", "Tailwind", "Cloudflare R2"],
-  //   category: "Social Platform",
-  //   color: "from-purple-600 to-violet-400",
-  //   accent: "#a78bfa",
-  //   icon: Drama,
-  //   wip: true,
-  // },
-  // {
-  //   title: "Ostracon",
-  //   url: "https://ostracon.app",
-  //   description:
-  //     "Back to basics social media. Express yourself, share your thoughts, and connect with others.",
-  //   longDescription:
-  //     "Remember when hopping on social media was all about likes, followers, and being yourself, rather than a place" +
-  //     " to push the news? Ostracon goes back to basics and gives you a space to just do that.",
-  //   tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
-  //   category: "Social Platform",
-  //   color: "from-yellow-500 to-orange-500",
-  //   accent: "#facc15",
-  //   icon: MessageCircle,
-  //   wip: true,
-  // },
-  // {
-  //   title: "FairDinkum",
-  //   url: "https://fairdinkum.app",
-  //   description:
-  //     "Polling done right. Create polls, share them, get results. No complexity, no gimmicks, just democracy that works.",
-  //   longDescription:
-  //     "Back to basics polling that focuses on what matters: easy creation, simple sharing, and clear results. Perfect for settling debates, making group decisions, or just satisfying your curiosity.",
-  //   tech: ["Next.js", "Typescript", "Supabase", "LocalStorage", "Tailwind"],
-  //   category: "Ask Questions",
-  //   color: "from-rose-500 to-pink-600",
-  //   accent: "#fb7185",
-  //   icon: CircleHelp,
-  //   wip: true,
-  // },
-  {
-    title: "beforeAftr",
-    url: "https://beforeaftr.me",
-    description:
-      "Simple picture comparison tool that actually works. Upload two images, see the differences, judge the quality.",
-    longDescription:
-      "Sometimes you just need to compare two photos side-by-side without jumping through hoops. Perfect for before/after shots, quality comparisons, or settling debates about which photo looks better.",
-    tech: ["Next.js"],
-    category: "Image Tool",
-    platform: "web",
-    color: "from-neutral-400 to-neutral-700",
-    accent: "#f5f5f5",
-    icon: Columns2,
-  },
-  {
-    title: "TurnTally",
-    url: "https://turntally.madstone.dev",
-    description:
-      "Track every second, analyse every move, and prove who's the real board game champion at your table.",
-    longDescription:
-      "A board game session tracker that records turn times, maintains player statistics, and settles debates with cold," +
-      " hard data. Manage your game vault, track player performance across sessions, and compete on leaderboards." +
-      " No more arguments — just numbers.",
-    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
-    category: "Game Tracker",
-    platform: "web",
-    color: "from-cyan-600 to-teal-400",
-    accent: "#22d3ee",
-    icon: Timer,
-  },
-  {
-    title: "TableTop Chronicles",
-    url: "https://tabletopchronicles.app",
-    description:
-        "The campaign management platform for tabletop RPGs. Track characters, log sessions, manage battles, and bring your world to life.",
-    longDescription:
-        "The campaign management platform for tabletop RPGs. Track characters, log sessions, manage battles, and bring your world to life.",
-    tech: ["Next.js", "Typescript", "Supabase", "LocalStorage"],
-    category: "TableTop Gaming",
-    platform: "web",
-    color: "from-teal-600 to-blue-400",
-    accent: "#fbbf24",
-    icon: Swords,
-    wip: true,
-  },
-];
+export default function HomePage() {
+  const azimuth = getProduct("azimuth")!;
+  const justsent = getProduct("justsent")!;
+  const justnoted = getProduct("justnoted")!;
+  const bustin = getProduct("bustin-out")!;
+  const webApps = productsByType("web");
 
-const whatIDo = [
-  {
-    icon: Monitor,
-    title: "Full-Stack Development",
-    description:
-      "From sleek Next.js applications to robust backend systems, I build modern web experiences using TypeScript, React, Supabase, and cutting-edge tools. Every project is crafted for performance, scalability, and that \"wow\" factor.",
-    gradient: "from-[#E81863]/10 to-purple-500/10",
-  },
-  {
-    icon: Palette,
-    title: "Design That Dares",
-    description:
-      "Bold gradients, micro-interactions, glassmorphism\u2014I embrace contemporary design trends while ensuring every interface is intuitive and accessible. Beauty and functionality aren't mutually exclusive.",
-    gradient: "from-purple-500/10 to-blue-500/10",
-  },
-  {
-    icon: Zap,
-    title: "Rapid Experimentation",
-    description:
-      "My laboratory is filled with projects\u2014from movie review platforms to polling apps to social networks. Each one is an experiment in solving real problems with creative solutions. Some boom, some shine, all teach something valuable.",
-    gradient: "from-blue-500/10 to-green-500/10",
-  },
-  {
-    icon: Rocket,
-    title: "Real-World Solutions",
-    description:
-      "Whether it's an e-commerce platform, a SaaS application, or a mobile app, I focus on building tools that people actually want to use. No bloat. No unnecessary complexity. Just smart solutions that work.",
-    gradient: "from-green-500/10 to-[#E81863]/10",
-  },
-];
+  const mobileCards: { product: Product; icon: typeof Send }[] = [
+    { product: justsent, icon: Send },
+    { product: justnoted, icon: FileText },
+  ];
 
-export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      {/* Animated Background */}
-      <AnimatedBackground particleCount={50} />
+    <>
+      <SiteHeader links={NAV} />
 
-      {/* Main Content */}
-      <div className="relative z-10">
-        {/* Navigation */}
-        <MainNavigation />
-
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center px-6 sm:px-12">
-          <div className="text-center max-w-6xl mx-auto">
-            {/* Logo Animation */}
-            <div className="mb-8 relative inline-block group">
-              <div className="absolute -inset-8 bg-gradient-to-r from-[#E81863]/20 via-[#E81863]/40 to-[#E81863]/20 blur-2xl group-hover:blur-3xl transition-all duration-500 rounded-full" />
-              <img
-                src="/madstone-logo.svg"
-                alt="MadStone Logo"
-                className="relative w-24 h-24 sm:w-32 sm:h-32 mx-auto drop-shadow-2xl group-hover:scale-110 transition-all duration-500"
-              />
-            </div>
-
-            {/* Main Heading */}
-            <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black mb-6 relative">
-              <span className="bg-gradient-to-r from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent block">
-                MADSTONE
-              </span>
-              <span className="text-[#E81863] block transform hover:scale-105 transition-transform duration-300">
-                DEV
-              </span>
-
-              {/* Animated underline */}
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[#E81863] to-transparent" />
+      <main id="top">
+        {/* Hero */}
+        <section className="site-container flex flex-wrap items-center gap-14 py-24 pb-[72px]">
+          <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-7">
+            <span className="font-mono text-[13px] uppercase tracking-[0.08em] text-muted">
+              MadStoneDev · Brisbane, Australia
+            </span>
+            <h1 className="m-0 font-display text-[clamp(44px,6vw,84px)] font-bold leading-[0.98] tracking-[-0.035em]">
+              Perfecting the method,
+              <br />
+              embracing the madness.
             </h1>
-
-            {/* Slogan */}
-            <div className="mb-12 space-y-4">
-              <p className="text-2xl sm:text-4xl font-light text-neutral-300 mb-4">
-                Where{" "}
-                <span className="text-[#E81863] font-bold">brilliance</span>{" "}
-                meets <span className="text-white font-bold">madness</span>
-              </p>
-              <p className="text-lg sm:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-                I love breaking norms and pushing boundaries. Just because
-                something has always been done one way, does not mean it's the
-                best way. Be creative. Be different.
-              </p>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link
-                href={`/contact`}
-                className="cursor-pointer group px-10 py-4 bg-gradient-to-r from-[#E81863] to-[#E81863]/80 text-white font-bold text-lg rounded-2xl hover:shadow-2xl hover:shadow-[#E81863]/30 transform hover:scale-105 transition-all duration-300 relative overflow-hidden"
-              >
-                <span className="relative z-10">Unleash the Magic</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </Link>
-
-              <Link
-                href={`#laboratory`}
-                className="cursor-pointer px-10 py-4 border-2 border-white/20 text-white font-bold text-lg rounded-2xl hover:border-[#E81863] hover:shadow-lg hover:shadow-[#E81863]/20 transform hover:scale-105 transition-all duration-300 backdrop-blur-sm"
-              >
+            <p className="m-0 max-w-[600px] text-xl leading-[1.55] text-body">
+              I&apos;m Richard. I make mobile apps, games and web apps, usually
+              because I wanted something and couldn&apos;t find it. Things might
+              go boom, but I promise you&apos;ll enjoy my projects until that
+              point.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="#apps" className={pillPrimary}>
                 Browse the Lab
               </Link>
+              <Link href="#contact" className={pillOutline}>
+                Get in touch
+              </Link>
             </div>
           </div>
 
-          {/* Scroll Indicator */}
-          <Link
-            href="#about"
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-40 hover:opacity-70 transition-opacity duration-300"
-          >
-            <ChevronsDown
-              size={32}
-              strokeWidth={1.5}
-              className="text-white animate-bounce-gentle"
-            />
-          </Link>
+          <div className="grid min-w-0 flex-[1_1_340px] grid-cols-2 gap-4">
+            <div className="flex aspect-square items-center justify-center rounded-[28px] bg-ink text-accent-dark">
+              <Compass size={72} strokeWidth={1.5} aria-label="Azimuth" />
+            </div>
+            <div className="flex aspect-square items-center justify-center rounded-[28px] bg-accent text-white">
+              <Send size={72} strokeWidth={1.5} aria-label="JustSent" />
+            </div>
+            <div className="flex aspect-square items-center justify-center rounded-[28px] border border-line bg-surface text-ink">
+              <FileText size={72} strokeWidth={1.5} aria-label="JustNoted" />
+            </div>
+            <div className="flex aspect-square items-center justify-center rounded-[28px] bg-game text-ink">
+              <BarsIcon />
+            </div>
+          </div>
         </section>
 
-        {/* About Section */}
-        <section className="py-24 px-6 sm:px-12" id="about">
-          <div className="max-w-6xl mx-auto">
-            {/* Section Header */}
-            <div className="text-center mb-16">
-              <h2 className="text-5xl sm:text-6xl font-black mb-6 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
-                THE MAD SCIENTIST
-              </h2>
-              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-[#E81863] to-transparent mx-auto" />
+        {/* Mobile apps */}
+        <section
+          id="apps"
+          className="site-container flex flex-col gap-10 pt-[104px] pb-10"
+        >
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="flex flex-col gap-3">
+              <span className="font-mono text-[13px] uppercase tracking-[0.08em] text-accent">
+                The Laboratory
+              </span>
+              <h2 className="m-0 text-5xl leading-[1.05]">Mobile apps</h2>
             </div>
+            <p className="m-0 max-w-[420px] text-[17px] leading-[1.55] text-muted">
+              For iPhone and Android. Some are out, some are still cooking.
+            </p>
+          </div>
 
-            {/* Philosophy Card */}
-            <div className="max-w-4xl mx-auto mb-16">
-              <div className="relative p-8 sm:p-12 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl rounded-3xl border border-white/20 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#E81863]/5 to-purple-500/5 opacity-50" />
-
-                <div className="relative space-y-6 text-lg leading-relaxed">
-                  <p className="text-neutral-300">
-                    I don't just build websites—I create digital experiences that
-                    break the mold. Why? Because following the same tired
-                    playbook everyone else uses isn't how you make something
-                    memorable.
-                  </p>
-
-                  <p className="text-neutral-300">
-                    <strong className="text-white">
-                      The philosophy is simple:
-                    </strong>{" "}
-                    Just because something has always been done one way doesn't
-                    mean it's the best way. Innovation requires courage to
-                    experiment, iterate, and sometimes completely reimagine
-                    what's possible.
-                  </p>
-
-                  <p className="text-neutral-300">
-                    Think of it as a laboratory where conventional wisdom gets
-                    challenged, tested, and often exploded in favor of something
-                    better. Sometimes experiments fail spectacularly. But when
-                    they succeed? That's when magic happens.
-                  </p>
-                </div>
+          {/* Featured: Azimuth */}
+          <article className="on-dark flex flex-wrap items-center gap-12 rounded-[32px] bg-ink p-8 text-bg sm:p-12">
+            <div className="flex min-w-0 flex-[999_1_460px] flex-col gap-5">
+              <div className="flex flex-wrap gap-2.5">
+                <Chip variant="accent-dark">Out now</Chip>
+                <Chip variant="outline" onDark>
+                  iPhone · Android
+                </Chip>
+                <Chip variant="outline" onDark>
+                  Free
+                </Chip>
+              </div>
+              <h3 className="m-0 font-display text-[clamp(40px,5vw,56px)] leading-none tracking-[-0.03em]">
+                {azimuth.name}
+              </h3>
+              <p className="m-0 max-w-[560px] text-[19px] leading-[1.55] text-dark-muted">
+                {azimuth.tagline} Point it at a landmark, lock the bearing and it
+                tells you which way to turn. Degrees or NATO mils, true or
+                magnetic north.
+              </p>
+              <div className="flex flex-wrap items-center gap-3">
+                <a
+                  href={azimuth.store?.appStore}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={storeBtn}
+                >
+                  App Store
+                </a>
+                <a
+                  href={azimuth.store?.googlePlay}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={storeBtn}
+                >
+                  Google Play
+                </a>
+                <Link
+                  href={`/${azimuth.slug}`}
+                  className="px-2 py-3.5 font-semibold text-bg no-underline hover:text-accent-dark"
+                >
+                  Learn more →
+                </Link>
               </div>
             </div>
-
-            {/* What I Do Grid */}
-            <div className="grid md:grid-cols-2 gap-8">
-              {whatIDo.map((item) => (
-                <div
-                  key={item.title}
-                  className="group relative p-8 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-[#E81863]/30 transition-all duration-300"
-                >
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl`}
-                  />
-
-                  <div className="relative">
-                    <item.icon
-                      size={36}
-                      strokeWidth={1.5}
-                      className="text-white mb-4"
-                    />
-                    <h3 className="text-2xl font-bold text-white mb-4">
-                      {item.title}
-                    </h3>
-                    <p className="text-neutral-400 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            <div className="flex min-w-0 flex-[1_1_240px] justify-center">
+              <div className="flex h-[480px] w-[240px] items-center justify-center rounded-[44px] border-[10px] border-dark-line bg-dark-surface-2 p-6 text-center font-mono text-[13px] text-dark-muted-2">
+                [Azimuth screenshot — sighting view]
+              </div>
             </div>
-          </div>
-        </section>
+          </article>
 
-        {/* Projects Section */}
-        <section className="py-24 px-6 sm:px-12" id={`laboratory`}>
-          <div className="max-w-7xl mx-auto">
-            {/* Section Header */}
-            <div className="text-center mb-20">
-              <h2 className="text-5xl sm:text-6xl font-black mb-6 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
-                THE LABORATORY
-              </h2>
-              <p className="text-xl text-neutral-400 max-w-3xl mx-auto">
-                Things might go boom, but I promise you'll enjoy my projects
-                until that point.
-              </p>
-            </div>
-
-            {/* Projects Grid */}
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12">
-              {projects.map((project, index) => (
-                <div
-                  key={project.title}
-                  className={`group relative cursor-pointer ${
-                    index === projects.length - 1 && projects.length % 2 !== 0
-                      ? "xl:col-span-2 xl:max-w-[calc(50%-1.5rem)] xl:justify-self-center"
-                      : ""
-                  }`}
-                >
-                  {/* Project Card */}
-                  <div className="relative min-h-[400px] rounded-3xl overflow-hidden bg-neutral-900/50 backdrop-blur-xl border border-white/10 transform transition-all duration-500 ease-out group-hover:scale-[1.02] group-hover:border-white/30">
-                    {/* Dynamic Background */}
-                    <div className="absolute inset-0">
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-10 group-hover:opacity-30 transition-opacity duration-500`}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-                    </div>
-
-                    {/* WIP Badge */}
-                    {project.wip && (
-                      <div className="absolute top-16 left-3 sm:left-6 z-30">
-                        <span className="px-3 py-1 text-xs font-bold bg-amber-500/20 text-amber-400 rounded-full border border-amber-500/30 backdrop-blur-sm">
-                          Coming Soon
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Floating Icon */}
-                    <div className="absolute top-6 left-3 sm:left-6 z-20">
-                      <div className="relative">
-                        <div
-                          className={`absolute inset-0 bg-gradient-to-r ${project.color} blur-lg opacity-50 group-hover:opacity-100 transition-opacity duration-300 rounded-full`}
-                        />
-                        <div className="relative transform group-hover:scale-110 transition-all duration-300">
-                          <project.icon
-                            size={36}
-                            strokeWidth={1.5}
-                            className="text-white"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Category + Platform Tags */}
-                    <div className="absolute top-6 right-6 z-20 flex flex-col items-end gap-2">
-                      <span
-                        className="px-4 py-2 text-sm font-bold rounded-full backdrop-blur-sm transform group-hover:scale-110 transition-all duration-300"
-                        style={{
-                          backgroundColor: project.accent + "33",
-                          color: project.accent,
-                          borderWidth: "1px",
-                          borderColor: project.accent + "4d",
-                        }}
-                      >
-                        {project.category}
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold rounded-full bg-white/10 text-white/80 border border-white/20 backdrop-blur-sm">
-                        {project.platform === "mobile" ? (
-                          <Smartphone size={13} strokeWidth={2} />
-                        ) : (
-                          <Globe size={13} strokeWidth={2} />
-                        )}
-                        {project.platform === "mobile" ? "Mobile App" : "Web App"}
-                      </span>
-                    </div>
-
-                    {/* Content */}
-                    <div className="px-6 sm:px-8 pt-20 pb-10 flex flex-col items-start justify-between gap-8 sm:gap-0 h-full z-20 transform transition-all duration-500 group-hover:translate-y-0">
-                      {/* Tech Stack */}
-                      <div className="hidden sm:flex flex-wrap gap-2 mb-6 transform translate-y-4 group-hover:translate-y-0 opacity-70 group-hover:opacity-100 transition-all duration-500 delay-100">
-                        {project.tech.map((tech, techIndex) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 text-xs font-mono bg-white/10 text-white/80 rounded-lg backdrop-blur-sm border border-white/20 hover:border-white/40 transition-all duration-200"
-                            style={{ transitionDelay: `${techIndex * 50}ms` }}
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Project Title */}
-                      <section className="flex-grow mb-6">
-                        <h3 className="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight transform transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-neutral-300">
-                          {project.title}
-                        </h3>
-
-                        {/* Descriptions */}
-                        <div className="space-y-3 mb-0">
-                          <p className="text-neutral-300 leading-relaxed text-sm sm:group-hover:opacity-0 transition-opacity duration-300">
-                            {project.description}
-                          </p>
-                          <p className="hidden sm:block text-white/90 leading-relaxed text-sm sm:opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 transform sm:translate-y-4 group-hover:translate-y-0">
-                            {project.longDescription}
-                          </p>
-                        </div>
-                      </section>
-
-                      {/* Visit Button */}
-                      {project.wip ? (
-                        <span className="inline-flex items-center gap-3 px-6 py-3 border border-white/20 text-white/50 font-bold rounded-xl cursor-default">
-                          <span>Coming Soon</span>
-                        </span>
-                      ) : (
-                        <Link
-                          href={project.url}
-                          {...(project.url.startsWith("/")
-                            ? {}
-                            : { target: "_blank", rel: "noopener noreferrer" })}
-                          className={`inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r ${project.color} text-white font-bold rounded-xl transform transition-all duration-300 hover:scale-105 hover:shadow-lg group/btn`}
-                        >
-                          <span>
-                            {project.url.startsWith("/")
-                              ? "Discover More"
-                              : "Enter the Lab"}
-                          </span>
-                          <div className="transform group-hover/btn:translate-x-1 group-hover/btn:rotate-45 transition-all duration-300">
-                            <svg
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              viewBox="0 0 16 16"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                              />
-                            </svg>
-                          </div>
-                        </Link>
-                      )}
-                    </div>
-
-                    {/* Hover Glow Effect */}
-                    <div
-                      className={`pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-r ${project.color} opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-xl`}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Footer Call to Action */}
-        <section className="py-16 px-6 sm:px-12 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h3 className="p-2 text-3xl sm:text-4xl font-black mb-6 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
-              Got something brewing?
-            </h3>
-            <p className="text-lg text-neutral-400 mb-12">
-              Let's collaborate on your next project.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link
-                href={`/contact`}
-                className="group relative px-12 py-5 bg-gradient-to-r from-[#E81863] via-[#E81863] to-pink-600 text-white font-black text-xl rounded-2xl overflow-hidden transform hover:scale-105 transition-all duration-300"
+          {/* JustSent + JustNoted cards */}
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
+            {mobileCards.map(({ product, icon: Icon }) => (
+              <article
+                key={product.slug}
+                className="flex flex-col gap-[18px] rounded-[28px] border border-line bg-surface p-8"
               >
-                <span className="relative z-10">Start the Magic</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-ink text-bg">
+                    <Icon size={30} strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <Chip variant="solid">{product.statusLabel}</Chip>
+                </div>
+                <h3 className="m-0 font-display text-3xl tracking-[-0.02em]">
+                  {product.name}
+                </h3>
+                <p className="m-0 text-base leading-[1.6] text-muted">
+                  {product.tagline}
+                </p>
+                <div className="mt-auto flex flex-wrap gap-4 pt-2">
+                  <Link
+                    href={`/${product.slug}`}
+                    className="font-semibold text-ink no-underline hover:text-accent"
+                  >
+                    More about {product.name} →
+                  </Link>
+                </div>
+                {product.notify && (
+                  <div className="border-t border-line pt-[18px]">
+                    <NotifyForm
+                      productKey={product.notify.key}
+                      label={product.notify.label}
+                    />
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* Games */}
+        <section
+          id="games"
+          className="site-container flex flex-col gap-8 pt-[72px] pb-10"
+        >
+          <div className="flex flex-col gap-3">
+            <span className="font-mono text-[13px] uppercase tracking-[0.08em] text-accent">
+              Coming soon
+            </span>
+            <h2 className="m-0 text-5xl leading-[1.05]">Games</h2>
+          </div>
+
+          <article className="flex flex-wrap items-center gap-10 rounded-[32px] bg-game p-8 sm:p-12">
+            <div className="flex min-w-0 flex-[999_1_460px] flex-col gap-5">
+              <Chip variant="game" className="self-start">
+                In development · iPhone &amp; Android
+              </Chip>
+              <h3 className="m-0 font-display text-[clamp(40px,5vw,56px)] leading-none tracking-[-0.03em] text-ink">
+                {bustin.name}
+              </h3>
+              <p className="m-0 max-w-[560px] text-[19px] leading-[1.55] text-[#2B2A25]">
+                Al Cologne, Tony Oregano and Von Ditto Funnybone got framed for
+                the heist they&apos;d been planning for years. Now they want out.
+                Each of them moves differently, so you&apos;ll have to work out
+                who goes where to get them out of each room. Turn-based puzzles,
+                no ads.
+              </p>
+              <Link
+                href={`/${bustin.slug}`}
+                className="self-start font-semibold text-ink no-underline hover:text-accent"
+              >
+                More about the game →
+              </Link>
+              {bustin.notify && (
+                <NotifyForm
+                  productKey={bustin.notify.key}
+                  label={bustin.notify.label}
+                  tone="game"
+                />
+              )}
+            </div>
+            <div className="flex min-w-0 flex-[1_1_300px] items-end justify-center gap-3">
+              <div className="flex h-[150px] w-[92px] items-end justify-center rounded-[20px] bg-al pb-2.5 font-mono text-[11px] text-ink">
+                [Al]
+              </div>
+              <div className="flex h-[120px] w-[92px] items-end justify-center rounded-[20px] bg-tony pb-2.5 font-mono text-[11px] text-ink">
+                [Tony]
+              </div>
+              <div className="flex h-[170px] w-[92px] items-end justify-center rounded-[20px] bg-vonditto pb-2.5 font-mono text-[11px] text-ink">
+                [Von Ditto]
+              </div>
+            </div>
+          </article>
+        </section>
+
+        {/* Web apps */}
+        <section
+          id="web"
+          className="site-container flex flex-col gap-8 pt-[72px] pb-[104px]"
+        >
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="flex flex-col gap-3">
+              <span className="font-mono text-[13px] uppercase tracking-[0.08em] text-accent">
+                The Laboratory
+              </span>
+              <h2 className="m-0 text-5xl leading-[1.05]">Web apps</h2>
+            </div>
+            <p className="m-0 max-w-[420px] text-[17px] leading-[1.55] text-muted">
+              Things I&apos;ve built for the browser.
+            </p>
+          </div>
+
+          <ul className="m-0 list-none border-t border-line p-0">
+            {webApps.map((app, i) => {
+              const href = app.hasPage ? `/${app.slug}` : app.externalUrl!;
+              const external = !app.hasPage;
+              return (
+                <li key={app.slug} className="border-b border-line">
+                  <a
+                    href={href}
+                    {...(external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className="flex flex-wrap items-baseline gap-x-8 gap-y-2 px-1 py-6 no-underline"
+                  >
+                    <span className="w-8 font-mono text-[13px] text-muted">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="flex-[0_0_240px] font-display text-[26px] font-semibold tracking-[-0.02em] text-ink">
+                      {app.name}
+                    </span>
+                    <span className="flex-[1_1_320px] text-base text-muted">
+                      {app.listNote ?? app.tagline}
+                    </span>
+                    <span className="font-mono text-[13px] text-body">
+                      {app.statusLabel}
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+
+        {/* About teaser */}
+        <section id="about" className="on-dark bg-ink text-bg">
+          <div className="site-container flex flex-wrap gap-14 py-[104px]">
+            <div className="flex min-w-0 flex-[1_1_360px] flex-col gap-3">
+              <span className="font-mono text-[13px] uppercase tracking-[0.08em] text-accent-dark">
+                About
+              </span>
+              <h2 className="m-0 text-5xl leading-[1.05]">The mad scientist</h2>
+            </div>
+            <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5 text-lg leading-[1.65] text-dark-muted">
+              <p className="m-0">
+                I&apos;ve been coding since I was 11. I studied civil
+                engineering, spent years in steel detailing and structural
+                drafting, and I&apos;ve run my own web agency for about 8 years.
+                MadStoneDev is where I build my own stuff.
+              </p>
+              <p className="m-0">
+                Azimuth started on a camping trip. A friend in the army was
+                talking about prismatic compasses, and I couldn&apos;t find a
+                single app that used the camera to do it. So I built one.
+              </p>
+              <p className="m-0">
+                If you need a website or software for your business, I do that
+                through my agency,{" "}
+                <a
+                  href="https://ravenci.solutions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-bg underline underline-offset-2 hover:text-accent-dark"
+                >
+                  RAVENCI Solutions
+                </a>
+                .
+              </p>
+              <Link
+                href="/about"
+                className="font-semibold text-bg no-underline hover:text-accent-dark"
+              >
+                More about me →
               </Link>
             </div>
           </div>
         </section>
 
-        <SharedFooter />
-      </div>
-    </div>
+        {/* Contact */}
+        <section
+          id="contact"
+          className="site-container flex flex-wrap gap-14 py-[104px]"
+        >
+          <div className="flex min-w-0 flex-[1_1_360px] flex-col gap-4">
+            <h2 className="m-0 font-display text-[clamp(40px,5vw,56px)] leading-none tracking-[-0.03em]">
+              Got something brewing?
+            </h2>
+            <p className="m-0 text-lg leading-[1.6] text-muted">
+              Found a bug, got a question about one of my apps, or have an idea?
+              Send me a message.
+            </p>
+            <p className="m-0 text-base text-muted">
+              Prefer email? I&apos;m at{" "}
+              <a
+                href="mailto:hello@madstone.dev"
+                className="text-ink underline underline-offset-2 hover:text-accent"
+              >
+                hello@madstone.dev
+              </a>
+              . For business and client work, that goes through{" "}
+              <a
+                href="https://ravenci.solutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink underline underline-offset-2 hover:text-accent"
+              >
+                RAVENCI
+              </a>
+              .
+            </p>
+          </div>
+          <ContactForm topics={contactTopics} />
+        </section>
+      </main>
+
+      <SiteFooter />
+    </>
   );
 }
