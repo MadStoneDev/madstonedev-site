@@ -29,7 +29,7 @@ const SECTIONS: { heading: string; body: ReactNode }[] = [
   },
   {
     heading: "Location",
-    body: "With your permission, Azimuth can use your location only to work out the local magnetic declination, so it can show true north instead of magnetic north. [To confirm: declination is worked out on the device from a built-in model, with no network request. If it is ever fetched online, this section and the offline note below need to say so.] If you don't allow location, the app still works and shows magnetic bearings.",
+    body: "With your permission, Azimuth can use your location only to work out the local magnetic declination, so it can show true north instead of magnetic north. That correction is worked out on your device, using the phone's own compass and GPS, and no network request is made. If you don't allow location, the app still works and shows magnetic bearings.",
   },
   {
     heading: "Motion sensors",
@@ -37,7 +37,7 @@ const SECTIONS: { heading: string; body: ReactNode }[] = [
   },
   {
     heading: "Works offline",
-    body: "Azimuth uses your phone's sensors and is built to work without a signal. [To confirm this holds in every mode, including true north, i.e. the app makes no network request for declination.]",
+    body: "Azimuth uses your phone's sensors and works without a signal. This holds in every mode, including true north, because the app makes no network requests at all. Nothing you do in the app leaves your device.",
   },
   {
     heading: "Children",

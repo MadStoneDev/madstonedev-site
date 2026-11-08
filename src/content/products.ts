@@ -138,7 +138,7 @@ export const PRODUCTS: Product[] = [
       "A compass that uses your phone's camera to take a bearing, like a prismatic compass.",
     heroBody:
       "Azimuth uses your phone's camera like a prismatic compass. Point it at a landmark, lock the bearing, and it tells you to turn left or right to stay on course.",
-    platforms: ["iPhone (iOS 16.4+)", "Android [minimum version to confirm]"],
+    platforms: ["iPhone (iOS 16.4+)", "Android"],
     statusLabel: "Out now",
     category: "Navigation",
     priceLabel: "Free · No ads",
@@ -192,7 +192,7 @@ export const PRODUCTS: Product[] = [
       {
         term: "Location",
         detail:
-          "Optional, and only used to work out magnetic declination for true north. [Confirm: is declination calculated on the device from a built-in model, with no network request? This decides whether the offline claim below holds.] Turn location off and Azimuth uses magnetic north.",
+          "Optional, and only used to work out magnetic declination for true north. The correction is done on your device from the phone's own compass and GPS, with no network request. Turn location off and Azimuth uses magnetic north.",
       },
       {
         term: "Accounts & tracking",
@@ -201,7 +201,7 @@ export const PRODUCTS: Product[] = [
       {
         term: "Offline",
         detail:
-          "Works without a signal, using your phone's sensors. [Confirm this is true even when true north is on, i.e. declination is not fetched over the network.]",
+          "Works without a signal, using your phone's sensors. This holds even with true north on, because the app makes no network requests at all.",
       },
     ],
     supportEmail: "hello@madstone.dev",
@@ -220,7 +220,7 @@ export const PRODUCTS: Product[] = [
       },
       {
         q: "Can I rely on it instead of a real compass?",
-        a: "[Your answer here. A phone compass depends on the magnetometer and can be thrown off by metal and electronics, so for anything safety-critical carry a real compass as a backup.]",
+        a: "A phone compass depends on the magnetometer, which metal, magnets and electronics can throw off. Azimuth shows a live accuracy indicator and a figure-8 calibration to help, but for anything safety-critical carry a proper compass as a backup.",
       },
     ],
     seoTitle: "Azimuth Compass",

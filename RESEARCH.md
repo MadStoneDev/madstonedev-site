@@ -52,13 +52,17 @@ Magnetic Model), both claims hold. **I cannot tell which, because there's no rep
 listing only says "location-based declination" and is silent on offline/network. This is the
 single most important thing to resolve before the Azimuth copy can make the privacy/offline claim.
 
-### Unconfirmed / needs Richard
-- **Where is the Azimuth repo?** Point me at it. Without it I can't verify the two claims below.
-- **Declination: on-device model or network lookup?** Decides whether "works fully offline" /
-  "nothing leaves your device" are true. (Currently the site asserts both.)
-- **Minimum Android version.** Google Play's page is fully JS-rendered and returns nothing to a
-  fetcher, so I couldn't read "Requires Android X". Need the repo or your answer.
-- Any feature in the design not in the app, or vice versa — can't diff without the repo.
+### RESOLVED 2026-11-09 (repo found: /mnt/d/development-sandbox/azimuth-compass, Expo/React Native)
+- **Declination is on-device. Offline/privacy claims hold.** `src/hooks/useHeading.ts` computes
+  magnetic heading from the magnetometer + accelerometer, and learns declination as
+  `trueHeading - magHeading` from the OS heading (`expo-location` `watchHeadingAsync`). The OS
+  derives true heading from the passive GPS fix + its built-in magnetic model, on-device. **No
+  network calls exist anywhere in the app** (grep clean; only outbound URL is the Ko-fi support
+  link). → Site now states "no network request" / "nothing leaves your device" as fact.
+- **Min Android version: not pinned in the repo.** `app.json` sets no `minSdkVersion`, so it
+  inherits the Expo SDK 57 default. The authoritative number is Google Play's "Requires Android"
+  line (still JS-rendered, unreadable by a fetcher). Site platform entry is just "Android" until
+  Richard confirms the Play value. (App store release versions he gave: iOS 1.1.2, Android 1.1.0.)
 
 ---
 
