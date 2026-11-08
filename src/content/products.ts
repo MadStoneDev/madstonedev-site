@@ -137,7 +137,7 @@ export const PRODUCTS: Product[] = [
     tagline:
       "A compass that uses your phone's camera to take a bearing, like a prismatic compass.",
     heroBody:
-      "Azimuth uses your phone's camera like a prismatic compass. Point it at a landmark, lock the bearing, and it tells you to turn left or right to stay on course.",
+      "Azimuth uses your phone's camera like a prismatic compass. Point it at a landmark, lock the bearing, and it tells you to turn left or right to stay on course. An update rolling out now adds a red or green night-vision mode, saved waypoints, and an optional account so your waypoints work across your devices. You pay once and use it everywhere.",
     platforms: ["iPhone (iOS 16.4+)", "Android"],
     statusLabel: "Out now",
     category: "Navigation",
@@ -196,12 +196,13 @@ export const PRODUCTS: Product[] = [
       },
       {
         term: "Accounts & tracking",
-        detail: "None. No sign-up, no ads, no analytics.",
+        detail:
+          "No ads and no analytics. The compass needs no account. Azimuth is adding an optional account so your saved waypoints work across your devices; if you sign in, your sign-in details and waypoints are stored on my own server so they can sync. Nothing else is collected.",
       },
       {
         term: "Offline",
         detail:
-          "Works without a signal, using your phone's sensors. This holds even with true north on, because the app makes no network requests at all.",
+          "The compass works without a signal and makes no network requests, even with true north on. Only the optional account features, like syncing waypoints when you're signed in, use the network.",
       },
     ],
     supportEmail: "hello@madstone.dev",

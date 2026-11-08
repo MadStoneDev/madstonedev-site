@@ -8,7 +8,7 @@ import SiteFooter from "@/components/site/site-footer";
 export const metadata: Metadata = {
   title: "Azimuth Compass — Privacy policy",
   description:
-    "Privacy policy for Azimuth Compass. No accounts, no analytics, no tracking. The camera and your location are used on the device.",
+    "Privacy policy for Azimuth Compass. No analytics and no tracking. The compass works offline; an account is optional and only used to sync your saved waypoints.",
   alternates: { canonical: "/azimuth/privacy" },
 };
 
@@ -21,7 +21,7 @@ const NAV: HeaderLink[] = [
 const SECTIONS: { heading: string; body: ReactNode }[] = [
   {
     heading: "What I collect",
-    body: "Nothing. Azimuth Compass has no accounts, no analytics, no advertising and no third-party tracking. What you do in the app isn't sent to me or to anyone else.",
+    body: "The compass collects nothing. Azimuth Compass has no analytics, no advertising and no third-party tracking, and what you do with the compass isn't sent to me or to anyone else. Azimuth is adding an optional account so you can save waypoints and use them across your devices. You don't need an account to use the compass. If you create one, the details you use to sign in and your saved waypoints are stored on my own server so they can sync, and nothing else is collected.",
   },
   {
     heading: "Camera",
@@ -37,11 +37,11 @@ const SECTIONS: { heading: string; body: ReactNode }[] = [
   },
   {
     heading: "Works offline",
-    body: "Azimuth uses your phone's sensors and works without a signal. This holds in every mode, including true north, because the app makes no network requests at all. Nothing you do in the app leaves your device.",
+    body: "The compass works without a signal and makes no network requests, including with true north on, so using it sends nothing. Only the optional account features, like saving and syncing waypoints when you're signed in, use the network.",
   },
   {
     heading: "Children",
-    body: "The app doesn't collect data from anyone, including children.",
+    body: "The compass doesn't collect data from anyone. Accounts aren't aimed at children, and I don't knowingly collect data from children.",
   },
   {
     heading: "Changes to this policy",
@@ -69,8 +69,8 @@ export default function AzimuthPrivacyPage() {
           <p className="m-0 text-lg leading-[1.7] text-body">
             Azimuth Compass is a compass and prismatic-sighting app. This policy
             explains what the app does and doesn&apos;t do with your
-            information. In short: it doesn&apos;t collect, store or share any
-            personal data.
+            information. In short: the compass doesn&apos;t collect, store or
+            share personal data, and using an account is optional.
           </p>
 
           <div className="mt-10 flex flex-col gap-9">

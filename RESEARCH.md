@@ -64,6 +64,20 @@ single most important thing to resolve before the Azimuth copy can make the priv
   line (still JS-rendered, unreadable by a fetcher). Site platform entry is just "Android" until
   Richard confirms the Play value. (App store release versions he gave: iOS 1.1.2, Android 1.1.0.)
 
+### Account version incoming (Richard, 2026-11-09) — NOT yet live, in testing, ships this/next week
+- Adds a **PocketBase DB and accounts**, **saved waypoints**, cross-device sync ("pay once, use
+  everywhere"), and a **red/green night-vision mode**.
+- Impact: the absolute "makes no network requests at all / nothing leaves your device" claims only
+  hold for the current free, account-less build. Site copy (Azimuth page + privacy policy) now
+  scopes those claims to **the compass**, and describes accounts/waypoint sync as optional and
+  network-using. Night vision + waypoints + accounts are framed as "an update rolling out now".
+- **Still to confirm with Richard before firming up:** exact price of the one-time purchase and
+  what's free vs paid (night vision/waypoints local vs account-gated); the precise account-data
+  list and whether sign-in is email/password or OAuth; PocketBase hosting location (assumed "my own
+  server", country not named — his PocketBase is self-hosted on Coolify, mostly Canada, Sydney only
+  for nation-sensitive apps, so AU residency was NOT claimed); whether to promote night
+  vision/waypoints into the live features grid once the update ships.
+
 ---
 
 ## JustSent (web, live — NO mobile app)
