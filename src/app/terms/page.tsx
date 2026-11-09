@@ -31,7 +31,7 @@ export default function TermsPage() {
         <div className="mt-10 flex flex-col gap-8 text-lg leading-[1.75] text-body">
           <p className="m-0">
             This is the website for MadStoneDev, where I publish my own apps and
-            games. It&apos;s run by Richard Haddad in Brisbane, Australia.
+            games. Based and made entirely here in Australia, only!
           </p>
 
           <section className="flex flex-col gap-2">

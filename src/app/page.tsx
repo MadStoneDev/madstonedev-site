@@ -82,10 +82,10 @@ export default function HomePage() {
               embracing the madness.
             </h1>
             <p className="m-0 max-w-[600px] text-xl leading-[1.55] text-body">
-              I&apos;m Richard. I make mobile apps, games and web apps, usually
-              because I wanted something and couldn&apos;t find it. Things might
-              go boom, but I promise you&apos;ll enjoy my projects until that
-              point.
+              I&apos;m the mad developer. I make mobile apps, games and web apps, usually
+              because I wanted something and couldn&apos;t find it. Look, I will own it, things might
+              sometimes break or go boom, and that has nothing to do with my ethnicity, but I promise you&apos;ll enjoy my projects up to that
+              point and beyond. Just let me know if something doesn't seem right and I'll fix it for you.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="#apps" className={pillPrimary}>
@@ -345,32 +345,26 @@ export default function HomePage() {
               <span className="font-mono text-[13px] uppercase tracking-[0.08em] text-accent-dark">
                 About
               </span>
-              <h2 className="m-0 text-5xl leading-[1.05]">The mad scientist</h2>
+              <h2 className="m-0 text-5xl leading-[1.05]">The mad developer</h2>
             </div>
             <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5 text-lg leading-[1.65] text-dark-muted">
               <p className="m-0">
-                I&apos;ve been coding since I was 11. I studied civil
-                engineering, spent years in steel detailing and structural
-                drafting, and I&apos;ve run my own web agency for about 8 years.
-                MadStoneDev is where I build my own stuff.
+                I&apos;ve been coding since I was 11, building websites and
+                software long before anyone paid me to. MadStoneDev is where I
+                build my own apps, games and web apps.
               </p>
               <p className="m-0">
-                Azimuth started on a camping trip. A friend in the army was
-                talking about prismatic compasses, and I couldn&apos;t find a
-                single app that used the camera to do it. So I built one.
+                Most markets are full of near-copies of whatever worked for
+                someone else. That&apos;s not what I&apos;m after. I might make
+                another note app, another puzzle game, even another compass, but
+                only when the ones out there still leave a gap worth filling.
               </p>
               <p className="m-0">
-                If you need a website or software for your business, I do that
-                through my agency,{" "}
-                <a
-                  href="https://ravenci.solutions"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-bg underline underline-offset-2 hover:text-accent-dark"
-                >
-                  RAVENCI Solutions
-                </a>
-                .
+                Most of what I build starts because something annoyed me. Before
+                I commit, I ask three things: is there a problem that needs
+                solving, why don&apos;t the solutions out there solve it, and how
+                would I solve it? If the answers hold up, I build it, and I use
+                what I build.
               </p>
               <Link
                 href="/about"

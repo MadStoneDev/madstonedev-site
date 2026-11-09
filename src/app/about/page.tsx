@@ -5,12 +5,12 @@ import SiteHeader, { type HeaderLink } from "@/components/site/site-header";
 import SiteFooter from "@/components/site/site-footer";
 
 export const metadata: Metadata = {
-  title: "About Richard",
+  title: "About the Mad Developer",
   description:
     "The story behind MadStoneDev, a one-person studio in Australia building apps, games and web apps that fill real gaps instead of copying what already works.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Richard — MadStoneDev",
+    title: "About the Mad Developer",
     description:
       "A one-person studio in Australia. I build apps, games and web apps that fill the gaps the copycats miss.",
   },
@@ -50,7 +50,7 @@ export default function AboutPage() {
               About
             </span>
             <h1 className="m-0 font-display text-[clamp(44px,6vw,84px)] font-bold leading-[0.98] tracking-[-0.035em]">
-              The mad scientist
+              The mad dev
             </h1>
             <p className="m-0 max-w-[620px] text-xl leading-[1.6] text-body">
               MadStoneDev came out of a passion to build and make what is genuinely missing. Imitations and copycat projects are saturating every market and people have forgotten that drive to make something crazy. Like solve a problem.

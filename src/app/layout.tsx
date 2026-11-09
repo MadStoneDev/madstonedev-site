@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: "MadStoneDev — Perfecting the method, embracing the madness.",
     description:
-      "Mobile apps, games and web apps, built by Richard Haddad in Brisbane, Australia.",
+      "Mobile apps, games and web apps, built in Brisbane, Australia.",
   },
   twitter: {
     card: "summary_large_image",
     title: "MadStoneDev — Perfecting the method, embracing the madness.",
     description:
-      "Mobile apps, games and web apps, built by Richard Haddad in Brisbane, Australia.",
+      "Mobile apps, games and web apps, built in Brisbane, Australia.",
   },
   icons: {
     icon: "/madstone-logo.svg",
