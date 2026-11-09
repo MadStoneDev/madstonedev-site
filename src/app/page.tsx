@@ -176,8 +176,14 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex min-w-0 flex-[1_1_240px] justify-center">
-              <div className="flex h-[480px] w-[240px] items-center justify-center rounded-[44px] border-[10px] border-dark-line bg-dark-surface-2 p-6 text-center font-mono text-[13px] text-dark-muted-2">
-                [Azimuth screenshot — sighting view]
+              <div className="relative h-[480px] w-[240px] overflow-hidden rounded-[44px] border-[10px] border-dark-line bg-dark-surface-2">
+                <Image
+                  src="/azimuth-screenshot.jpg"
+                  alt="Azimuth Compass showing an 018 degree true-north bearing on the compass dial"
+                  fill
+                  sizes="240px"
+                  className="object-cover"
+                />
               </div>
             </div>
           </article>
