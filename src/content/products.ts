@@ -108,6 +108,9 @@ export interface Product {
   plansNote?: string;
 
   // Game template content
+  /** Hero key art shown in place of the placeholder box (path under /public). */
+  keyArt?: string;
+  keyArtAlt?: string;
   crew?: CrewMember[];
   mechanics?: Feature[];
   costRows?: InfoRow[];
@@ -361,6 +364,9 @@ export const PRODUCTS: Product[] = [
       "Three criminals got framed for a heist they didn't pull. They could have done it, they'd been planning it for years, but they won't take credit for someone else's work. Now they want out.",
     platforms: ["iPhone & Android"],
     statusLabel: "In development · iPhone & Android",
+    keyArt: "/bustin-out-key-art.png",
+    keyArtAlt:
+      "The three convicts standing in the rubble of a prison break at night, with police helicopters shining spotlights down on them.",
     crew: [
       {
         name: "Al Cologne",

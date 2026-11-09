@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import SiteHeader, { type HeaderLink } from "@/components/site/site-header";
 import SiteFooter from "@/components/site/site-footer";
 import Chip from "@/components/site/chip";
@@ -45,9 +47,21 @@ export default function GameTemplate({ product }: { product: Product }) {
               </div>
             )}
           </div>
-          <div className="flex aspect-[4/3] min-w-0 flex-[1_1_380px] items-center justify-center rounded-[32px] bg-ink p-6 text-center font-mono text-[13px] text-dark-muted-2">
-            [Key art or trailer still — the trio in a cell]
-          </div>
+          {product.keyArt ? (
+            <Image
+              src={product.keyArt}
+              alt={product.keyArtAlt ?? `${product.name} key art`}
+              width={1024}
+              height={1024}
+              priority
+              sizes="(max-width: 900px) 100vw, 460px"
+              className="h-auto w-full min-w-0 max-w-[460px] flex-[1_1_380px] rounded-[32px]"
+            />
+          ) : (
+            <div className="flex aspect-[4/3] min-w-0 flex-[1_1_380px] items-center justify-center rounded-[32px] bg-ink p-6 text-center font-mono text-[13px] text-dark-muted-2">
+              [Key art or trailer still — the trio in a cell]
+            </div>
+          )}
         </section>
 
         {/* The crew */}
