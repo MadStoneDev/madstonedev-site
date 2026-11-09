@@ -1,5 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Compass, Send, FileText } from "lucide-react";
+
+import alCutout from "../../public/bustin-out-al-cutout.png";
+import tonyCutout from "../../public/bustin-out-tony-cutout.png";
+import vonDittoCutout from "../../public/bustin-out-vonditto-cutout.png";
 
 import SiteHeader, { type HeaderLink } from "@/components/site/site-header";
 import SiteFooter from "@/components/site/site-footer";
@@ -121,7 +126,7 @@ export default function HomePage() {
               <h2 className="m-0 text-5xl leading-[1.05]">Mobile apps</h2>
             </div>
             <p className="m-0 max-w-[420px] text-[17px] leading-[1.55] text-muted">
-              For iPhone and Android. Some are out, some are still cooking.
+              Some are out, some are still cooking.
             </p>
           </div>
 
@@ -258,16 +263,22 @@ export default function HomePage() {
                 />
               )}
             </div>
-            <div className="flex min-w-0 flex-[1_1_300px] items-end justify-center gap-3">
-              <div className="flex h-[150px] w-[92px] items-end justify-center rounded-[20px] bg-al pb-2.5 font-mono text-[11px] text-ink">
-                [Al]
-              </div>
-              <div className="flex h-[120px] w-[92px] items-end justify-center rounded-[20px] bg-tony pb-2.5 font-mono text-[11px] text-ink">
-                [Tony]
-              </div>
-              <div className="flex h-[170px] w-[92px] items-end justify-center rounded-[20px] bg-vonditto pb-2.5 font-mono text-[11px] text-ink">
-                [Von Ditto]
-              </div>
+            <div className="flex min-w-0 flex-[1_1_300px] items-end justify-center gap-2 sm:gap-4">
+              <Image
+                src={tonyCutout}
+                alt="Tony Oregano"
+                className="h-[150px] w-auto drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] sm:h-[180px]"
+              />
+              <Image
+                src={alCutout}
+                alt="Al Cologne"
+                className="h-[170px] w-auto drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] sm:h-[205px]"
+              />
+              <Image
+                src={vonDittoCutout}
+                alt="Von Ditto Funnybone"
+                className="h-[185px] w-auto drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] sm:h-[220px]"
+              />
             </div>
           </article>
         </section>
