@@ -273,17 +273,17 @@ export default function HomePage() {
               <Image
                 src={tonyCutout}
                 alt="Tony Oregano"
-                className="h-[150px] w-auto drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] sm:h-[180px]"
+                className="h-[190px] w-auto drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] sm:h-[230px]"
               />
               <Image
                 src={alCutout}
                 alt="Al Cologne"
-                className="h-[170px] w-auto drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] sm:h-[205px]"
+                className="h-[190px] w-auto drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] sm:h-[230px]"
               />
               <Image
                 src={vonDittoCutout}
                 alt="Von Ditto Funnybone"
-                className="h-[185px] w-auto drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] sm:h-[220px]"
+                className="h-[190px] w-auto drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] sm:h-[230px]"
               />
             </div>
           </article>
