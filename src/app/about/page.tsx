@@ -7,11 +7,12 @@ import SiteFooter from "@/components/site/site-footer";
 export const metadata: Metadata = {
   title: "About Richard",
   description:
-    "MadStoneDev came out of a passion to build and make what is genuinely missing. Imitations and copycat projects are saturating every market and people have forgotten that drive to make something crazy. Like solve a problem.",
+    "The story behind MadStoneDev, a one-person studio in Australia building apps, games and web apps that fill real gaps instead of copying what already works.",
+  alternates: { canonical: "/about" },
   openGraph: {
     title: "About Richard — MadStoneDev",
     description:
-      "MadStoneDev came out of a passion to build and make innovative and useful stuff.",
+      "A one-person studio in Australia. I build apps, games and web apps that fill the gaps the copycats miss.",
   },
 };
 
