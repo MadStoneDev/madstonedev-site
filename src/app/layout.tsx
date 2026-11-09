@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s — MadStoneDev",
   },
   description:
-    "I'm Richard. I make mobile apps, games and web apps, usually because I wanted something and couldn't find it. MadStoneDev is where I build my own things.",
+    `MadStoneDev came out of a passion to build and make what is genuinely missing. Imitations and copycat projects are saturating every market and people have forgotten that drive to make something crazy. Like solve a problem.`,
   applicationName: "MadStoneDev",
   authors: [{ name: "Richard Haddad" }],
   creator: "Richard Haddad",

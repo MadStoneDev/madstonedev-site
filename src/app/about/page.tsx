@@ -7,11 +7,11 @@ import SiteFooter from "@/components/site/site-footer";
 export const metadata: Metadata = {
   title: "About Richard",
   description:
-    "I'm Richard Haddad. I live just north of Brisbane and I've been writing code since I was 11. MadStoneDev is where I build my own apps and games.",
+    "MadStoneDev came out of a passion to build and make what is genuinely missing. Imitations and copycat projects are saturating every market and people have forgotten that drive to make something crazy. Like solve a problem.",
   openGraph: {
     title: "About Richard — MadStoneDev",
     description:
-      "I'm Richard Haddad. MadStoneDev is where I build my own apps and games.",
+      "MadStoneDev came out of a passion to build and make innovative and useful stuff.",
   },
 };
 
@@ -25,19 +25,19 @@ const NAV: HeaderLink[] = [
 
 const TIMELINE: { when: string; what: string }[] = [
   { when: "Age 11", what: "Started coding" },
-  { when: "[Year]", what: "Bachelor of Civil Engineering, UNSW (structural)" },
   {
-    when: "[Years]",
+    when: "2006-2010",
     what: "Construction sites, steel detailing and structural drafting",
   },
+  { when: "2010", what: "Bachelor of Civil Engineering, UNSW (structural)" },
   {
-    when: "[Year]",
+    when: "2016",
     what: "Diploma of Graphic Design and a Certificate in Journalism",
   },
-  { when: "[Year]", what: "Started 1VINE Design, now RAVENCI Solutions" },
+  { when: "2018", what: "Started 1VINE Design, now RAVENCI Solutions" },
   {
-    when: "[Year]",
-    what: "Azimuth Compass, my first app on the App Store and Google Play",
+    when: "2023",
+    what: "LFU Companion, my first app on the App Store and Google Play",
   },
 ];
 
@@ -62,9 +62,9 @@ export default function AboutPage() {
               build my own apps and games.
             </p>
           </div>
-          <div className="flex aspect-[4/5] min-w-0 flex-[1_1_320px] max-w-[420px] items-center justify-center rounded-[28px] bg-line-strong p-6 text-center font-mono text-[13px] text-muted">
-            [Photo of you, optional]
-          </div>
+          {/*<div className="flex aspect-[4/5] min-w-0 flex-[1_1_320px] max-w-[420px] items-center justify-center rounded-[28px] bg-line-strong p-6 text-center font-mono text-[13px] text-muted">*/}
+          {/*  [Photo of you, optional]*/}
+          {/*</div>*/}
         </section>
 
         {/* How I got here */}
