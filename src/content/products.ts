@@ -47,6 +47,8 @@ export interface CrewMember {
   /** design-token colour name, e.g. "al" | "tony" | "vonditto" */
   colorToken: "al" | "tony" | "vonditto";
   moves: string;
+  /** Character art shown on the crew card (path under /public). */
+  art?: string;
 }
 
 export interface StoreLinks {
@@ -372,6 +374,7 @@ export const PRODUCTS: Product[] = [
         name: "Al Cologne",
         role: "The boss",
         colorToken: "al",
+        art: "/bustin-out-al.png",
         moves:
           "Moves one square in any direction. Usually has to be the last one out.",
       },
@@ -379,6 +382,7 @@ export const PRODUCTS: Product[] = [
         name: "Tony Oregano",
         role: "The muscle",
         colorToken: "tony",
+        art: "/bustin-out-tony.png",
         moves:
           "Moves diagonally, as far as he likes. The only one who can push things out of the way.",
       },
@@ -386,6 +390,7 @@ export const PRODUCTS: Product[] = [
         name: "Von Ditto Funnybone",
         role: "[Role]",
         colorToken: "vonditto",
+        art: "/bustin-out-vonditto.png",
         moves:
           "Moves up, down, left or right and keeps sliding until something stops him. Small enough to fit through hatches into bonus rooms.",
       },
@@ -423,7 +428,7 @@ export const PRODUCTS: Product[] = [
       {
         term: "Hints",
         detail:
-          "You get 10 free. A hint shows you the next move. If you want more, hint packs are [price].",
+          "You get 10 free. A hint shows you the next move. You can buy more hint packs from the in-game store.",
       },
       { term: "Undo and retry", detail: "Always free." },
     ],

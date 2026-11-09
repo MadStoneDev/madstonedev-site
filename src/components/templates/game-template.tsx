@@ -12,6 +12,18 @@ const crewBg: Record<CrewMember["colorToken"], string> = {
   vonditto: "bg-vonditto",
 };
 
+const crewBorder: Record<CrewMember["colorToken"], string> = {
+  al: "border-al",
+  tony: "border-tony",
+  vonditto: "border-vonditto",
+};
+
+const crewText: Record<CrewMember["colorToken"], string> = {
+  al: "text-al",
+  tony: "text-tony",
+  vonditto: "text-vonditto",
+};
+
 export default function GameTemplate({ product }: { product: Product }) {
   const nav: HeaderLink[] = [
     { label: "The crew", href: "#crew" },
@@ -82,13 +94,29 @@ export default function GameTemplate({ product }: { product: Product }) {
                     key={c.name}
                     className="flex flex-col overflow-hidden rounded-[28px] border border-dark-line bg-dark-surface"
                   >
-                    <div
-                      className={`flex h-[260px] items-center justify-center font-mono text-[13px] text-ink ${crewBg[c.colorToken]}`}
-                    >
-                      [{c.name} character art]
-                    </div>
+                    {c.art ? (
+                      <div
+                        className={`relative h-[300px] border-b-[3px] bg-white ${crewBorder[c.colorToken]}`}
+                      >
+                        <Image
+                          src={c.art}
+                          alt={`${c.name} character art`}
+                          fill
+                          sizes="(max-width: 700px) 100vw, 360px"
+                          className="object-contain p-4"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className={`flex h-[300px] items-center justify-center font-mono text-[13px] text-ink ${crewBg[c.colorToken]}`}
+                      >
+                        [{c.name} character art]
+                      </div>
+                    )}
                     <div className="flex flex-col gap-3 p-7">
-                      <span className="font-mono text-[13px] text-dark-muted-2">
+                      <span
+                        className={`font-mono text-[13px] ${crewText[c.colorToken]}`}
+                      >
                         {c.role}
                       </span>
                       <h3 className="m-0 text-[28px] tracking-[-0.02em]">
