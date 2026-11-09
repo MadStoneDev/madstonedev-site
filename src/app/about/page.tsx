@@ -26,15 +26,10 @@ const NAV: HeaderLink[] = [
 const TIMELINE: { when: string; what: string }[] = [
   { when: "Age 11", what: "Started coding" },
   {
-    when: "2006-2010",
-    what: "Construction sites, steel detailing and structural drafting",
-  },
-  { when: "2010", what: "Bachelor of Civil Engineering, UNSW (structural)" },
-  {
     when: "2016",
     what: "Diploma of Graphic Design and a Certificate in Journalism",
   },
-  { when: "2018", what: "Started 1VINE Design, now RAVENCI Solutions" },
+  { when: "2023", what: "Started MadStoneDev" },
   {
     when: "2023",
     what: "LFU Companion, my first app on the App Store and Google Play",
@@ -57,9 +52,7 @@ export default function AboutPage() {
               The mad scientist
             </h1>
             <p className="m-0 max-w-[620px] text-xl leading-[1.6] text-body">
-              I&apos;m Richard Haddad. I live just north of Brisbane, and
-              I&apos;ve been writing code since I was 11. MadStoneDev is where I
-              build my own apps and games.
+              MadStoneDev came out of a passion to build and make what is genuinely missing. Imitations and copycat projects are saturating every market and people have forgotten that drive to make something crazy. Like solve a problem.
             </p>
           </div>
           {/*<div className="flex aspect-[4/5] min-w-0 flex-[1_1_320px] max-w-[420px] items-center justify-center rounded-[28px] bg-line-strong p-6 text-center font-mono text-[13px] text-muted">*/}
@@ -76,22 +69,17 @@ export default function AboutPage() {
             <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-5 text-lg leading-[1.7] text-body">
               <p className="m-0">
                 I was born overseas and came to Australia when I was 10. I grew
-                up in Sydney, and I was building websites as a hobby long before
+                up in Sydney, and I was building websites and software long before
                 anyone paid me to.
               </p>
               <p className="m-0">
-                I studied civil engineering at UNSW and specialised in
-                structural. After that I worked on construction sites, then in
-                steel detailing and structural drafting. At one firm I ended up
-                setting up the IT for their Brisbane office and writing tools to
-                speed up everyone&apos;s work, which told me where I really
-                wanted to be.
+                My very first program was written in Visual Basic 6 for those who know it. Throughout the years, I coded in Basic, PHP, JavaScript, Python, C#, Ruby and Node. I feel like I'm missing some stuff but you get the idea. I love to code.  
               </p>
               <p className="m-0">
-                About 8 years ago I started my own agency, now RAVENCI
-                Solutions, building websites and doing SEO for small businesses.
-                That&apos;s still my day job. MadStoneDev is the other side: apps
-                and games I want to exist, built my way.
+                MadStoneDev came out of wanting to build things that fill gaps in the market. If you are after any type of app or game or website, I guarantee you won't find just one result. That's actually a good thing. The problem isn't in having many choices, it's in the fact that so many apps or games or websites are almost exact copies of whatever worked for someone else.  
+              </p>
+              <p className="m-0">
+                That's not what I'm about. I may make another note app, or another puzzle game or even yet another compass but not just because I'm filling gaps that all the others are missing. That's the point of MadStoneDev.
               </p>
             </div>
           </div>
@@ -127,16 +115,19 @@ export default function AboutPage() {
             </h2>
             <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-5 text-lg leading-[1.7] text-dark-muted">
               <p className="m-0">
-                Most of my apps start because something annoyed me. Azimuth came
-                from a camping trip when a friend in the army was talking about
-                prismatic compasses. JustNoted started because I wanted a
-                notepad I could trust. I use what I build, every day in some
-                cases.
+                Most of my apps start because something annoyed me. Honestly, that's it in summary. It only takes a few issues in a certain app and we all decide to start looking for an alternative and I got tired of switching apps.
               </p>
               <p className="m-0">
-                I don&apos;t put ads in my apps. If something costs money to run,
-                I&apos;d rather charge a small amount for it than sell your
-                attention.
+                I use what I build and, in some cases, every day.
+                </p>
+              <p className="m-0">
+                Before any app I build, I ask three questions: 
+              </p>
+              <p className="m-0">
+                Is there a problem that needs solving? Why don't the solutions out there solve it? How can I solve it?
+              </p>
+              <p className="m-0">
+                Based on my own answers to those questions, I decide whether an app is worth the investment of time and money, or not. Not just for me to build it, but for people like you to use it too.
               </p>
             </div>
           </div>
@@ -145,12 +136,10 @@ export default function AboutPage() {
         {/* Away from the keyboard */}
         <section className="site-container flex flex-wrap gap-14 py-[88px]">
           <h2 className="m-0 flex-[1_1_320px] text-[40px] leading-[1.05]">
-            Away from the keyboard
+            AFK
           </h2>
           <p className="m-0 min-w-0 flex-[999_1_560px] text-lg leading-[1.7] text-body">
-            [A few lines about you. For example: camping and 4WD trips, board
-            games and trading card games, running D&amp;D campaigns, writing
-            fantasy.]
+            If you spend a few moments looking at the apps I've build and am working on, you'll know exactly what I'm into when I'm not at my keyboard coding. Writing, reading, board games, trading card games, camping, watching good shows. Like I said before, I use what I build and, in some cases, every day. 
           </p>
         </section>
 
